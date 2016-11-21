@@ -1,0 +1,37 @@
+\problemname{Bilda ord}
+
+Fatimeh studerar sitt hemspråk som använder det arabiska skriftspråket. Just nu
+sitter hon med en övning att bilda ord från givna bokstäver. Hon vill veta på
+hur många sätt hon kan bilda ett ord med givna bokstäver.
+
+I svenskans skriftspråk skulle övningen kunna se ut så hår "l s å t", du får
+alltså 4 givna bokstäver. Fatimeh vet då att hon måste testa 4! == 24
+permutationer. Skulle istället bokstäverna vara "l S å t", alltså med ett stort
+"S", då vet vi att vi måste placera bokstaven "S" i meningens början. Med det
+villkoret är antalet permutationer 3! == 6.
+
+\section*{Indata}
+
+Med bokstäverna i det arabiska skriftspråket har man mycket mer kontext om var i ordet bokstaven kan förekomma, även i relation till andra bokstäver. Fatimeh har skapat en självförklarande notation som specifierar restriktionerna. Om det exempelvis finns 5 stycken tecken (i denna uppgift är dem alltid olika tecken), så kan exempelvis följande restriktioner finnas:
+
+    Bokstav 2 måste va på någon utav platserna [1, 4, 5] (a)
+    Bokstav 3 måste föregå någon utav följande bokstäver [2, 4] (b)
+
+För att indatat ska vara enkelt att läsa så skriver man då indatat såhär:
+
+5
+a 2 1 4 5
+b 3 2 4
+
+
+\section*{Utdata}
+
+TODO
+% Skriv ut en rad med ett heltal. Heltalet är hur mycket njutningspoäng Farah som
+% mest kan få med den bästa ätstrategin.
+
+\section*{Poängsättning}
+
+TODO
+% För testfall värda upp till $3$ poäng, kommer $N$ vara som mest 5. För full
+% poäng så ska ditt program klara $N$ som mest 15.
