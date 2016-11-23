@@ -1,21 +1,33 @@
 #!/usr/bin/env python
 import sys
 
-# TODO -- taget från cherimoyor förra året bara
-# data = []
 
-# for line in sys.stdin:
-#     if line.strip() != "":
-#         data.append(line.strip())
+def are_unique(nums):
+    return len(nums) == len(set(nums))
 
-# assert len(data) == 2
+data = []
 
-# N = int(data[0])
-# assert 1 <= N <= 15
+for line in sys.stdin:
+    if line.strip() != "":
+        data.append(line.strip())
 
-# days = map(int, data[1].split())
-# assert len(days) == N
+assert len(data) == 2
 
-# assert all(0 <= day <= 30 for day in days)
+N, K = map(int, data[0].split())
+assert 1 <= N <= 15
+assert K < N
+assert K == len(data) - 1
 
-# sys.exit(42)
+for i in range(1, K+1):
+    line = map(int, data[i].split())
+    form = line[0]
+    pos = int(line[1])
+    num_nums = int(line[2])
+    nums = map(int, line[3:])
+    assert form in 'ab'
+    assert 1 <= pos <= N
+    assert len(nums) == num_nums
+    assert pos not in set(nums)
+    assert are_unique(nums)
+
+sys.exit(42)
