@@ -2,36 +2,54 @@
 
 Fatimeh studerar sitt hemspråk som använder det arabiska skriftspråket. Just nu
 sitter hon med en övning att bilda ord från givna bokstäver. Hon vill veta på
-hur många sätt hon kan bilda ett ord med givna bokstäver.
+hur många sätt hon kan bilda ett ord med dem givna bokstäver i uppgiften.
 
-I svenskans skriftspråk skulle övningen kunna se ut så hår "l s å t", du får
-alltså 4 givna bokstäver. Fatimeh vet då att hon måste testa 4! == 24
-permutationer. Skulle istället bokstäverna vara "l S å t", alltså med ett stort
-"S", då vet vi att vi måste placera bokstaven "S" i meningens början. Med det
-villkoret är antalet permutationer 3! == 6.
+I svenskans skriftspråk skulle övningen kunna se ut så här:
 
-\section*{Indata}
+\vspace{0.2in}
+\centerline{l s a t}
+\vspace{0.2in}
 
-Med bokstäverna i det arabiska skriftspråket har man mycket mer kontext om var i ordet bokstaven kan förekomma, även i relation till andra bokstäver. Fatimeh har skapat en självförklarande notation som specifierar restriktionerna. Om det exempelvis finns 5 stycken tecken (i denna uppgift är dem alltid olika tecken), så kan exempelvis följande restriktioner finnas:
+Du får alltså 4 givna bokstäver. Fatimeh vet då att hon måste testa $4*3*2*1 =
+24$ permutationer. Skulle istället bokstaven ``s'' vara ett stort ``S'', då vet vi
+att vi måste placera bokstaven ``s'' i meningens början. Med det villkoret är
+antalet permutationer $3*2*1 = 6$.  Exempelvis kan ordet $Salt$ bildas nu men
+inte $laSt$. I det arabiska skriftspråket har man inte stora och små bokstäver
+på samma sätt och därför ser restriktionerna annorlunda ut.
 
-    Bokstav 2 måste va på någon utav platserna [1, 4, 5] (a)
-    Bokstav 3 måste föregå någon utav följande bokstäver [2, 4] (b)
+\section*{Notation och Indata}
 
-För att indatat ska vara enkelt att läsa så skriver man då indatat såhär:
+Med bokstäverna i det arabiska skriftspråket har man mycket mer kontext om var
+i ordet bokstaven kan förekomma, även i relation till andra bokstäver.  I denna
+upggift har vi $2$ typer av restriktioner, antingen i form $a$ eller form $b$. Fatimeh har skapat en
+självförklarande notation som specifierar restriktionerna. Om det exempelvis
+finns 5 stycken tecken (i denna uppgift är dem alltid olika bokstäver), så kan
+exempelvis följande restriktioner finnas:
 
-5
-a 2 1 4 5
-b 3 2 4
+\begin{itemize}
+    \item Bokstav $2$ måste va på någon utav platserna $[1, 4, 5]$ (form $a$)
+    \item Bokstav $3$ måste föregå någon utav följande bokstäver $[2, 4]$ (form $b$)
+\end{itemize}
 
+För att indatat ska vara enkelt att läsa så är notationen formatterad såhär:
+
+\begin{lstlisting}
+    a 2 1 4 5
+    b 3 2 4
+\end{lstlisting}
+
+För programkörningen kommer första indataraden bestå av först antalet ord $N$
+sedan antalet restriktioner $K$. Därefter följer $K$ rader vardera beskrivande
+en restriktion på det sett som förklarats med exempel ovan. Se även
+exempelkörningarna.
 
 \section*{Utdata}
 
-TODO
-% Skriv ut en rad med ett heltal. Heltalet är hur mycket njutningspoäng Farah som
-% mest kan få med den bästa ätstrategin.
+Du ska skriva ut ett heltal. Antalet sätt bokstäverna kan
+placeras ut. Svaret kommer alltid att understiga 10 miljoner.
 
 \section*{Poängsättning}
 
-TODO
-% För testfall värda upp till $3$ poäng, kommer $N$ vara som mest 5. För full
-% poäng så ska ditt program klara $N$ som mest 15.
+För testfall värda upp till $3$ poäng, kommer $N$ vara som mest 9. För full
+poäng så ska ditt program klara $N$ som mest 15.  I samtliga fall kommer
+$K$ vara mindre än $N$.
