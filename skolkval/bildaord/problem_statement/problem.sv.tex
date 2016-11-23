@@ -21,21 +21,20 @@ på samma sätt och därför ser restriktionerna annorlunda ut.
 
 Med bokstäverna i det arabiska skriftspråket har man mycket mer kontext om var
 i ordet bokstaven kan förekomma, även i relation till andra bokstäver.  I denna
-uppgift har vi $2$ typer av restriktioner, antingen i form $a$ eller form $b$. Fatimeh har skapat en
-självförklarande notation som specifierar restriktionerna. Om det exempelvis
-finns 5 stycken tecken (i denna uppgift är de alltid olika bokstäver), så kan
-exempelvis följande restriktioner finnas:
+uppgift har vi $2$ typer av restriktioner, antingen måste en bokstav komma precis före
+någon annan bokstav, eller så kan en bokstav bara stå på vissa positioner. Till
+exempel
 
 \begin{itemize}
-    \item Bokstav $2$ måste stå på någon utav de följande $3$ platserna $[1, 4, 5]$ (form $a$)
-    \item Bokstav $3$ måste direkt föregå någon utav följande $1$ bokstäver $[4]$ (form $b$)
+    \item Bokstav $B$ måste stå på på plat $1$ eller plats $4$
+    \item Bokstav $D$ måste direkt föregå $C$ eller $B$
 \end{itemize}
 
 För att indatat ska vara enkelt att läsa så är notationen formaterad såhär:
 
 \begin{lstlisting}
-    a 2 3 1 4 5
-    b 5 1 4
+    B@01,04
+    D:CB
 \end{lstlisting}
 
 För programkörningen kommer första indataraden bestå av först antalet ord $N$
@@ -54,3 +53,12 @@ För testfall värda upp till $3$ poäng, kommer $N$ vara som mest 9. För full
 poäng så ska ditt program klara $N$ som mest 15. $K$ kommer aldrig överstiga $N$.
 För stora $N$ kommer restriktionerna var ungefär jämnt utspridda bland
 bokstäverna.
+
+\section*{Förklaring exempel 1}
+
+ACDB
+ADCB
+BADC
+CADB
+DCAB
+BDCA

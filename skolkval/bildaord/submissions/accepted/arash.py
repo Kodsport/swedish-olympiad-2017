@@ -1,6 +1,6 @@
 import sys
 
-DEBUG = False
+DEBUG = True
 
 data = []
 
