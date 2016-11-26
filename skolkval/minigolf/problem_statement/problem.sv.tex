@@ -1,0 +1,35 @@
+\begin{center}
+\includegraphics[width=0.3\textwidth]{minigolfbild.pdf}
+\end{center}
+
+En minigolfanläggning har $N$ stycken banor. Varannan bana (udda nummer) är så kallad ``{\em par 2}'' och
+varannan (jämna nummer) är ``{\em par 3}'', där ``{\em par}'' är det rekommenderade antalet slag en golfspelare ska klara
+en viss bana på. Det finns också en regel som säger att om man slår fler än $7$ slag på en bana räknas det ändå
+bara som $7$ slag vid sammanräkningen.
+
+Skriv ett program som, givet antalet slag du använt på varje bana, beräknar det sammanlagda resultatet över/under par. 
+
+\section*{Indata}
+Först en rad med ett heltal $N$, antalet banor, där $2\le N\le 10$. Sedan en rad med $N$ heltal mellan 1 och 10: antalet slag du använt på varje bana.
+
+\section*{Utdata}
+En rad med ett heltal, det sammanlagda resultatet över/under par.
+
+\section*{Förklaringar till exemplen}
+Exempel 1:\\
+\begin{tabular}{||l|c|c|c||c||}\hline \hline
+Bana & 1 & 2 & 3 & Totalt \\ \hline \hline
+Par & 2 & 3 & 2 & 7 \\ \hline 
+Slag & 5 & 3 & 1 & 9 \\ \hline
++/- & +3 & 0 & -1 & +2 \\ \hline \hline
+\end{tabular}
+
+Exempel 2:\\
+\begin{tabular}{||l|c|c|c|c|c|c||c||}\hline \hline
+Bana & 1 & 2 & 3 & 4 & 5 & 6 & Totalt \\ \hline \hline
+Par & 2 & 3 & 2 & 3 & 2 & 3 & 15 \\ \hline 
+Slag & 1 & {\bf 7} & 1 & 1 & 1 & 1 & 12 \\ \hline
++/- & -1 & +4 & -1 & -2 & -1 & -2 & -3\\ \hline \hline
+\end{tabular}\\
+(observera att de 9 slagen på andra banan bokförs som 7)
+
