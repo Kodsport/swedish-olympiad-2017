@@ -15,7 +15,7 @@ int possible(int cost) {
   int i,j,m,dx,dy;
   for(i=0;i<=x;i++) for(j=0;j<=y;j++) T[i][j]=-1;
   T[0][0]=0;
-  for(dx=0;dx<=x && dx*a<=cost;dx++) {
+  for(dx=0;dx<=x && (dx-1)*a<cost;dx++) {
     dy=ceildiv(cost-dx*a, b);
     for(i=0;i<=x;i++) for(j=0;j<=y;j++) if(T[i][j]!=-1) {
 	  if(i+dx<=x && j+dy<=y && T[i][j]+1>T[i+dx][j+dy])
