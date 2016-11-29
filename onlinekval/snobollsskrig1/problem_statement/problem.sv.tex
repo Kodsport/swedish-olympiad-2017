@@ -1,55 +1,56 @@
 \problemname{Snöbollskrig 1}
 
-I en viktad graf leker N länder snöbollskrig under IOI. I början har varje land ett fort i någon nod.
+I en bågviktad dubbelriktad graf med $N$ noder leker $L$ länder snöbollskrig under IOI. I
+början har varje land ett fort i någon nod.
 
-Vid tid 0 börjar varje länd ge sig ut på snöbollskrig. Snöbollskrig fungerar som följer: - Om ett land äger ett fort beger sig de tävlande ut längs alla kanter från fortet, med hastighet 1/s
-- Om två länder möts längs en kant stannar länderna och krigar
-- Om två länder möts i en nod stannar länderna och krigar'
-- Om ett land når en nod före någon annan bygger det landet ett fort i noden.
+Vid tid $0$ börjar varje land ge sig ut på snöbollskrig. Snöbollskrig fungerar såhär:
+
+\begin{itemize}
+\item Om ett land äger ett fort beger sig de tävlande ut längs alla kanter från fortet, med hastighet 1/s.
+\item Om två länder möts längs en kant stannar länderna och krigar.
+\item Om två länder möts i en nod stannar länderna och krigar.
+\item Om ett land når en nod före någon annan bygger det landet ett fort i noden.
+\end{itemize}
 
 Avgör vilja par av länder som kommer kriga mot varandra.
 
+\section*{Indata}
 
-% Spotify har precis lanserat den nya funktionen Spotify Connect, som möjliggör för
-% en användare att fjärrstyra sin uppspelning från mobiltelefonen. Det medför en
-% mängd nya tekniska utmaningar, och en av dem är hur loggningen av uppspelningsdata görs.
-% För att kunna rapportera till skivbolagen så måste man nämligen veta exakt hur länge
-% en användare har lyssnat på musik.
+Den första raden innehåller heltalet $2 \le N < 200'000$, mellanslag, och
+därefter $2 \le L \le N$ och sist $M < 1'000'000$ som är antalet bågar i
+grafen. Därefter följer $L$ rader med ett heltal som säger vilken nod deras
+startbas är på. Därefter följer $M$ rader med tre heltal, de två första talen
+beskriver vilka två olika noder som berörs och det tredje talet anger vikten på
+bågen.
 
-% Du kommer att få loggdata för \texttt{play} och \texttt{paus}-tryckningarna
-% för en användare. Användaren använder både sin laptop för att styra musiken, men
-% fjärrstyr också ibland med mobiltelefonen via Spotify Connect. Loggarna innehåller både
-% datorns och mobilens \texttt{play} och \texttt{paus}-tryckningar. När användaren trycker
-% på mobilen så är det exakt $100$ millisekunder delay tills laptopen
-% (där musiken spelas upp ifrån) reagerar. Ditt uppdrag är att
-% avgöra exakt hur många millisekunder totalt som laptopen spelade upp musik.
-% Innan första kommandot utförs så är spelaren i pausat läge.
+Allt i denna uppgift är 0-indexerat. Både noders och länders index.
 
-% \section*{Input}
-% Den första raden innehåller heltalet $1 \le N < 1000$, antalet loggrader.
+\begin{lstlisting}
+        N L M
+        index_startbas_1
+        ...
+        index_startbas_L
+        nod_a_1 nod_b_1 vikt_1
+        ...
+        nod_a_M nod_b_M vikt_M
+\end{lstlisting}
 
-% De efterföljande $N$ raderna innehåller en lista med loggar. Loggarna kommer
-% i den ordning knapptryckningar sker med en tidsstämpel i millisekunder, enhet
-% (\texttt{laptop} eller \texttt{mobile}) och kommando (\texttt{play} eller \texttt{paus}). Den
-% sista loggen kommer
-% alltid vara ett \texttt{paus}-kommnado. Dessutom kommer två loggar aldrig ha samma
-% tidsstämpel eller ligga exakt 100 millisekunder ifrån varandra.
+\section*{Utdata}
 
-% För att göra indatat extra lättläst så är loggradernas fält
-% alignerade. Tidsstämpeln fylls ut med nollor vänsterifrån så att talet
-% alltid blir 7 tecken långt, och mobil stavas istället mobile, alltså med lika
-% många tecken som i laptop. Se indataexemplet.
+Du ska skriva ut en lista med vilka länder som krigar mot varandra. Du skriver
+varje par på en ny rad, med ett mellanslag som separator, skriv det land med
+lägre index först. Du skall även skriva ut dem i sorterad ordning. Eftersom det
+är två tal som man sorterar efter säger vi att man måste sortera efter den
+första siffran först. 
 
-% \section*{Output}
-% Ditt program ska skriva ut ett heltal - antalet millisekunder användaren lyssnat på musik.
+\section*{Förklaring av exempel}
 
-% \section*{Förklaring av exempel}
-% I det första indataexemplet så spelar användaren 500 millisekunder. Sedan använder hen
-% mobilen för att starta musiken och avslutar den från laptopen $500$ millisekunder
-% senare, men på grund av delayen så spelar musiken bara i 400 millisekunder.
-% Totalt spelas alltså musiken i $900$ millisekunder.
+TODO
 
-% \section*{Poängsättning}
+\section*{Poängsättning}
+
+TODO
+
 % Din lösning kommer att testas på en mängd testfallsgrupper. För att få poäng för en grupp
 % så måste du klara alla testfall i gruppen.
 
