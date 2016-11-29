@@ -1,0 +1,27 @@
+\problemname{Skidor}
+
+Johan gillar att åka skidor. Då menar vi inte att åka slalom, vilket Johan nämligen är väldigt rädd för. Problemet är att han inte har tillgång till något väldigt platt område. Johan vet att han vill åka runt i en kvadrat. Kors och tvärs genom hela kvadraten. Därför ber han dig att hitta en bra kvadrat som han kan åka skidor genom. Inom denna kvadrat skall höjdskillnaden vara minimal av alla tänkbara kvadrater. 
+
+På vissa platser finns det även träd som Johan är extra rädd för, dessa får inte överlappa med vår kvadrat.
+
+Johan orkar inte heller gå så långt så om det finns flera sådana här kvadrater vill han i första hand ha kvadraten på minst rad, finns det även flera sådana vill han av dessa ha den med minst kollumn. 
+
+% \section*{Input}
+% En rad med tre heltal $R$, $C$, $L$ sådana att $1\leq R,C \leq 1000, 1 \leq L \leq min(R,C)$,
+% detta följs av $R$ rader med $C$ mellanslagsspearerade heltal $H_{rc}$ sådana att $-1 \leq H_{rc} \leq 10^9$, där $H_{rc}$ beskriver höjden på plats r,c i rutnätet om inte $H_{rc} = -1$, då detta betyder att det står ett träd där.
+
+% \section*{Output}
+% Hitta $r_l$, $c_l$ sådana att Johans kvadrat spänner över koordinaterna $r_l \leq r<r_l + L$, $c_l \leq c < c_l + L$. $r_l$ och $c_l$ ska vara 0-indexerade, exemplevis är $r_l = 0$ om den första raden menas.
+
+% Det är garanterat att det finns en lösning.
+
+% \section*{Poängsättning}
+% Delpoäng ges för:
+% \beign{tabluar}{| | | | | |}
+% \hline
+% Grupp & Poängvärde & Gränser \\ \hline
+%  1     & 50         &  $0 \leq H_rc \leq 1$ \\ \hline
+%  2     & 50         &  $R,C &\leq 50$ \\ \hline
+%  3     & 50         &  $R,C &\leq 300$ \\ \hline
+%  4     & 50         &  $R,C &\leq 1000$ \\ \hline
+% \end{tabular}
