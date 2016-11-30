@@ -1,0 +1,33 @@
+\problemname{Snökaos}
+
+Ett snöoväder har dragit in och det är kaos i trafiken. Inte nog med det, utan vissa delar av järnvägsspåret har snöat igen vilket gjort att all tågtrafik stoppats. Detta är naturligtvis inte så bra, eftersom mängder av resenärer nu står vid sina stationer och inte kommer någonstans. Fredrika har därför fått i uppgift att röja bort snön mellan stationerna innan rusningstiden börjar och katastrofen är ett faktum.
+
+Järnvägsspåret är helt utan förgreningar och har n stationer, numrerade från 1 till n. Det finns därmed n-1 sträckor mellan stationerna, varav s av dem är täckta med snö. Fredrika är lite orolig eftersom hon räknat ut att hon endast hinner röja bort snön från p sträckor. För att göra det bästa av situationen bestämmer sig Fredrika för att välja de sträckor som gör att flest av de väntande resenärerna kan åka dit de vill. Till sin hjälp har hon svaren från en enkät som hon skickat ut till alla som väntar, där de fått svara på vilka stationer de vill åka mellan.
+
+Förutsatt att Fredrika väljer sträckorna optimalt, beräkna hur många väntande resenärer som kommer kunna åka då hon är klar.
+
+Notera att tåg kan endast köra på snöfria sträckor. Alla stationer har tåg parkerade, så samtliga snöfria sträckor kommer att kunna trafikeras, även om stationerna inte kan nås från spårets slutstationer. Tågtrafiken är helt stoppad fram tills Fredrika är klar, så även resenärer som från början har en snöfri resväg räknas in i svaret.
+
+
+ \section*{Input}
+ På första raden kommer tre heltal, $2 \le n \le 2000$, $ 1 \le m \le 100000 $, $ 0 \le s, p \le n$: antalet stationer, antalet resenärer, antalet igensnöade sträckor och antalet sträckor Fredrika hinner ploga.
+Därefter följer $m$ rader där rad i innehåller två heltal $a_i$ och $b_i$, stationerna där resenär $i$ vill starta respektive sluta.
+%borde vara något villkor om att a_i != b_i och att talen ligger mellan 1 och n, men vet inte riktigt hur det ska formuleras. 
+Därefter följer $s$ rader där rad $j$ innehåller ett heltal  $ 1 \le c_j \le n - 1$, stationen som ligger precis innan den igensnöade sträckan $j$. Samma sträcka förekommer högst en gång.
+
+
+ \section*{Output}
+Ett heltal: det största antalet resenärer som kan få åka hem genom att ploga högst $p$ sträckor.
+
+ \section*{Poängsättning}
+ Din lösning kommer att testas på en mängd testfallsgrupper. För att få poäng för en grupp så måste du klara alla testfall i gruppen.
+
+ \begin{tabular}{| l | l | l | l |}
+ \hline
+ Grupp & Poängvärde & Gränser & Övrigt \\ \hline
+ 1     & 10         & $ n \le 100$, m \le 100,  $p = 1$ &\\ \hline
+ 2     & 10         &  $ n \le 100$, m \le 100,  s \le 12 &\\ \hline
+ 3     & 10         &  $ n \le 100$, m \le 100 & $a_i = 1 för alla a_i$\\ \hline
+ 4     & 60         &  $ n \le 100$ &\\ \hline
+ 5     & 10         &  $1 \le n \le 2000$ & \\ \hline
+ \end{tabular}
