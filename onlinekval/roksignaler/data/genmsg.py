@@ -57,10 +57,12 @@ for i, morse in enumerate(morseList):
 out = ''.join(outList)
 n = len(out)
 
-print(s)
+print(s),
 print(p)
-print(t)
-print(b)
+
+print(t),
+print(b),
 print(m)
+
 print(n),
 print(out)

@@ -1,17 +1,45 @@
-dict = {}
+morseToLetter = {}
 
 for i in range(26):
-    letter = input()
-    morse = input()
-    dict[morse] = letter
+    letter, morse = raw_input().split()
+    morseToLetter[morse] = letter
 
-s = input()
-p = input()
-t = input()
-b = input()
-m = input()
+s, p = map(int, raw_input().split())
+t, b, m = map(int, raw_input().split())
 
-n = input()
-code = input()
+nString, code = raw_input().split()
+n = int(nString)
 
-print(dict)
+out = ''
+cur = code[0]
+count = 0
+morse = ''
+
+def doPrev():
+    global out, cur, count, morse
+    if cur == '1':
+        if count == s:
+            morse += '-'
+        else:
+            morse += '.'
+    else:
+        if count == b or count == m: 
+            out += morseToLetter[morse]
+            morse = ''                            
+        if count == m:
+            out += ' '
+
+for c in code:
+    if c != cur:
+        doPrev()
+        cur = c
+        count = 0
+    
+    count += 1
+
+doPrev()
+cur = '0'
+count = b
+doPrev()
+
+print(out)
