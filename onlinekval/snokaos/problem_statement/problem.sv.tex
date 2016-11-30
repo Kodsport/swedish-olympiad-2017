@@ -1,33 +1,42 @@
-\problemname{Snökaos}
+\problemname{SnÃ¶kaos}
+Ett snÃ¶ovÃ¤der har dragit in och det Ã¤r kaos i trafiken.
+Inte nog med det, utan vissa delar av jÃ¤rnvÃ¤gsspÃ¥ret har snÃ¶at igen vilket gjort att all tÃ¥gtrafik stoppats.
+Detta Ã¤r naturligtvis inte sÃ¥ bra, eftersom mÃ¤ngder av resenÃ¤rer nu stÃ¥r vid sina stationer och inte kommer nÃ¥gonstans.
+Fredrika har dÃ¤rfÃ¶r fÃ¥tt i uppgift att rÃ¶ja bort snÃ¶n mellan stationerna innan rusningstiden bÃ¶rjar och katastrofen Ã¤r ett faktum.
 
-Ett snöoväder har dragit in och det är kaos i trafiken. Inte nog med det, utan vissa delar av järnvägsspåret har snöat igen vilket gjort att all tågtrafik stoppats. Detta är naturligtvis inte så bra, eftersom mängder av resenärer nu står vid sina stationer och inte kommer någonstans. Fredrika har därför fått i uppgift att röja bort snön mellan stationerna innan rusningstiden börjar och katastrofen är ett faktum.
+JÃ¤rnvÃ¤gsspÃ¥ret Ã¤r helt utan fÃ¶rgreningar och har $n$ stationer, numrerade frÃ¥n $1$ till $n$ i den ordning de fÃ¶rekommer pÃ¥ spÃ¥ret (sÃ¥ att station $i$ kommer precis fÃ¶re station $i+1$).
+Det finns dÃ¤rmed $n - 1$ strÃ¤ckor mellan stationerna.
+Av dessa Ã¤r $s$ tÃ¤ckta med snÃ¶.
 
-Järnvägsspåret är helt utan förgreningar och har n stationer, numrerade från 1 till n. Det finns därmed n-1 sträckor mellan stationerna, varav s av dem är täckta med snö. Fredrika är lite orolig eftersom hon räknat ut att hon endast hinner röja bort snön från p sträckor. För att göra det bästa av situationen bestämmer sig Fredrika för att välja de sträckor som gör att flest av de väntande resenärerna kan åka dit de vill. Till sin hjälp har hon svaren från en enkät som hon skickat ut till alla som väntar, där de fått svara på vilka stationer de vill åka mellan.
+Fredrika Ã¤r lite orolig eftersom hon rÃ¤knat ut att hon endast hinner rÃ¶ja bort snÃ¶n frÃ¥n $p$ strÃ¤ckor.
+FÃ¶r att gÃ¶ra det bÃ¤sta av situationen bestÃ¤mmer sig Fredrika fÃ¶r att vÃ¤lja de strÃ¤ckor som gÃ¶r att sÃ¥ mÃ¥nga som mÃ¶jligt av de vÃ¤ntande resenÃ¤rerna kan Ã¥ka dit de vill.
+Till sin hjÃ¤lp har hon svaren frÃ¥n en enkÃ¤t som hon skickat ut till alla som vÃ¤ntar, dÃ¤r de fÃ¥tt svara pÃ¥ vilka stationer de vill Ã¥ka mellan.
 
-Förutsatt att Fredrika väljer sträckorna optimalt, beräkna hur många väntande resenärer som kommer kunna åka då hon är klar.
+FÃ¶rutsatt att Fredrika vÃ¤ljer strÃ¤ckorna optimalt, berÃ¤kna hur mÃ¥nga vÃ¤ntande resenÃ¤rer som kommer kunna Ã¥ka dÃ¥ hon Ã¤r klar.
 
-Notera att tåg kan endast köra på snöfria sträckor. Alla stationer har tåg parkerade, så samtliga snöfria sträckor kommer att kunna trafikeras, även om stationerna inte kan nås från spårets slutstationer. Tågtrafiken är helt stoppad fram tills Fredrika är klar, så även resenärer som från början har en snöfri resväg räknas in i svaret.
+Notera att tÃ¥g kan endast kÃ¶ra pÃ¥ snÃ¶fria strÃ¤ckor. Alla stationer har tÃ¥g parkerade, sÃ¥ samtliga snÃ¶fria strÃ¤ckor kommer att kunna trafikeras, Ã¤ven om stationerna inte kan nÃ¥s frÃ¥n spÃ¥rets slutstationer. TÃ¥gtrafiken Ã¤r helt stoppad fram tills Fredrika Ã¤r klar, sÃ¥ Ã¤ven resenÃ¤rer som frÃ¥n bÃ¶rjan har en snÃ¶fri resvÃ¤g rÃ¤knas in i svaret.
+
+\section*{Indata}
+FÃ¶rsta raden innehÃ¥ller fyra heltal, $2 \le n \le 2000$, $ 1 \le m \le 100000 $, $ 0 \le s, p \le n - 1$: antalet stationer, antalet resenÃ¤rer, antalet igensnÃ¶ade strÃ¤ckor och antalet strÃ¤ckor Fredrika hinner ploga.
+
+DÃ¤refter fÃ¶ljer $m$ rader dÃ¤r rad $i$ innehÃ¥ller tvÃ¥ heltal $1 \le a_i \not= b_i \le n$, stationerna dÃ¤r resenÃ¤r $i$ vill starta respektive sluta.
+
+DÃ¤refter fÃ¶ljer $s$ rader dÃ¤r rad $j$ innehÃ¥ller ett heltal $ 1 \le c_j \le n - 1$, stationen som ligger \emph{precis innan} den igensnÃ¶ade strÃ¤ckan $j$.
+En strÃ¤cka fÃ¶rekommer hÃ¶gst en gÃ¥ng i denna lista.
 
 
- \section*{Input}
- På första raden kommer tre heltal, $2 \le n \le 2000$, $ 1 \le m \le 100000 $, $ 0 \le s, p \le n$: antalet stationer, antalet resenärer, antalet igensnöade sträckor och antalet sträckor Fredrika hinner ploga.
-Därefter följer $m$ rader där rad i innehåller två heltal $a_i$ och $b_i$, stationerna där resenär $i$ vill starta respektive sluta.
-%borde vara något villkor om att a_i != b_i och att talen ligger mellan 1 och n, men vet inte riktigt hur det ska formuleras. 
-Därefter följer $s$ rader där rad $j$ innehåller ett heltal  $ 1 \le c_j \le n - 1$, stationen som ligger precis innan den igensnöade sträckan $j$. Samma sträcka förekommer högst en gång.
+\section*{Utdata}
+Ditt program ska skriva ut ett enda hheltal: det stÃ¶rsta antalet resenÃ¤rer som kan genomfÃ¶ra sina resor genom att ploga hÃ¶gst $p$ strÃ¤ckor.
 
+\section*{PoÃ¤ngsÃ¤ttning}
+Din lÃ¶sning kommer att testas pÃ¥ en mÃ¤ngd testfallsgrupper. FÃ¶r att fÃ¥ poÃ¤ng fÃ¶r en grupp sÃ¥ mÃ¥ste du klara alla testfall i gruppen.
 
- \section*{Output}
-Ett heltal: det största antalet resenärer som kan få åka hem genom att ploga högst $p$ sträckor.
-
- \section*{Poängsättning}
- Din lösning kommer att testas på en mängd testfallsgrupper. För att få poäng för en grupp så måste du klara alla testfall i gruppen.
-
- \begin{tabular}{| l | l | l | l |}
- \hline
- Grupp & Poängvärde & Gränser & Övrigt \\ \hline
- 1     & 10         & $ n \le 100$, m \le 100,  $p = 1$ &\\ \hline
- 2     & 10         &  $ n \le 100$, m \le 100,  s \le 12 &\\ \hline
- 3     & 10         &  $ n \le 100$, m \le 100 & $a_i = 1 för alla a_i$\\ \hline
- 4     & 60         &  $ n \le 100$ &\\ \hline
- 5     & 10         &  $1 \le n \le 2000$ & \\ \hline
- \end{tabular}
+\begin{tabular}{| l | l | l | l |}
+\hline
+Grupp & PoÃ¤ngvÃ¤rde & GrÃ¤nser & Ã–vrigt \\ \hline
+1     & 11         & $ n \le 100, m \le 100, p = 1$ &\\ \hline
+2     & 12         & $ n \le 100, m \le 100, s \le 12 $ &\\ \hline
+3     & 9          & $ n \le 100, m \le 100$ & $a_i = 1$ fÃ¶r alla $a_i$\\ \hline
+4     & 56         & $ n \le 100$ &\\ \hline
+5     & 12         & $1 \le n \le 2000$ & \\ \hline
+\end{tabular}

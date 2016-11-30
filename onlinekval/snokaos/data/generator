@@ -8,7 +8,7 @@ compile generator_random.py
 compile generator_ai1.py
 
 samplegroup
-sample sample01
+sample 1
 
 group p1 25
 tc p1-1 generator_random p=1
@@ -41,5 +41,5 @@ tc all-3 generator_random
 tc all-4 generator_random
 tc all-5 generator_random
 
-cleanup_programs
 generate_grader
+cleanup_programs
