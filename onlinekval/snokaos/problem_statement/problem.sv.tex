@@ -10,17 +10,17 @@ Notera att tåg kan endast köra på snöfria sträckor. Alla stationer har tåg parke
 
 
  \section*{Input}
- På första raden kommer tre heltal tal, $2 \le n \le 2000$, $ 1 \le m \le 100000 $, $ 0 \le s, p \le n$: antalet stationer, antalet resenärer, antalet igensnöade sträckor, och antalet sträckor Fredrika hinner ploga.
+ På första raden kommer tre heltal, $2 \le n \le 2000$, $ 1 \le m \le 100000 $, $ 0 \le s, p \le n$: antalet stationer, antalet resenärer, antalet igensnöade sträckor och antalet sträckor Fredrika hinner ploga.
 Därefter följer $m$ rader där rad i innehåller två heltal $a_i$ och $b_i$, stationerna där resenär $i$ vill starta respektive sluta.
-Därefter följer $s$ rader där rad $j$ innehåller ett heltal $c_j$, stationen som ligger precis innan den igensnöade sträckan $j$. Samma sträcka förekommer högst en gång.
+%borde vara något villkor om att a_i != b_i och att talen ligger mellan 1 och n, men vet inte riktigt hur det ska formuleras. 
+Därefter följer $s$ rader där rad $j$ innehåller ett heltal  $ 1 \le c_j \le n - 1$, stationen som ligger precis innan den igensnöade sträckan $j$. Samma sträcka förekommer högst en gång.
 
 
  \section*{Output}
 Ett heltal: det största antalet resenärer som kan få åka hem genom att ploga högst $p$ sträckor.
 
  \section*{Poängsättning}
- Din lösning kommer att testas på en mängd testfallsgrupper. För att få poäng för en grupp
- så måste du klara alla testfall i gruppen.
+ Din lösning kommer att testas på en mängd testfallsgrupper. För att få poäng för en grupp så måste du klara alla testfall i gruppen.
 
  \begin{tabular}{| l | l | l | l |}
  \hline
