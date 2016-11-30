@@ -1,27 +1,42 @@
 \problemname{Skidor}
+Johan gillar att åka skidor.
+Då menar vi inte att åka slalom, vilket Johan nämligen är väldigt rädd för.
+Långfärdsskidor däremot, det är hans grej.
+När man åker långfärdsskidor måste man dock ha stora plana ytor.
 
-Johan gillar att åka skidor. Då menar vi inte att åka slalom, vilket Johan nämligen är väldigt rädd för. Problemet är att han inte har tillgång till något väldigt platt område. Johan vet att han vill åka runt i en kvadrat. Kors och tvärs genom hela kvadraten. Därför ber han dig att hitta en bra kvadrat som han kan åka skidor genom. Inom denna kvadrat skall höjdskillnaden vara minimal av alla tänkbara kvadrater. 
+Johan har undersökt ett stort rektangulärt område ute i skogen, som har ganska ojämn mark.
+Här vill Johan välja ut en viss kvadrat att åka runt på, som är tillräckligt stor för att göra skidåkningen intressant.
+Kvadraten ska ha exakt storlek $L \times L$, och ha sidor parallella med områdets sidor.
 
-På vissa platser finns det även träd som Johan är extra rädd för, dessa får inte överlappa med vår kvadrat.
+Nu ber han dig hitta en sådan rektangel.
+För att den ska passa bra för långfärdsskridskor har han två krav.
+Dels får det inte finnas några träd i kvadraten, och dels ska höjdskillnaden mellan den högsta och den lägsta punkten i denna rektangel vara så liten som möjligt.
 
-Johan orkar inte heller gå så långt så om det finns flera sådana här kvadrater vill han i första hand ha kvadraten på minst rad, finns det även flera sådana vill han av dessa ha den med minst kollumn. 
+Om det finns finns flera möjliga sådana kvadrater, ska du i första hand välja den som ligger längst norrut, d.v.s har lägst radnummer. Om det fortfarande finns flera möjliga
+ska du i andra hand välja den som ligger längst västerut, d.v.s. har lägst kolumnnummer.
 
-% \section*{Input}
-% En rad med tre heltal $R$, $C$, $L$ sådana att $1\leq R,C \leq 1000, 1 \leq L \leq min(R,C)$,
-% detta följs av $R$ rader med $C$ mellanslagsspearerade heltal $H_{rc}$ sådana att $-1 \leq H_{rc} \leq 10^9$, där $H_{rc}$ beskriver höjden på plats r,c i rutnätet om inte $H_{rc} = -1$, då detta betyder att det står ett träd där.
+\section*{Indata}
+Den första raden innehåller tre heltal $R$, $C$, $L$ sådana att $1\leq R,C \leq 1000, 1 \leq L \leq min(R,C)$.
+$R$ är antalet rader i det stora området, $C$ antalet kolumner, och $L$ storleken på den sökta kvadraten.
 
-% \section*{Output}
-% Hitta $r_l$, $c_l$ sådana att Johans kvadrat spänner över koordinaterna $r_l \leq r<r_l + L$, $c_l \leq c < c_l + L$. $r_l$ och $c_l$ ska vara 0-indexerade, exemplevis är $r_l = 0$ om den första raden menas.
+Därefter följer $R$ rader, en för varje rad i området. En rad innehåller $C$ heltal, en för varje kolumn i området.
 
-% Det är garanterat att det finns en lösning.
+Det $c$:te talet på den $r$:te raden beskriver höjden $H_{rc}$ på den punkten i området, som är sådan att sådana att $-1 \leq H_{rc} \leq 10^9$.
+Om $H_{rc} = -1$ finns det istället att det \textbf{står ett träd på den platsen}.
 
-% \section*{Poängsättning}
-% Delpoäng ges för:
-% \beign{tabluar}{| | | | | |}
-% \hline
-% Grupp & Poängvärde & Gränser \\ \hline
-%  1     & 50         &  $0 \leq H_rc \leq 1$ \\ \hline
-%  2     & 50         &  $R,C &\leq 50$ \\ \hline
-%  3     & 50         &  $R,C &\leq 300$ \\ \hline
-%  4     & 50         &  $R,C &\leq 1000$ \\ \hline
-% \end{tabular}
+\section*{Output}
+Hitta $r_l$, $c_l$ sådana att Johans kvadrat spänner över koordinaterna $r_l \leq r <r_l + L$, $c_l \leq c < c_l + L$. $r_l$ och $c_l$ ska vara 0-indexerade, exemplevis är $r_l = 0$ om den första raden (som ligger längst norrut) menas, och $c_l = 0$ om den första kolumnen (som ligger längst västerut) menas.
+
+Det är garanterat att det finns en lösning.
+
+\section*{Poängsättning}
+Din lösning kommer att testas på en mängd testfallsgrupper. För att få poäng för en grupp så måste du klara alla testfall i gruppen.
+
+\begin{tabular}{|l|l|l|}
+\hline
+Grupp & Poängvärde & Gränser \\ \hline
+ 1     & 21         &  $0 \leq H_{rc} \leq 1$ \\ \hline
+ 2     & 36         &  $R,C \leq 50$ \\ \hline
+ 3     & 32         &  $R,C \leq 300$ \\ \hline
+ 4     & 21         &  $R,C \leq 1000$ \\ \hline
+\end{tabular}
