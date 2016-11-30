@@ -1,0 +1,64 @@
+\problemname{Snöbollskrig 1}
+
+I en bågviktad dubbelriktad graf med $N$ noder leker $L$ länder snöbollskrig under IOI. I
+början har varje land ett fort i någon nod.
+
+Vid tid $0$ börjar varje land ge sig ut på snöbollskrig. Snöbollskrig fungerar såhär:
+
+\begin{itemize}
+\item Om ett land äger ett fort beger sig de tävlande ut längs alla kanter från fortet, med hastighet 1/s.
+\item Om två länder möts längs en kant stannar länderna och krigar.
+\item Om två länder möts i en nod stannar länderna och krigar.
+\item Om ett land når en nod före någon annan bygger det landet ett fort i noden.
+\end{itemize}
+
+Avgör vilja par av länder som kommer kriga mot varandra.
+
+\section*{Indata}
+
+Den första raden innehåller heltalet $2 \le N < 200'000$, mellanslag, och
+därefter $2 \le L \le N$ och sist $M < 1'000'000$ som är antalet bågar i
+grafen. Därefter följer $L$ rader med ett heltal som säger vilken nod deras
+startbas är på. Därefter följer $M$ rader med tre heltal, de två första talen
+beskriver vilka två olika noder som berörs och det tredje talet anger vikten på
+bågen.
+
+Allt i denna uppgift är 0-indexerat. Både noders och länders index.
+
+\begin{lstlisting}
+        N L M
+        index_startbas_1
+        ...
+        index_startbas_L
+        nod_a_1 nod_b_1 vikt_1
+        ...
+        nod_a_M nod_b_M vikt_M
+\end{lstlisting}
+
+\section*{Utdata}
+
+Du ska skriva ut en lista med vilka länder som krigar mot varandra. Du skriver
+varje par på en ny rad, med ett mellanslag som separator, skriv det land med
+lägre index först. Du skall även skriva ut dem i sorterad ordning. Eftersom det
+är två tal som man sorterar efter säger vi att man måste sortera efter den
+första siffran först. 
+
+\section*{Förklaring av exempel 1}
+
+I detta exempel är grafen cyklisk och nästan helt symmetrisk. I fallet mellan
+land 0 och land 3 kommer kriget utspelas på bågen, medan de 3 andra krigen
+kommer utspelas på en nod.
+
+\section*{Poängsättning}
+
+TODO
+
+% Din lösning kommer att testas på en mängd testfallsgrupper. För att få poäng för en grupp
+% så måste du klara alla testfall i gruppen.
+
+% \begin{tabular}{| l | l | l | l |}
+% \hline
+% Grupp & Poängvärde & Gränser & Övrigt \\ \hline
+% 1     & 50         &  $1 \le N < 1000$ & Alla loggar ligger minst 200 millisekunder ifrån varandra.\\ \hline
+% 2     & 50         &  $1 \le N < 1000$ & \\ \hline
+% \end{tabular}
