@@ -1,9 +1,11 @@
+#! /usr/bin/python3
 """
 Arash AC(100) solution to snobollskastning1
 """
 import sys
 import collections
 import heapq
+from pprint import pprint
 
 
 def main():
@@ -33,24 +35,39 @@ def main():
 
 def solve(start_positions, graph):
     answer = set()
-    heap = [(0, node_ix, country_ix) for (country_ix, node_ix) in enumerate(start_positions)]
+    heap = [(0, node_ix, country_ix) for (country_ix, node_ix) in
+            enumerate(start_positions)]
     heapq.heapify(heap)
-    owner_map = {}
+    Owners = collections.namedtuple('Owners', 'time owners_set')
+    owners_map = {}
     while heap:
-        (t0, v0, c0) = heapq.heappop(heap)
-        if v0 in owner_map:
-            # Not needed as they will have attacked us already
-            # answer.append(set((c0, owner_map[v0])))
-            continue
-        owner_map[v0] = c0
-        for edge in graph[v0]:
-            if edge.dest in owner_map:
-                # It's a conquered node, lets attack unconditionally
-                answer.add(frozenset((c0, owner_map[edge.dest])))
+        t0 = heap[0][0]
+        vs = []
+        cs = []
+        while heap and heap[0][0] == t0:
+            (_t0, v0, c0) = heapq.heappop(heap)
+            vs.append(v0)
+            cs.append(c0)
+        for (v0, c0) in zip(vs, cs):
+            if v0 in owners_map:
+                for c in owners_map[v0].owners_set:
+                    answer.add(frozenset((c0, c)))
+                owners_map[v0].owners_set.add(c0)
             else:
-                # It's free to try to reach
-                heapq.heappush(heap, (t0 + edge.weight, edge.dest, c0))
-    return (sorted(x) for x in answer if len(x) > 1)
+                owners_map[v0] = Owners(t0, {c0})
+        for (v0, c0) in zip(vs, cs):
+            if owners_map[v0] == Owners(t0, {c0}):
+                # I we just came, and we are the only ones who came
+                # Otherwise, we're not allowed to continue from this node
+                for edge in graph[v0]:
+                    if edge.dest in owners_map:
+                        # It's a conquered node, lets attack unconditionally
+                        for c in owners_map[edge.dest].owners_set:
+                            answer.add(frozenset((c0, c)))
+                    else:
+                        # It's free to try to reach
+                        heapq.heappush(heap, (t0 + edge.weight, edge.dest, c0))
+    return sorted((sorted(x) for x in answer if len(x) > 1))
 
 
 if __name__ == '__main__':
