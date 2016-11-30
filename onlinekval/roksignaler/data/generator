@@ -4,7 +4,7 @@ PPATH=$(realpath ..)
 
 setup_dirs
 use_solution karl_ac.py
-compile generator_random
+compile generator_random.sh
 
 samplegroup
 sample 1

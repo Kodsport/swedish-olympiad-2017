@@ -27,9 +27,9 @@ dict['Y'] = '-.--'
 dict['Z'] = '--..'
 dict[' '] = 'M'
 
-s, p = map(int, raw_input().split())
-t, b, m = map(int, raw_input().split())
-msg = raw_input()
+s, p = map(int, input().split())
+t, b, m = map(int, input().split())
+msg = input()
 
 morseList = []
 for c in msg:

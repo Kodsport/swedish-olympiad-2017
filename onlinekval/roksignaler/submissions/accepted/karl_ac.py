@@ -1,13 +1,13 @@
 morseToLetter = {}
 
 for i in range(26):
-    letter, morse = raw_input().split()
+    letter, morse = input().split()
     morseToLetter[morse] = letter
 
-s, p = map(int, raw_input().split())
-t, b, m = map(int, raw_input().split())
+s, p = map(int, input().split())
+t, b, m = map(int, input().split())
 
-nString, code = raw_input().split()
+nString, code = input().split()
 n = int(nString)
 
 out = ''
