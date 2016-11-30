@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 morseToLetter = {}
 
 for i in range(26):

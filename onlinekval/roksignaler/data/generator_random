@@ -1,3 +1,0 @@
-#!/bin/bash
-cat morse_table
-python2 genrandom.py $@ | python2 genmsg.py

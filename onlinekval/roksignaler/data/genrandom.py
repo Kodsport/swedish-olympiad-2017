@@ -92,11 +92,7 @@ out = ''.join(outList)
 if out == ' ':
     out = 'E'
 
-print(s),
-print(p)
-
-print(t),
-print(b),
-print(m)
+print("{} {}".format(s, p))
+print("{} {} {}".format(t, b, m))
 
 print(out)
