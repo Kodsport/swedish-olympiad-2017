@@ -153,9 +153,9 @@ include_group () {
 
 generate_grader() {
   mkdir -p $PPATH/graders
-  python3 ../testdata_tools/generate_grader.py > $PPATH/graders/grader.py
+  python3 ../../testdata_tools/generate_grader.py > $PPATH/graders/grader.py
 }
 
 generate_cms() {
-  python3 ../testdata_tools/generate_cms.py > $PPATH/data/cms
+  python3 ../../testdata_tools/generate_cms.py > $PPATH/data/cms
 }
