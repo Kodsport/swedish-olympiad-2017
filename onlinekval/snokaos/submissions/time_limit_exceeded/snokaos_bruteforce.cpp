@@ -24,7 +24,7 @@ typedef long long ll;
 int main(){
     int n, m, s, p;
     cin >> n >> m >> s >> p;
-    vector<int> a(m), b(n);
+    vector<int> a(m), b(m);
     rep(i, 0, m) {
         cin >> a[i] >> b[i];
         a[i]--;
@@ -48,10 +48,11 @@ int main(){
         rep(i, 0, m) {
             rep(j, 0, s) {
                 if(skotta[j]) continue;
-                if(snow[j] >= a[i] && snow[j] < b[i]) tempans--;
+                if(snow[j] >= a[i] && snow[j] < b[i]) {tempans--; break;}
             }
         }
         ans = max(ans, tempans);   
     } while(next_permutation(skotta.begin(), skotta.end()));
     cout << ans << endl;
+    return 0;
 }
