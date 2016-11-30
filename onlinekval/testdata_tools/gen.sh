@@ -32,6 +32,7 @@ compile_cpp () {
 # Arguments: file
 compile_java () {
   javac $1
+  cp $(dirname $1)/*.class .
   add_program $(base $1) "java $(base $1)"
 }
 
@@ -107,9 +108,10 @@ sample () {
 cleanup_programs () {
   for i in "${!programs[@]}"
   do
-    rm $i
+    rm -rf $i
   done
   rm -rf __pycache__
+  rm -rf *.class
   rm cases groups
 }
 
