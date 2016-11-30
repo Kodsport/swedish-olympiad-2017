@@ -5,12 +5,41 @@ PPATH=$(realpath ..)
 setup_dirs
 use_solution snokaos_On3.cpp
 compile generator_random.py
+compile generator_ai1.py
 
 samplegroup
 sample sample01
 
-group first 100
-tc first-1 generator_random n=100
+group p1 25
+tc p1-1 generator_random p=1
+tc p1-2 generator_random p=1
+tc p1-3 generator_random p=1
+tc p1-4 generator_random p=1
+tc p1-5 generator_random p=1
+
+group s1 25
+tc s1-1 generator_random s=10
+tc s1-2 generator_random s=11
+tc s1-3 generator_random s=12
+tc s1-4 generator_random s=12
+tc s1-5 generator_random s=12
+
+group ai1 25
+tc ai1-1 generator_ai1
+tc ai1-2 generator_ai1
+tc ai1-3 generator_ai1
+tc ai1-4 generator_ai1
+tc ai1-5 generator_ai1
+
+group all 25
+include_group p1
+include_group s1
+include_group ai1
+tc all-1 generator_random
+tc all-2 generator_random
+tc all-3 generator_random
+tc all-4 generator_random
+tc all-5 generator_random
 
 cleanup_programs
 generate_grader
