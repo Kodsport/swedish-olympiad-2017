@@ -15,14 +15,16 @@ numMax = 10
 n = 100
 
 for arg in sys.argv:
-    if arg.startswith("numMax="):
-        numMax = int(arg.split("=")[1])
-    if arg.startswith("n="):
-        n = int(arg.split("=")[1])
-    if arg == ("nospaces"):
+    if arg.startswith('numMax='):
+        numMax = int(arg.split('=')[1])
+    if arg.startswith('n='):
+        n = int(arg.split('=')[1])
+    if arg == 'fixedNums':
+        fixedNums = True
+    if arg == 'noSpaces':
         noSpaces = True
 
-s, p, t, b, m = random.sample(1, numMax)
+s, p, t, b, m = random.sample(range(1, numMax), 5)
 
 if fixedNums:
     s = 2
@@ -79,15 +81,15 @@ while length < n:
         length += m
     else:
         outList.append(string.ascii_uppercase[random.randint(0, 25)])
-        length += calcLength(morseToLetter[outList[-1]]) + b
+        length += calcLength(dict[outList[-1]]) + b
 
-outList = [:-1]
+outList = outList[:-1]
 
-if len(outList) > 0 and outList[-1] == ' '
+if len(outList) > 0 and outList[-1] == ' ':
     outList = outList[:-1]
 
 out = ''.join(outList)
-if out == ' '
+if out == ' ':
     out = 'E'
 
 print(s),
