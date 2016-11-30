@@ -1,0 +1,16 @@
+#!/bin/bash
+PPATH=$(realpath ..)
+. ../../testdata_tools/gen.sh
+
+setup_dirs
+use_solution snokaos_On3.cpp
+compile generator_random.py
+
+samplegroup
+sample sample01
+
+group first 100
+tc first-1 generator_random n=100
+
+cleanup_programs
+generate_grader
