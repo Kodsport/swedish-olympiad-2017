@@ -1,7 +1,7 @@
 import sys
 from random import randint, seed
 
-def gen(n=100, m=100000, s=-1, p=-1):
+def gen(n=200, m=100000, s=-1, p=-1):
 	if s == -1:
 		s = randint(0, n-1)
 	if p == -1:
