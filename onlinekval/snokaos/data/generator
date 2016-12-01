@@ -40,6 +40,11 @@ tc all-2 generator_random
 tc all-3 generator_random
 tc all-4 generator_random
 tc all-5 generator_random
+tc all-6 generator_ai1 m=100000
+tc all-7 generator_random
+tc all-8 generator_random s=0 p=10
+tc all-9 generator_random n=2
+tc all-10 generator_random
 
 generate_grader
 cleanup_programs
