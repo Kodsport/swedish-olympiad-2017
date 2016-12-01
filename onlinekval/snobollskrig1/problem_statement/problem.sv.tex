@@ -17,7 +17,7 @@ Avgör vilja par av länder som kommer kriga mot varandra.
 \section*{Indata}
 
 Den första raden innehåller heltalet $2 \le N < 200'000$, mellanslag, och
-därefter $2 \le L \le N$ och sist $M < 1'000'000$ som är antalet bågar i
+därefter $2 \le L \le 50$ och sist $M < 500'000$ som är antalet bågar i
 grafen. Därefter följer $L$ rader med ett heltal som säger vilken nod deras
 startbas är på. Därefter följer $M$ rader med tre heltal, de två första talen
 beskriver vilka två olika noder som berörs och det tredje talet anger vikten på
@@ -51,14 +51,13 @@ kommer utspelas på en nod.
 
 \section*{Poängsättning}
 
-TODO
+Din lösning kommer att testas på en mängd testfallsgrupper. För att få poäng för en grupp
+så måste du klara alla testfall i gruppen.
 
-% Din lösning kommer att testas på en mängd testfallsgrupper. För att få poäng för en grupp
-% så måste du klara alla testfall i gruppen.
-
-% \begin{tabular}{| l | l | l | l |}
-% \hline
-% Grupp & Poängvärde & Gränser & Övrigt \\ \hline
-% 1     & 50         &  $1 \le N < 1000$ & Alla loggar ligger minst 200 millisekunder ifrån varandra.\\ \hline
-% 2     & 50         &  $1 \le N < 1000$ & \\ \hline
-% \end{tabular}
+\begin{tabular}{| l | l | l | l |}
+\hline
+Grupp & Poängvärde & Situation \\ \hline
+1     & 30         & Grafen är rak som en linje. Alltså utan cykler. \\ \hline
+2     & 30         & Inga krig förekommer på noderna. \\ \hline
+3     & 40         & Inga begränsningar. \\ \hline
+\end{tabular}
