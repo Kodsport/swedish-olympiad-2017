@@ -3,15 +3,20 @@
 import sys
 import random
 
+
 def cmdlinearg(name):
     for arg in sys.argv:
         if arg.startswith(name + "="):
             return arg.split("=")[1]
     return None  # This is ok for this task
 
+def mint(x):
+    if x:
+        return int(x)
+
 def main():
     random.seed(int(sys.argv[-1]))
-    n, l, m = (int(cmdlinearg(c)) for c in 'nlm')
+    n, l, m = (mint(cmdlinearg(c)) for c in 'nlm')
     assert n
     assert l
     mode = cmdlinearg('mode')
@@ -20,41 +25,57 @@ def main():
     if mode == 'linje':
         assert not m
         m = n-1
+
         def edge(i):
             return (i, i+1)
+
         def weight(i):
             return random.randint(5, 100)
     elif mode == 'inge_nodkrig':
         assert not m
+        assert n <= 200
         ISLAND_SIZE = 10
-        m = 2*n
+        assert n % ISLAND_SIZE == 0
+        num_islands = n//ISLAND_SIZE
+        m = n + num_islands-1
+
         def edge(i):
             if i < n:
                 # within an island
-                j = n - (n%ISLAND_SIZE)
+                j = i - (i % ISLAND_SIZE)
                 return random.sample(range(j, j + ISLAND_SIZE), 2)
             else:
-                # connecting islands
-                return random.sample(node_indexes, 2)
+                # connecting islands (left to right)
+                a = (i-n)*ISLAND_SIZE
+                b = a + ISLAND_SIZE
+                c = b + ISLAND_SIZE
+                return (random.randint(a, b), random.randint(b, c))
+
         def weight(i):
             if i < n:
                 # within an island
-                return 1 << (n%ISLAND_SIZE)
+                return 1 << (i % ISLAND_SIZE)
             else:
-                # connecting islands
-                return random.randint(10000000, 20000000)
-        pass
+                # connecting islands, with increasing costs
+                return 10000000 + (i-n)*1024
     elif mode == 'normal':
         def edge(i):
             return random.sample(node_indexes, 2)
+
         def weight(i):
             return random.randint(5, 10000000)
         assert m, "You must set m here"
     else:
         assert False, "mode is not valid value"
-    start_positions = random.sample(node_indexes, l)
 
-    # TODO
+    print(n, l, m)
+    start_positions = random.sample(node_indexes, l)
+    print('\n'.join(map(str, start_positions)))
+    for i in range(m):
+        (v1, v2) = edge(i)
+        w = weight(i)
+        print(v1, v2, w)
+
 
 if __name__ == "__main__":
     main()
