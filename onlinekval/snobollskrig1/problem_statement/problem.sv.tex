@@ -1,7 +1,7 @@
 \problemname{Snöbollskrig 1}
 
-I en bågviktad dubbelriktad graf med $N$ noder leker $L$ länder snöbollskrig under IOI. I
-början har varje land ett fort i någon nod.
+I en oriktad, viktad graf med $N$ noder leker $L$ länder snöbollskrig under IOI.
+I början har varje land ett fort i någon nod.
 
 Vid tid $0$ börjar varje land ge sig ut på snöbollskrig. Snöbollskrig fungerar såhär:
 
@@ -12,36 +12,28 @@ Vid tid $0$ börjar varje land ge sig ut på snöbollskrig. Snöbollskrig funger
 \item Om ett land når en nod före någon annan bygger det landet ett fort i noden.
 \end{itemize}
 
-Avgör vilja par av länder som kommer kriga mot varandra.
+Avgör vilka par av länder som kommer kriga mot varandra.
 
 \section*{Indata}
 
-Den första raden innehåller heltalet $2 \le N \le 200'000$, mellanslag, och
-därefter $2 \le L \le 50$ och sist $M < 500'000$ som är antalet bågar i
-grafen. Därefter följer $L$ rader med ett heltal som säger vilken nod deras
-startbas är på. Därefter följer $M$ rader med tre heltal, de två första talen
-beskriver vilka två olika noder som berörs och det tredje talet anger vikten på
-bågen.
+Den första raden innehåller tre heltal $N,L,M$ ($2 \le N \le 200\,000, 2 \le L \le 50, 1 \le M \le 500\,000$):
+antal noder, antal länder och antal kanter i grafen, respektive.
+Därefter följer $L$ rader med heltal, som säger vilken nod varje lands startbas är på.
+Sist följer $M$ rader med vardera tre heltal $a, b, w$ ($0 \le a,b < N, 1 \le w \le 1000$).
+Detta betyder att det finns en (oriktad) kant mellan noder $a$ och $b$ (noll-indexerade), av längd $w$.
 
-Allt i denna uppgift är 0-indexerat. Både noders och länders index.
-
-\begin{lstlisting}
-        N L M
-        index_startbas_1
-        ...
-        index_startbas_L
-        nod_a_1 nod_b_1 vikt_1
-        ...
-        nod_a_M nod_b_M vikt_M
-\end{lstlisting}
+Inga två länder kommer att starta på samma nod.
 
 \section*{Utdata}
 
-Du ska skriva ut en lista med vilka länder som krigar mot varandra. Du skriver
-varje par på en ny rad, med ett mellanslag som separator, skriv det land med
-lägre index först. Du skall även skriva ut dem i sorterad ordning. Eftersom det
-är två tal som man sorterar efter säger vi att man måste sortera efter den
-första siffran först. 
+För varje par av länder $a, b$ som krigar ska du skriva ut en rad $a b$, där $a < b$ och länderna indexeras från $0$.
+Dessa ska skrivas ut i sorterad ordning, sorterat efter den första indexet först.
+T.ex., om $L = 3$ och alla tre länder krigar ska du skriva ut
+\begin{lstlisting}
+0 1
+0 2
+1 2
+\end{lstlisting}
 
 \section*{Förklaring av exempel 1}
 
@@ -54,8 +46,9 @@ kommer utspelas på en nod.
 Din lösning kommer att testas på en mängd testfallsgrupper. För att få poäng för en grupp
 så måste du klara alla testfall i gruppen.
 
-\begin{tabular}{| l | l | l | l |}
+\begin{tabular}{| l | l | l |}
 \hline
+% Grupp & Poängvärde & Gränser & Övrigt \\ \hline
 Grupp & Poängvärde & Situation \\ \hline
 1     & 30         & Grafen är rak som en linje. Alltså utan cykler. \\ \hline
 2     & 30         & Inga krig förekommer på noderna. \\ \hline
