@@ -9,6 +9,7 @@ compile generator_random2.py # n m
 compile generator_mid.py # n m
 compile generator_amisses.py # n m common reverse
 compile generator_bstarts.py # n m
+compile generator_bstarts2.py # n m
 
 samplegroup
 sample 1
@@ -28,14 +29,19 @@ tc g2-4 generator_amisses 1000 1000 0 0
 tc g2-5 generator_amisses 100 1000 0 0
 
 group small 20
-include_group amisses
-include_group bstarts
 tc g3-1 generator_random 1000 1000
 tc g3-2 generator_random 1000 1000
 tc g3-3 generator_random 1 1000
 tc g3-4 generator_random 1000 1
+tc g3-5 generator_bstarts2 1000 1000
+tc g3-6 generator_bstarts2 1000 1000
+tc g3-7 generator_bstarts2 1 1000
+tc g3-8 generator_amisses 1000 900 0 0
+tc g3-9 generator_amisses 800 1000 0 0
 
 group large 38
+include_group amisses
+include_group bstarts
 include_group small
 tc g4-1 generator_random 100000 100000
 tc g4-2 generator_random 100000 100000
