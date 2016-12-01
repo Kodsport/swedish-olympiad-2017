@@ -1,6 +1,13 @@
 \problemname{Röksignaler}
 
-Din kompis är ute på en fjälltur, och för att hålla kontakten skickar hon röksignaler kodade med morse. Du tycker det är jobbigt att lära dig morsealfabetet utantill, och vill därför skriva ett program som översätter signalen åt dig. Indata är en sträng av ettor och nollor, där en sekvens av ettor motsvarar ett rökmoln. Rökmoln motsvarar streck och prickar, och tomrum motsvarar pauser mellan streck och punkter, bokstäver och mellanslag.
+\begin{figure}[h] 
+\begin{center}
+\includegraphics[width=8cm]{morse.png}
+\caption{Morsealfabetet}
+\end{center} 
+\end{figure}
+
+Din kompis är ute på en polarexpedition, och för att hålla kontakten skickar hon röksignaler kodade med morse. Du tycker det är jobbigt att lära dig morsealfabetet utantill, och vill därför skriva ett program som översätter signalen åt dig. Indata är en sträng av ettor och nollor, där en sekvens av ettor motsvarar ett rökmoln. Rökmoln motsvarar streck och prickar, och tomrum motsvarar pauser mellan streck och punkter, bokstäver och mellanslag.
 
 \section*{Input}
 De första $26$ raderna innehåller en tabell över morsekoden för alla bokstäver.
@@ -23,8 +30,8 @@ så måste du klara alla testfall i gruppen.
 \begin{tabular}{| l | l | l | l |}
 \hline
 Grupp & Poängvärde & Gränser & Övrigt \\ \hline
-1     & 19         &  $S = 2, P = 1, T = 1, B = 2$, $1 \le N <= 100$  & Inga mellanslag förekommer\\ \hline
-2     & 39         &  $1 \le S, P, T, B, M <= 10$, $1 \le N <= 1000$ & Inga mellanslag förekommer \\ \hline
-3     & 25         &  $1 \le S, P, T, B, M <= 100$, $1 \le N <= 1000$    & \\ \hline
-4     & 17        &  $1 \le S, P, T, B, M <= 1000$, $1 \le N <= 100000$  & \\ \hline
+1     & 19         &  $S = 2, P = 1, T = 1, B = 2$, $1 \le N \le 100$  & Inga mellanslag förekommer\\ \hline
+2     & 39         &  $1 \le S, P, T, B, M \le 10$, $1 \le N \le 1000$ & Inga mellanslag förekommer \\ \hline
+3     & 25         &  $1 \le S, P, T, B, M \le 100$, $1 \le N \le 1000$    & \\ \hline
+4     & 17        &  $1 \le S, P, T, B, M \le 1000$, $1 \le N \le 100000$  & \\ \hline
 \end{tabular}
