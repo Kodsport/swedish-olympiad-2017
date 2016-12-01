@@ -9,7 +9,10 @@ struct Contestant {
 	vector<double> nscores;
 
 	bool operator<(const Contestant& other) const {
-		return sc() > other.sc();
+		double sc1 = sc();
+		double sc2 = other.sc();
+		if (sc1 != sc2) return sc1 > sc2;
+		return name < other.name;
 	}
 	double sc() const {
 		return accumulate(nscores.begin(), nscores.end(), -nscores[1]);
