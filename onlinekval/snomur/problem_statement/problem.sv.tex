@@ -4,8 +4,16 @@ Muren ska ha en viss bredd $W$, och vara så hög som möjligt (it's going to be
 
 Som byggmaterial finns det ett antal snöblock som alla har höjden 1, men kan ha olika bredder.
 När muren konstrueras måste varje block uppfylla följande en regel: på raden under blocket,
-på de två positioner blocket har sina ändpunkter, får det inte finnas en ändpunkt eller ett hålrum,
+på de två positioner blocker har sina ändpunkter, måste det ligga ett block precis till höger och vänster om punkten,
 undantaget början och slutet på en rad, där det istället måste finnas en ändpunkt \emph{på varje rad}.
+
+Följande bild illustrerar några otillåtna (vänster) och tillåtna (höger) murar:
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.7\textwidth]{mur.png}
+	\caption{Ett antal otillåtna (vänster) och tillåtna (höger) murar.}
+\end{figure}
 
 Givet bredden $W$ och de möjliga blocken, konstruera en så hög mur som möjligt.
 
