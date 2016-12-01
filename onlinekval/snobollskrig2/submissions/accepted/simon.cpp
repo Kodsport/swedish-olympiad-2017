@@ -10,7 +10,7 @@ typedef pair<int, int> pii;
 typedef vector<int> vi;
 
 int solve(vi& a, vi& b) {
-	set<int> A(all(a));
+	multiset<int> A(all(a));
 	int res = 0;
 	trav(x, b) {
 		auto it = A.upper_bound(x);
