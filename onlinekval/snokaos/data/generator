@@ -8,7 +8,7 @@ compile generator_random.py
 compile generator_ai1.py
 
 samplegroup
-sample 1
+sample sample01
 
 group p1 12
 tc p1-1 generator_random p=1 m=100
