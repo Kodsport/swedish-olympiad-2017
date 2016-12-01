@@ -54,6 +54,7 @@ int main() {
         int a, b;
         cin >> a >> b;
         --a, --b;
+		if (a > b) swap(a, b);
         dests[b].push_back(a);
     }
 
