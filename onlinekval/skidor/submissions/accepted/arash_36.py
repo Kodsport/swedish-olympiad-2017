@@ -17,16 +17,13 @@ def main():
     # parse step 2
     karta = list(map(lambda line: list(map(int, line.split())), stdin_lines[1:]))
     # Done parsing, start solving
-    karta_t = [list(x) for x in zip(*karta)]
     best = 99999999999999999999999999
     for y0 in range(r-l+1):
         y1 = y0 + l
         for x0 in range(c-l+1):
             #print(y0, x0)
             x1 = x0 + l
-            nums_xled = karta[y0][x0:x1] + karta[y1-1][x0:x1]
-            nums_yled = karta_t[x0][y0:y1] + karta_t[x1-1][y0:y1]
-            nums = nums_xled + nums_yled
+            nums = sum(map(lambda line: line[x0:x1], karta[y0:y1]), [])
             maxx = max(nums)
             minn = min(nums)
             if minn > -1:
