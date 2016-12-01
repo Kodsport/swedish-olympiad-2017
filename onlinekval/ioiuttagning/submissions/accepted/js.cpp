@@ -60,11 +60,20 @@ int main() {
 	set<string> ioi;
 	set<string> boi;
 	
+	double lastscore = -1, lastscore2 = -1;
 	for(auto& it : cont) {
 		if (ioi.size() < 4) {
 			ioi.insert(it.name);
-		} else if (boi.size() < 2 && it.year != 3) {
-			boi.insert(it.name);
+			lastscore = it.sc();
+		} else {
+			assert(lastscore - it.sc() > 1e-6);
+			if (it.year != 3) {
+				if (boi.size() < 2) {
+					boi.insert(it.name);
+					lastscore2 = it.sc();
+				}
+				else assert(lastscore2 - it.sc() > 1e-6);
+			}
 		}
 	}
 	for(auto& it : ioi) {
