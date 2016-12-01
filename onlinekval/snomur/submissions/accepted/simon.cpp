@@ -39,7 +39,7 @@ int main() {
 		assert(!last.empty() && last[0].first == 0);
 		auto it = lower_bound(all(last), pii(pos, -1));
 		--it;
-		return it->first < pos && pos < it->second;
+		return it->first < pos && pos < it->first + it->second;
 	};
 	auto hasHole = [&](int from, int to) -> bool {
 		assert(from < to);
@@ -47,13 +47,13 @@ int main() {
 		--it;
 		auto it2 = lower_bound(all(last), pii(to, -1));
 		--it2;
-		if (it2->first + it2->second < to) return false;
+		if (it2->first + it2->second < to) return true;
 		while (it != it2) {
 			auto it3 = it; ++it3;
-			if (it->first + it->second != it3->first) return false;
+			if (it->first + it->second != it3->first) return true;
 			it = it3;
 		}
-		return true;
+		return false;
 	};
 	int it = 0;
 	while (!parts.empty()) {
@@ -113,9 +113,9 @@ int main() {
 	}
 done:
 
-	cout << wall.size() << "  ";
+	cout << ' ' << wall.size() << "  \n";
 	trav(w, wall) {
-		cout << w.size();
+		cout << ' ' << w.size();
 		trav(x, w) cout << "  " << x.first << "  " << x.second;
 		cout << "  \n";
 	}
