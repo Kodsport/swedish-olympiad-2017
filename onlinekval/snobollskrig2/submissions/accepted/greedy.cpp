@@ -9,10 +9,9 @@ typedef long long ll;
 typedef pair<int, int> pii;
 typedef vector<int> vi;
 
-int throww(multiset<int>& a, multiset<int>& b) {
+void throww(multiset<int>& a, multiset<int>& b) {
 	int at = -1;
 	bool which = false;
-	int res = 0;
 	while(true) {
 		if (!which) {
 			auto nx = a.lower_bound(at+1);
@@ -26,9 +25,7 @@ int throww(multiset<int>& a, multiset<int>& b) {
 			b.erase(nx);
 		}
 		which = !which;
-		res++;
 	}
-	return res - 1;
 }
 
 int main() {
@@ -43,7 +40,10 @@ int main() {
 	int res = 0;
 	while (sz(A) || sz(B)) {
 		if (sz(A) < sz(B)) swap(A, B);
-		res += throww(A, B);
+		throww(A, B);
+		res++;
 	}
-	cout << res << endl;
+	res += sz(A);
+	res += sz(B);
+	cout << N+M-res << endl;
 }

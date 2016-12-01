@@ -42,5 +42,7 @@ int main() {
 		throww(B, A);
 		res++;
 	}
+	res += sz(A);
+	res += sz(B);
 	cout << N+M-res << endl;
 }
