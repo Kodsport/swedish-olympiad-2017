@@ -26,9 +26,9 @@ def genseq(med, mx, cnt, idx):
     nums[19] = med[idx] -2
     nums[20] = med[idx] +2
     for k in range(19):
-        if nums[k] > nums[19]: nums[k] = nums[19]
+        if nums[k] > nums[19]: nums[k] = random.randint(0, nums[19])
     for k in range(21, cnt):
-        if nums[k] < nums[20]: nums[k] = nums[20]
+        if nums[k] < nums[20]: nums[k] = random.randint(nums[20], mx[idx])
     random.shuffle(nums)
     return nums
 
