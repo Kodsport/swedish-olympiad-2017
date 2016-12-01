@@ -1,6 +1,7 @@
 \problemname{Snöbollskrig 1}
 
-I en oriktad, viktad graf med $N$ noder leker $L$ länder snöbollskrig under IOI.
+I en \url{https://sv.wikipedia.org/wiki/Graf_(grafteori)}{oriktad, viktad graf}
+med $N$ noder leker $L$ länder snöbollskrig under IOI.
 I början har varje land ett fort i någon nod.
 
 Vid tid $0$ börjar varje land ge sig ut på snöbollskrig. Snöbollskrig fungerar såhär:
@@ -22,7 +23,7 @@ Därefter följer $L$ rader med heltal, som säger vilken nod varje lands startb
 Sist följer $M$ rader med vardera tre heltal $a, b, w$ ($0 \le a,b < N, 1 \le w \le 1000$).
 Detta betyder att det finns en (oriktad) kant mellan noder $a$ och $b$ (noll-indexerade), av längd $w$.
 
-Inga två länder kommer att starta på samma nod.
+Inga två länder kommer att starta på samma nod. Det \emph{kan} finnas flera kanter mellan samma par av noder.
 
 \section*{Utdata}
 
@@ -50,7 +51,7 @@ så måste du klara alla testfall i gruppen.
 \hline
 % Grupp & Poängvärde & Gränser & Övrigt \\ \hline
 Grupp & Poängvärde & Situation \\ \hline
-1     & 30         & Grafen är rak som en linje. Alltså utan cykler. \\ \hline
+1     & 30         & Grafen är en linje: kanterna är exakt (0,1), (1,2), etc., (N-2, N-1) \\ \hline
 2     & 30         & Inga krig förekommer på noderna. \\ \hline
 3     & 40         & Inga begränsningar. \\ \hline
 \end{tabular}
