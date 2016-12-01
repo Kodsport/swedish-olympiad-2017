@@ -14,6 +14,8 @@ def main():
 
     # parse step 1
     r, c, l = map(int, stdin_lines[0].split())
+    assert r <= 50, "I can only solve small testdata"
+    assert c <= 50, "I can only solve small testdata"
     # parse step 2
     karta = list(map(lambda line: list(map(int, line.split())), stdin_lines[1:]))
     # Done parsing, start solving
