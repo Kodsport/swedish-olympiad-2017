@@ -36,8 +36,6 @@ tc g3-4 generator_random 1000 1
 tc g3-5 generator_bstarts2 1000 1000
 tc g3-6 generator_bstarts2 1000 1000
 tc g3-7 generator_bstarts2 1 1000
-tc g3-8 generator_amisses 1000 900 0 0
-tc g3-9 generator_amisses 800 1000 0 0
 
 group large 38
 include_group amisses
