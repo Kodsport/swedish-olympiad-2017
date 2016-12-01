@@ -1,16 +1,31 @@
+GROUP_SCORES = [30, 30, 40]
+GROUP_CASES = [[0, 1, 2, 3, 4], [5, 6, 7, 8, 9], [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]]
 import sys
-
-def is_int(arg):
-    try:
-        int(arg)
-        return True
-    except:
-        return False
-
 
 def main():
     if "ignore" in sys.argv:
         print "AC 0"
+    elif "groups" in sys.argv:
+        verdicts = []
+        scores = []
+        for line in sys.stdin.readlines():
+            verdict, score = line.split()
+            verdicts.append(verdict)
+            scores.append(score if verdict == "AC" else 0)
+        total_score = 0
+        first_error = None
+        for group in range(len(GROUP_SCORES)):
+            group_score = GROUP_SCORES[group]
+            for case in GROUP_CASES[group]:
+                if scores[case] == 0:
+                    group_score = 0
+                if verdicts[case] != "AC" and not first_error:
+                    first_error = verdicts[case]
+            total_score += group_score
+        if total_score == 0 and first_error:
+            print "%s 0" % first_error
+        else:
+            print "AC %f" % total_score
     elif "sum" in sys.argv:
         total_score = 0
         first_error = None
@@ -23,19 +38,9 @@ def main():
             print "%s 0" % first_error
         else:
             print "AC %f" % total_score
-    elif "all" in sys.argv:
-        total_score = 0
-        for arg in sys.argv:
-            if is_int(arg):
-                total_score = float(arg)
-        for line in sys.stdin.readlines():
-            verdict, score = line.split()
-            if verdict != "AC":
-                print "%s 0" % verdict
-                return
-        print "AC %f" % total_score
     else:
         for line in sys.stdin.readlines():
             print line
 
 main()
+
