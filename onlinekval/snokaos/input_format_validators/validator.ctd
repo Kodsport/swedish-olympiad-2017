@@ -8,7 +8,7 @@ END
 
 REPI(i, s)
 	INT(1, n - 1, c[i]) NEWLINE
+	ASSERT(UNIQUE(c))
 END
-ASSERT(UNIQUE(c))
 
 EOF
