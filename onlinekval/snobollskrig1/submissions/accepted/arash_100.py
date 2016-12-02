@@ -52,7 +52,8 @@ def solve(start_positions, graph):
             if v0 in owners_map:
                 for c in owners_map[v0].owners_set:
                     answer.add(frozenset((c0, c)))
-                owners_map[v0].owners_set.add(c0)
+                if owners_map[v0].time == t0:
+                    owners_map[v0].owners_set.add(c0)
             else:
                 owners_map[v0] = Owners(t0, {c0})
         for (v0, c0) in zip(vs, cs):
