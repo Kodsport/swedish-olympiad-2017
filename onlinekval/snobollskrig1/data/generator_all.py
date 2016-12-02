@@ -68,10 +68,11 @@ def main():
     else:
         assert False, "mode is not valid value"
 
-    print(n, l, m)
     start_positions = random.sample(node_indexes, l)
-    print('\n'.join(map(str, start_positions)))
     edges = {frozenset(edge(i)): weight(i) for i in range(m)}
+    m = len(edges)
+    print(n, l, m)
+    print('\n'.join(map(str, start_positions)))
     for ((v1, v2), w) in edges.items():
         print(v1, v2, w)
 
