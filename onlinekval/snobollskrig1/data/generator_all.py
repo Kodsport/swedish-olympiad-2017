@@ -49,7 +49,7 @@ def main():
                 a = (i-n)*ISLAND_SIZE
                 b = a + ISLAND_SIZE
                 c = b + ISLAND_SIZE
-                return (random.randint(a, b), random.randint(b, c))
+                return (random.randint(a, b-1), random.randint(b, c-1))
 
         def weight(i):
             if i < n:
@@ -71,9 +71,8 @@ def main():
     print(n, l, m)
     start_positions = random.sample(node_indexes, l)
     print('\n'.join(map(str, start_positions)))
-    for i in range(m):
-        (v1, v2) = edge(i)
-        w = weight(i)
+    edges = {frozenset(edge(i)): weight(i) for i in range(m)}
+    for ((v1, v2), w) in edges.items():
         print(v1, v2, w)
 
 
