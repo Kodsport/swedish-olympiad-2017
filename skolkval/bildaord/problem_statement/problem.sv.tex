@@ -1,64 +1,60 @@
 \problemname{Bilda ord}
 
-Fatimeh studerar sitt hemspråk som använder det arabiska skriftspråket. Just nu
-sitter hon med en övning att bilda ord från givna bokstäver. Hon vill veta på
+Fatimeh studerar sitt hemspråk som använder det arabiska alfabetet. Just nu
+sitter hon med en övning där hon ska svara på
 hur många sätt hon kan bilda ett ord med de givna bokstäverna i uppgiften.
 
-I svenskans skriftspråk skulle övningen kunna se ut så här:
+Om det hade varit på svenska kunde övningen ha se ut så här:
 
 \vspace{0.2in}
-\centerline{l s a t}
+\centerline{r M e a}
 \vspace{0.2in}
 
-Du får alltså 4 givna bokstäver. Fatimeh vet då att hon måste testa $4*3*2*1 =
-24$ permutationer. Skulle istället bokstaven ``s'' vara ett stort ``S'', då vet vi
-att vi måste placera bokstaven ``s'' i meningens början. Med det villkoret är
-antalet permutationer $3*2*1 = 6$.  Exempelvis kan ordet $Salt$ bildas nu men
-inte $laSt$. I det arabiska skriftspråket har man inte stora och små bokstäver
-på samma sätt och därför ser restriktionerna annorlunda ut.
+Eftersom fyra bokstäver är givna vet Fatimeh att hon måste testa $4*3*2*1 =
+24$ permutationer. Men eftersom bokstaven M är ``stor'' så vet vi
+att den måste placeras i ordets början. Med det villkoret kan bara $6$
+ord bildas, exempelvis $Mera$, men
+inte $raMe$. I det arabiska alfabetet har man inte stora och små bokstäver
+på samma sätt, men man har andra regler om var
+i ordet bokstaven kan förekomma, även i relation till andra
+bokstäver. 
 
-\section*{Notation och Indata}
+I denna uppgift antar vi att det finns två typer av restriktioner: Antingen måste en bokstav komma precis före
+någon annan bokstav, eller så kan en bokstav bara stå på vissa
+positioner. Exempel på dessa regler och den notation vi använder finns
+i följande tabell:\\
 
-Med bokstäverna i det arabiska skriftspråket har man mycket mer kontext om var
-i ordet bokstaven kan förekomma, även i relation till andra bokstäver.  I denna
-uppgift har vi $2$ typer av restriktioner, antingen måste en bokstav komma precis före
-någon annan bokstav, eller så kan en bokstav bara stå på vissa positioner. Till
-exempel
+\begin{tabular}{|l|l|} \hline
+\fe{Regel} & \fe{Notation} \\ \hline
+Bokstav $B$ måste stå på på plats $1$ eller plats $4$ & \sk{B@01,04}
+\\ \hline
+Bokstav $D$ måste direkt föregå $C$ eller $B$  & \sk{D:CB} \\ \hline
+\end{tabular}\\
 
-\begin{itemize}
-    \item Bokstav $B$ måste stå på på plat $1$ eller plats $4$
-    \item Bokstav $D$ måste direkt föregå $C$ eller $B$
-\end{itemize}
+Skriv ett program som beräknar
+på hur många sätt som $N$ olika bokstäver (för enkelhets skull kallade A,
+B, C,... etc.) kan placeras ut, givet ett antal regler av dessa två
+typer. 
 
-För att indatat ska vara enkelt att läsa så är notationen formaterad såhär:
+\section*{Indata}
 
-\begin{lstlisting}
-    B@01,04
-    D:CB
-\end{lstlisting}
-
-För programkörningen kommer första indataraden bestå av först antalet ord $N$
-sedan antalet restriktioner $K$. Därefter följer $K$ rader vardera beskrivande
-en restriktion på det sett som förklarats med exempel ovan. Se även
-exempelkörningarna.
+På första raden står två heltal, antalet ord $N$
+och antalet regler $K$. Därefter följer $K$ rader vardera beskrivande
+en regel enligt notationen ovan. En viss bokstav kan inte stå först i mer än en regel av vardera typen. Observera att alla platsnummer skrivs med två siffror.
 
 \section*{Utdata}
 
-Du ska skriva ut ett heltal. Antalet sätt bokstäverna kan
+Programmet ska skriva ut ett heltal: antalet sätt bokstäverna kan
 placeras ut. Svaret kommer alltid att understiga 10 miljoner.
 
 \section*{Poängsättning}
 
-För testfall värda upp till $3$ poäng, kommer $N$ vara som mest 9. För full
-poäng så ska ditt program klara $N$ som mest 15. $K$ kommer aldrig överstiga $N$.
-För stora $N$ kommer restriktionerna var ungefär jämnt utspridda bland
+För testfall värda $60$ poäng gäller att $2\le N\le 9$. För full
+poäng så ska ditt program klara $2\le N\le 15$. I samtliga fall gäller att $1\le K\le N$.
+För stora $N$ kommer restriktionerna vara ungefär jämnt utspridda bland
 bokstäverna.
 
-\section*{Förklaring exempel 1}
+\section*{Förklaring till exempel 1}
 
-ACDB
-ADCB
-BADC
-CADB
-DCAB
-BDCA
+De ord som kan bildas är ACDB, ADCB, BADC, CADB,
+DCAB och BDCA.
