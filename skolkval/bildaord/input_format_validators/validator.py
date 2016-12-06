@@ -16,18 +16,6 @@ assert 1 <= N <= 15
 assert K < N
 assert K == len(data) - 1
 
-# for i in range(1, K+1):
-#     line = data[i].split()
-#     form = line[0]
-#     pos = int(line[1])
-#     num_nums = int(line[2])
-#     nums = map(int, line[3:])
-#     assert form in 'ab'
-#     assert 1 <= pos <= N
-#     assert len(nums) == num_nums
-#     assert pos not in set(nums)
-#     assert are_unique(nums)
-
 valid_chars = 'ABCDEFGHIJKLMNOPQ'[0:N]
 for i in range(1, K+1):
     line = data[i]
@@ -53,3 +41,4 @@ for i in range(1, K+1):
             assert c in valid_chars
 
 sys.exit(42)
+
