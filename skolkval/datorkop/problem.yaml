@@ -7,5 +7,6 @@ grading:
     on_reject: grade
     objective: max
     range: 0 100
-
+limits:
+    time_multiplier: 1
 type: scoring

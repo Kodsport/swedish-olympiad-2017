@@ -13,7 +13,7 @@ n=vals[0]
 assert 5 <= n <= 30
 s = sys.stdin.readline()
 assert re.match("^[VHABI]*$", s)
-assert len(s) == n
+assert len(s.strip()) == n
 line = sys.stdin.readline()
 assert len(line) == 0
 sys.exit(42)

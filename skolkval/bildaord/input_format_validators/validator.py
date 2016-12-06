@@ -13,7 +13,7 @@ for line in sys.stdin:
 
 N, K = map(int, data[0].split())
 assert 1 <= N <= 15
-assert K < N
+assert K <= N
 assert K == len(data) - 1
 
 valid_chars = 'ABCDEFGHIJKLMNOPQ'[0:N]
