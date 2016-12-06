@@ -11,7 +11,7 @@ vals=[int(x) for x in line.split()]
 assert len(vals)==1
 n=vals[0]
 assert 2 <= n <= 10
-s = sys.stdin.readline()
+line = sys.stdin.readline()
 assert re.match(line_regex, line)
 vals=[int(x) for x in line.split()]
 assert len(vals)==n
