@@ -13,15 +13,18 @@ int main() {
 	cin.sync_with_stdio(false);
 	cin.exceptions(cin.failbit);
 	int N, M;
-	cout << "Antal bokstäver ? "; cin >> N;
-	cout << "Antal regler ? "; cin >> M;
+	//cout << "Antal bokstäver ? "; 
+        cin >> N;
+	//cout << "Antal regler ? ";
+        cin >> M;
 
 	vi any(N+1); iota(all(any), 0);
 	vector<vi> allowed(N, vi(N, 1)), after(N, any);
 
 	rep(it,0,M) {
 		string str;
-		cout << "Regel " << it+1 << " ? "; cin >> str;
+		//cout << "Regel " << it+1 << " ? "; 
+                cin >> str;
 		int letter = str[0] - 'A';
 		if (str[1] == ':') {
 			after[letter].clear();

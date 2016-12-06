@@ -8,5 +8,5 @@ grading:
     objective: max
     range: 0 100
 limits:
-    time_multiplier: 1
+    time_multiplier: 1.5
 type: scoring
