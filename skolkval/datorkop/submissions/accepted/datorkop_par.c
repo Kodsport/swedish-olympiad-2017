@@ -1,3 +1,4 @@
+//NOTE: This is not the optimal solution, but it is considered sufficiently efficient for skolkvalet
 #include <stdio.h>
 #define MAXN 1000
 #define MAXC 1000
@@ -8,7 +9,7 @@ int T[MAXC+1][MAXC+1];
 int poscost[2*MAXC*MAXP+1];
 
 int ceildiv(int p, int q) {
-  return (p==0) ? 0 : ( (p-1)/q + 1);
+  return (p<=0) ? 0 : ( (p-1)/q + 1);
 }
 
 int possible(int cost) {
