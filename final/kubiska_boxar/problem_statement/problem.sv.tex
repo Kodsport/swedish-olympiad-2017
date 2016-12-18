@@ -1,27 +1,38 @@
 \problemname{Kubiska boxar}
 
-blah
+Paulo R har insett att alla hans boxar där hemma tar plats. Nu har han bestämt
+sig för att stoppa in dem i varandra. Han har $N$ kubiska boxar med
+heltalssidlängder $l_1$, $l_2$ \ellipsis $l_N$. Boxarna har ett tak så man kan stoppa in
+dem i varandra. Dessutom har varje box en färg, R, G eller B.
+
+Men Paulo inser värdet i att inte bara stoppa in dem i varandra hur som helst.
+För då hittar man aldrig dem igen och det tar lång tid att packa upp etcetera.
+Planen är nu att sätta upp en regel som säger vilken färg som kan vara i
+vilken. Regeln är på formen ''färg$_1$ i färg$_2$, färg$_2$ i färg$_3$''. Till exempel ''R i
+G, G i B''. Det innebär att man aldrig kommer kunna har mer än 3 boxar i
+varandra. Efter man bestämt regel så stoppar man boxarna i varandra på det sätt
+som möjliggör att det blir så få ytterboxar som möjligt.
+
+Skriv ett program som givet boxarna säger vilken färgregel som ger minst antal
+boxar, och sedan skriver ut antalet ytterboxar det kommer bli.
 
 \section*{Indata}
 
-blah
+Indat börjar med talet $N$, antalet boxar. Därav följer $N$ rader med sidlängd
+$l_i$ och färg $f_i$.
 
 \section*{Utdata}
 
-blah
+Du ska alltid skriva ut 3 rader. Dem första två raderna beskriver färgregeln
+och den sista raden antalet boxar det kommer bli efter man stoppat dem in i
+varandra. Se exempelena för exakt formatering.
 
 \section*{Poängsättning}
 
-blah
-
-TODO tabel nedan TODO TODO dec-17
-TODO tabel nedan TODO TODO dec-17
-TODO tabel nedan TODO TODO dec-17
 \begin{tabular}{| l | l | l |}
 \hline
 % Grupp & Poängvärde & Gränser & Övrigt \\ \hline
 Grupp & Poängvärde & Situation \\ \hline
-1     & 30         & Grafen är en linje: kanterna är exakt (0,1), (1,2), etc., (N-2, N-1) \\ \hline
-2     & 30         & Inga krig förekommer på noderna. \\ \hline
-3     & 40         & Inga begränsningar. \\ \hline
+1     & 50         & Regeln kommer alltid att vara "R i G, G i B" \\ \hline
+2     & 50         & Inga begränsningar. \\ \hline
 \end{tabular}
