@@ -8,6 +8,8 @@ import itertools
 import collections
 from pprint import pprint  # pylint: disable=unused-import
 
+Box = collections.namedtuple('Box', 'length color')
+
 def main():
     stdin_lines = []
     for line in sys.stdin:
@@ -17,25 +19,22 @@ def main():
     # Ignore parsing first line
     # parse step 2
 
-    Box = collections.namedtuple('Box', 'length color')
     def parse_line(line):
         length_str, color = line.split()
         return Box(int(length_str), color)
     boxes = [parse_line(line) for line in stdin_lines[1:]]
-    solutions = sorted(solve(boxes))
+    solutions = solve(boxes)
     assert len(solutions) == 6
     assert solutions[0][0] < solutions[1][0]  # Answer is unique
-    solution = solutions[0]
-    score = solution[0]
-    rule = solution[1]
+    score, rule = solutions[0]
     print("{} i {}".format(*rule[0:2]))
     print("{} i {}".format(*rule[1:3]))
     print(score)
 
 
 def solve(boxes):
-    rules = itertools.permutations('RGB')
-    return ((score_for_rule(boxes, rule), rule) for rule in rules)
+    rules = (''.join(tupl) for tupl in itertools.permutations('RGB'))
+    return sorted((score_for_rule(boxes, rule), rule) for rule in rules)
 
 def score_for_rule(boxes, rule):
     smallest = [box for box in boxes if box.color == rule[0]]
