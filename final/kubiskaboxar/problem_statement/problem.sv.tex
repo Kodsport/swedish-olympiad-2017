@@ -3,18 +3,20 @@
 Paulo R har insett att alla hans boxar där hemma tar plats. Nu har han bestämt
 sig för att stoppa in dem i varandra. Han har $N$ kubiska boxar med
 heltalssidlängder $l_1$, $l_2$ \ellipsis $l_N$. Boxarna har ett tak så man kan stoppa in
-dem i varandra. Dessutom har varje box en färg, R, G eller B.
+dem i varandra. Dessutom har varje box en färg, R, G eller B. 
+En box kan stoppas in i en annan om dess sidlängd är mindre.
 
-Men Paulo inser värdet i att inte bara stoppa in dem i varandra hur som helst.
-För då hittar man aldrig dem igen och det tar lång tid att packa upp etcetera.
+Men Paulo inser värdet i att inte bara stoppa in dem i varandra hur som helst,
+för då hittar man aldrig dem igen och det tar lång tid att packa upp etcetera.
 Planen är nu att sätta upp en regel som säger vilken färg som kan vara i
-vilken. Regeln är på formen ''färg$_1$ i färg$_2$, färg$_2$ i färg$_3$''. Till exempel ''R i
+vilken. Regeln är på formen ''färg$_1$ i färg$_2$, färg$_2$ i färg$_3$'' , 
+där färg$_1$, färg$_2$ och färg$_3$ är olika färger. Till exempel ''R i
 G, G i B''. Det innebär att man aldrig kommer kunna har mer än 3 boxar i
 varandra. Efter man bestämt regel så stoppar man boxarna i varandra på det sätt
-som möjliggör att det blir så få ytterboxar som möjligt.
+som gör att det blir så få ytterboxar som möjligt.
 
 Skriv ett program som givet boxarna säger vilken färgregel som ger minst antal
-boxar, och sedan skriver ut antalet ytterboxar det kommer bli.
+ytterboxar, och sedan skriver ut antalet ytterboxar det kommer bli.
 
 \section*{Indata}
 
@@ -23,9 +25,10 @@ $l_i < 10'000'000$ och färg $f_i$.
 
 \section*{Utdata}
 
-Du ska alltid skriva ut 3 rader. Dem första två raderna beskriver färgregeln
-och den sista raden antalet boxar det kommer bli efter man stoppat dem in i
-varandra. Se exempelena för exakt formatering.
+Du ska alltid skriva ut 3 rader. De första två raderna beskriver färgregeln
+och den sista raden antalet ytterboxar det kommer bli efter man stoppat dem in i
+varandra. Se exemplena för exakt formatering. Om det finns mer än en färgregel 
+som ger minimala antalet ytterboxar kan du skriva ut vilken som helst av dem.
 
 \section*{Poängsättning}
 
