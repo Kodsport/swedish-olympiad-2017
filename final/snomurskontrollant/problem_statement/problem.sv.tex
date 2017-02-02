@@ -20,11 +20,10 @@ Följande bild illustrerar några otillåtna (vänster) och tillåtna (höger) m
 	\caption{Ett antal otillåtna (vänster) och tillåtna (höger) murar.}
 \end{figure}
 
-Givet de block som fanns tillgängliga för att bygga muren, och ett förslag på hur muren ska se ut, avgör om muren är en tillåten mur.
+Givet ett förslag på hur muren ska se ut, avgör om muren är en tillåten mur.
 
 \section*{Indata}
-Den första raden innehåller tre heltal $N$, $W$ och $H$ - antalet block, bredden på muren, och höjden på muren.
-Nästa rad innehåller $N$ heltal, bredden på varje block.
+Den första raden innehåller två heltal $W$ och $H$ - bredden och höjden på muren.
 
 De följande $H$ raderna beskriver raderna i muren.
 Varje rad börjar med ett heltal $B$, antalet block på raden.
@@ -32,7 +31,7 @@ Detta följs av $B$ heltal $P_j L_j$, den (noll-indexerade) positionen och läng
 
 Raderna är givna underifrån - dvs den första raden i indata är den understa raden i muren.
 
-Ingen mur kommer försöka använda block som inte finns.
+Summan av antalet block över alla rader är begränsat av $N$ (med gränser i poängsättnings-tabellen).
 
 \section*{Utdata}
 Du ska skriva ut \texttt{JA} om muren är tillåten, och \texttt{NEJ} om den inte är det.
@@ -44,11 +43,9 @@ så måste du klara alla testfall i gruppen.
 \begin{tabular}{| l | l | l | l |}
 \hline
 Grupp & Poängvärde & Gränser & Övrigt \\ \hline
-1     & 11         & $N, W, H \le 100\,000$ & Inga hål förekommer \\ \hline
-2     & 18         & $N, W, H \le 100\,000$ & Inga hål förekommer direkt över ett annat hål \\ \hline
-3     & 21         & $W \le 30$ $N, H \le 100\,000$ \\ \hline
-4     & 25         & $N, W, H \le 1,000$ & \\ \hline
-5     & 25         & $N, W, H \le 100,000$ & \\ \hline
+1     & 31         & $N, W, H \le 100\,000$ & Inga hål förekommer direkt över ett annat hål \\ \hline
+2     & 34         & $N, W, H \le 1,000$ & \\ \hline
+3     & 35         & $N, W, H \le 100,000$ & \\ \hline
 \end{tabular}
 
 \section*{Förklaring av exempel}

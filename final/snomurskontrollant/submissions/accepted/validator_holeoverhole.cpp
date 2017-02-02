@@ -91,7 +91,6 @@ int main(int argc, char** argv) {
 		row.insert(make_pair(0, false));
 		row.insert(make_pair(W, true));
 		if (!ok(row, nrow)) die("gap over hole");
-		if (!ok3(row2, nrow2)) die("hole over hole");
 		row = nrow;
 		row2 = nrow2;
 	}

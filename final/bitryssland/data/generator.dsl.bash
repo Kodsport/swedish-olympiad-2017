@@ -22,6 +22,7 @@ tc single-limit-05 generator_off_by_one m=1
 tc single-limit-06 generator_off_by_one m=1
 
 group single 46
+include_group single-limit
 tc single-01 generator_exact m=1 move
 tc single-02 generator_exact m=1 move
 tc single-03 generator_exact m=1 move
@@ -34,6 +35,7 @@ tc single-09 generator_off_by_one m=1 move
 tc single-10 generator_off_by_one m=1 move
 
 group large 35
+include_group single
 tc large-01 generator_random
 tc large-02 generator_random
 tc large-03 generator_random

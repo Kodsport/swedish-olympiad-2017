@@ -53,6 +53,7 @@ int main(int argc, char** argv) {
 	cin.tie(0);
 	int W, H;
 	cin >> W >> H;
+	assert(W <= 1000);
 
 	if (H < 0) die("invalid height");
 	set<pair<int, bool>> row;
