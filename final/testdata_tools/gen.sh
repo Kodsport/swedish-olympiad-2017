@@ -1,5 +1,7 @@
 set -e
 
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
 SOLUTION_BASE=$PPATH/submissions/accepted
 
 declare -A programs
@@ -22,9 +24,13 @@ add_program () {
 }
 
 # Compile a C++ program to run.
-# Arguments: file
+# Arguments: file opts
 compile_cpp () {
-  g++ -O2 -Wall -std=gnu++11 -o $(base $1) $1
+  if [[ $2 == *"opt"* ]]; then
+    g++ -O2 -Wall -std=gnu++11 -o $(base $1) $1
+  else
+    g++ -O2 -fsanitize=undefined -fsanitize=address -Wall -std=gnu++11 -o $(base $1) $1
+  fi
   add_program $(base $1) "./$(base $1)"
 }
 
@@ -32,26 +38,22 @@ compile_cpp () {
 # Arguments: file
 compile_java () {
   javac $1
-  cp $(dirname $1)/*.class .
   add_program $(base $1) "java $(base $1)"
 }
 
 # Compile a Python program to run.
-# Arguments: file
+# Arguments: file opts
 compile_py () {
   cp $1 $(base $1)
-  add_program $(base $1) "python3 $(base $1)"
-}
-
-# Compile a bash program to run.
-# Arguments: file
-compile_sh () {
-  cp $1 $(base $1)
-  add_program $(base $1) "bash $(base $1)"
+  if [[ $2 == *"pypy"* ]]; then
+    add_program $(base $1) "pypy $(base $1)"
+  else
+    add_program $(base $1) "python3 $(base $1)"
+  fi
 }
 
 # Compile a program
-# Arguments: file
+# Arguments: file opts
 compile () {
   ext=$(get_ext $1)
   if [ $ext == "java" ]
@@ -59,13 +61,10 @@ compile () {
     compile_java $1
   elif [ $ext == "cpp" -o $ext == "cc" ]
   then
-    compile_cpp $1
+    compile_cpp $1 $2
   elif [ $ext == "py" ]
   then
-    compile_py $1
-  elif [ $ext == "sh" ]
-  then
-    compile_sh $1
+    compile_py $1 $2
   else
     echo "Unsupported program: $1"
     exit 1
@@ -118,10 +117,9 @@ sample () {
 cleanup_programs () {
   for i in "${!programs[@]}"
   do
-    rm -rf $i
+    rm $i
   done
   rm -rf __pycache__
-  rm -rf *.class
   rm cases groups
 }
 
@@ -141,8 +139,13 @@ tc () {
   echo $1 $CURGROUP >> cases
   if [[ ${cases[$1]} == "yes" ]]
   then
-    echo "Reusing secret/$1"
-    return 0
+    if [[ $# == 1 ]]; then
+      echo "Reusing secret/$1"
+      return 0
+    else
+      echo "ERROR: duplicate test case name $1"
+      exit 1
+    fi
   fi
   SEED=$(( SEED+1 ))
   echo "Generating case secret/$1..."
@@ -165,9 +168,9 @@ include_group () {
 
 generate_grader() {
   mkdir -p $PPATH/graders
-  python3 ../../testdata_tools/generate_grader.py > $PPATH/graders/grader.py
+  python3 "$DIR/generate_grader.py" > $PPATH/graders/grader.py
 }
 
 generate_cms() {
-  python3 ../../testdata_tools/generate_cms.py > $PPATH/data/cms
+  python3 "$DIR/generate_cms.py" > $PPATH/data/cms
 }
