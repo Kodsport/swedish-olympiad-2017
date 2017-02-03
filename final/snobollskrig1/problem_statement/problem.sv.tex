@@ -7,11 +7,14 @@ I början har varje land ett fort i någon nod.
 Vid tid $0$ börjar varje land ge sig ut på snöbollskrig. Snöbollskrig fungerar såhär:
 
 \begin{itemize}
-\item Om ett land äger ett fort beger sig de tävlande ut längs alla kanter från fortet, med hastighet 1/s.
+\item Om ett land äger ett fort beger sig de några tävlanden ut längs alla kanter från fortet, alla med samma hastigheter.
 \item Om två länder möts längs en kant stannar länderna och krigar.
 \item Om två länder möts i en nod stannar länderna och krigar.
-\item Om ett land når en nod före någon annan bygger det landet ett fort i noden.
+\item Om ett land når en nod före något annat land bygger det landet ett fort i noden (och beger sig därefter ut längs kanterna från noden enligt regel 1).
 \end{itemize}
+
+Notera att regel 3 och 4 medför att högst ett land kan ha ett fort i en viss nod.
+Om två länder kommer till en nod samtidigt kommer de deltagare som kom till noden stanna där och kriga oändligt länge, utan att bege sig vidare.
 
 Avgör vilka par av länder som kommer kriga mot varandra.
 
