@@ -16,6 +16,7 @@ l = int(arg('l'))
 mode = arg('mode')
 
 node_indexes = list(range(n))
+start_positions = random.sample(node_indexes, l)
 edges = []
 
 def prune_edges(edges):
@@ -37,40 +38,46 @@ if mode == 'line':
         edges.append((i, i+1, random.randint(5, 100)))
 
 elif mode == 'nonode':
-    assert n <= 200
     ISLAND_SIZE = 10
     assert n % ISLAND_SIZE == 0
     num_islands = n//ISLAND_SIZE
 
     # within islands
     for i in range(n):
-        j = i - (i % ISLAND_SIZE)
+        j = i // ISLAND_SIZE * ISLAND_SIZE
         u, v = random.sample(range(j, j + ISLAND_SIZE), 2)
-        c = 1 << (i % ISLAND_SIZE)
+        c = 2 ** (i % ISLAND_SIZE + 1) # <= 1024
         edges.append((u, v, c))
 
-    # connecting islands, left to right with increasing costs
+    # connecting islands, left to right with odd costs
     for i in range(num_islands-1):
         a = i * ISLAND_SIZE
-        b = a + ISLAND_SIZE
-        c = b + ISLAND_SIZE
-        u = random.randint(a, b-1)
-        v = random.randint(b, c-1)
-        c = 10000000 + i*1024
+        u = random.randrange(ISLAND_SIZE) + a
+        v = random.randrange(ISLAND_SIZE) + a + ISLAND_SIZE
+        c = random.randint(1, 1997) | 1
         edges.append((u, v, c))
+
+    # sample islands with odd difference when in sorted order
+    max_isl = num_islands // 2
+    start_isl = sorted(random.sample(range(max_isl), min(l * 2 // 3, max_isl)))
+    candidates = []
+    for i in range(len(start_isl)):
+        isl = start_isl[i] * 2 + (i % 2)
+        for j in range(ISLAND_SIZE):
+            candidates.append(isl * ISLAND_SIZE + j)
+    start_positions = random.sample(candidates, l)
 
 elif mode == 'normal':
     m = int(arg('m'))
     for i in range(m):
         u, v = random.sample(node_indexes, 2)
-        edges.append((u, v, random.randint(5, 10000000)))
+        edges.append((u, v, random.randint(5, 1000)))
 
 else:
     assert False, "invalid mode"
 
 edges = prune_edges(edges)
 
-start_positions = random.sample(node_indexes, l)
 m = len(edges)
 print("{} {} {}".format(n,l,m))
 print('\n'.join(map(str, start_positions)))
