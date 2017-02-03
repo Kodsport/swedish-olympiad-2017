@@ -5,13 +5,10 @@ PPATH=$(realpath ..)
 
 setup_dirs
 use_solution validator.cpp
-compile gen.cpp
+compile generator_random.py
 
 samplegroup
-for x in {1..2}
-do
-    sample $x
-done
+sample 1
 
 group small-nodouble 0
 tc filled-01 gen 10 filled 
