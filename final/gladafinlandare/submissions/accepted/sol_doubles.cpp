@@ -4,7 +4,6 @@ using namespace std;
 #define rep(i,f,t) for (int i = f; i < (t); ++i)
 #define all(x) x.begin(), x.end()
 #define trav(a,x) for (auto& a : x)
-#define double long double
 
 // max ax^2 + bx + c, lo <= x <= hi
 double maximize(double a, double b, double c, double lo, double hi) {

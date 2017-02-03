@@ -6,4 +6,5 @@ grading:
     on_reject: grade
     objective: max
     range: 0 100
+validator_flags: float_tolerance 1e-5
 type: scoring
