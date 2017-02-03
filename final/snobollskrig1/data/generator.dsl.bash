@@ -9,14 +9,12 @@ setup_dirs
 use_solution simon.cpp
 compile generator_all.py
 
-# Not sure why I would want this right now.
-# As I believe my hand-calculated values are more correct
-# samplegroup
-# sample 1
-# sample 2
-# sample 3
-# sample 4
-# sample 5
+samplegroup
+sample 1
+sample 2
+sample 3
+sample 4
+sample 5
 
 group line 30
 tc g1-1 generator_all n=1000 l=10 mode=line
