@@ -59,16 +59,16 @@ elif mode == 'nonode':
         c = 10000000 + i*1024
         edges.append((u, v, c))
 
-    edges = prune_edges(edges)
-
 elif mode == 'normal':
     m = int(arg('m'))
     for i in range(m):
         u, v = random.sample(node_indexes, 2)
         edges.append((u, v, random.randint(5, 10000000)))
-    edges = prune_edges(edges)
+
 else:
     assert False, "invalid mode"
+
+edges = prune_edges(edges)
 
 start_positions = random.sample(node_indexes, l)
 m = len(edges)
@@ -76,4 +76,3 @@ print("{} {} {}".format(n,l,m))
 print('\n'.join(map(str, start_positions)))
 for (v1, v2, w) in edges:
     print("{} {} {}".format(v1, v2, w))
-
