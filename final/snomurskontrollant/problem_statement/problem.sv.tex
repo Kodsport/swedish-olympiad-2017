@@ -27,7 +27,7 @@ Den första raden innehåller två heltal $W$ och $H$ - bredden och höjden på 
 
 De följande $H$ raderna beskriver raderna i muren.
 Varje rad börjar med ett heltal $B$, antalet block på raden.
-Detta följs av $B$ heltal $P_j L_j$, den (noll-indexerade) positionen och längden för det $j$:te blocket på raden. Dessa kommer ges i stigande $P_j$-ordning, d.v.s från vänster till höger.
+Detta följs av $B$ par av heltal $P_j, L_j$, den (noll-indexerade) positionen och längden för det $j$:te blocket på raden. Dessa kommer ges i stigande $P_j$-ordning, d.v.s från vänster till höger.
 Inga block kommer överlappa eller ligga utanför muren.
 
 Raderna är givna underifrån - dvs den första raden i indata är den understa raden i muren.
@@ -35,7 +35,7 @@ Raderna är givna underifrån - dvs den första raden i indata är den understa 
 Summan av antalet block över alla rader är begränsat av $N$ (med gränser i poängsättnings-tabellen).
 
 \section*{Utdata}
-Du ska skriva ut \texttt{JA} om muren är tillåten, och \texttt{NEJ} om den inte är det.
+Du ska skriva ut \texttt{YES} om muren är tillåten, och \texttt{NO} om den inte är det.
 
 \section*{Poängsättning}
 Din lösning kommer att testas på en mängd testfallsgrupper. För att få poäng för en grupp
