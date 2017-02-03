@@ -18,10 +18,10 @@ tc se-01 generator_random n=10 t=0.2 cap=8000 seed=1
 tc se-02 generator_random n=10 t=0.8 cap=10000 seed=2
 tc se-03 generator_random n=1000 t=0.2 cap=10000 seed=3
 tc se-04 generator_random n=1000 t=0.8 cap=8000 seed=4
-tc se-05 cat linear.in
+tc se-05 cat linear.txt
 # (centers left of x = 0)
-tc outside-convex cat outside-convex.in
-tc outside-concave cat outside-concave.in
+tc outside-convex cat outside-convex.txt
+tc outside-concave cat outside-concave.txt
 
 group convex 25
 # (half of these are optimized at t = 0, due to the random choice of 'midp')

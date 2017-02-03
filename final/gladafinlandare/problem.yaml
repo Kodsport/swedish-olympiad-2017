@@ -1,0 +1,9 @@
+author: Simon Lindholm
+source: Programmeringsolympiadens final 2017
+rights_owner: Programmeringsolympiaden
+license: cc by-sa
+grading:
+    on_reject: grade
+    objective: max
+    range: 0 100
+type: scoring
