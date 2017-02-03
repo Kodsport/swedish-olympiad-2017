@@ -20,10 +20,15 @@ large = 100000000
 small = 10000000
 rows = []
 for i in range(n):
+    row = []
     for j in range(k):
         row.append(random.randint(1, large))
     for j in range(m-k):
         row.append(random.randint(1, small))
+    rows.append(row)
+
+order = list(range(m))
+random.shuffle(order)
 
 rows2 = []
 for row in rows:
