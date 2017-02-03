@@ -1,10 +1,21 @@
-\problemname{TODO}
-TODO
+\problemname{Bastubad}
+Finländare älskar att bada bastu. Det är inte så konstigt egentligen.
+Bastu är både skönt, och bastubadande sker oftast i trevligt sällskap.
+
+I sällskap uppstår dock ofta problem. Det viktigaste när man badar bastu är att temperaturen sätts rätt.
+En finländare är väldigt petig med bastuns temperatur.
+Olika finländare har olika högstatemperaturer som de tolererar.
+I temperaturintervallet som en viss finländare klarar blir finländaren dessutom olika glad beroende på temperaturen.
+En finländares glädge ges av en kvadratisk funktion (på formen $ax^2 + bx + c$).
+
+Ett stort sällskap finländare ska nu bada bastu, och behöver din hjälp.
+Kan du bestämma den maximala summan av finländarnas glädje, om bastuns temperatur sätts optimalt?
+Temperaturen anges i grader kelvin, med en undre gräns på $0 \textrm{ K}$ och övre gräns $100\,000 \textrm{ K}$.
 
 \section*{Indata}
 Den första raden innehåller ett heltal $1 \le N \le 100\,000$: antalet finländare.
 Därefter följer $N$ rader, en per finländare.
-Varje rad innehåller fyra heltal $a, b, c, t$ ($-10^9 \le a,b,c \le 10^9, 1 \le t \le 100\,000$), vilket representerar att finländaren har glädjefunktion $ax^2 + bx + c$, and bara klarar av temperaturer mellan $0$ och $t$, inklusive.
+Varje rad innehåller fyra heltal $a, b, c, t$ ($-10^9 \le a,b,c \le 10^9, 1 \le t \le 100\,000$), vilket representerar att finländaren har glädjefunktion $ax^2 + bx + c$, and bara klarar av temperaturer mellan $0\textrm{ K}$ och $t\textrm{ K}$, inklusive.
 Funktionen garanteras vara positiv överallt mellan $0$ och $t$.
 
 \section*{Utdata}
@@ -15,8 +26,8 @@ Talet ska skrivas ut med precision minst $10^{-5}$.
 \begin{tabular}{| l | l | l |}
 \hline
 Grupp & Poängvärde & Situation \\ \hline
-1     & 25         & $N \le 1000$, alla $t$ är samma. \\ \hline
-2     & 25         & $N \le 1000$, alla $a$ är positiva (d.v.s., finnarna gillar temperaturextremer). \\ \hline
-3     & 25         & $N \le 1000$, alla $a$ är negativa. \\ \hline
-4     & 25         & Inga begränsningar. \\ \hline
+1     & 21         & $N \le 1000$, alla $t$ är samma. \\ \hline
+2     & 29         & $N \le 1000$, alla $a$ är positiva (d.v.s., finnarna gillar temperaturextremer). \\ \hline
+3     & 38         & $N \le 1000$, alla $a$ är negativa. \\ \hline
+4     & 12         & Inga begränsningar. \\ \hline
 \end{tabular}
