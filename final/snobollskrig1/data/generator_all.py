@@ -14,6 +14,8 @@ random.seed(int(sys.argv[-1]))
 n = int(arg('n'))
 l = int(arg('l'))
 mode = arg('mode')
+unweighted = int(arg('unw', 0))
+small = int(arg('small', 0))
 
 node_indexes = list(range(n))
 start_positions = random.sample(node_indexes, l)
@@ -34,10 +36,12 @@ def prune_edges(edges):
     return ret
 
 if mode == 'line':
+    assert not unweighted
     for i in range(n-1):
         edges.append((i, i+1, random.randint(5, 100)))
 
 elif mode == 'nonode':
+    assert not unweighted
     ISLAND_SIZE = 10
     assert n % ISLAND_SIZE == 0
     num_islands = n//ISLAND_SIZE
@@ -67,19 +71,44 @@ elif mode == 'nonode':
             candidates.append(isl * ISLAND_SIZE + j)
     start_positions = random.sample(candidates, l)
 
-elif mode == 'normal':
+elif mode == 'islands':
+    ISLAND_SIZE = 10
+    assert n % ISLAND_SIZE == 0
+    num_islands = n//ISLAND_SIZE
+
+    # within islands
+    for i in range(n):
+        j = i // ISLAND_SIZE * ISLAND_SIZE
+        u, v = random.sample(range(j, j + ISLAND_SIZE), 2)
+        edges.append((u, v, 1 if unweighted else random.randint(1, 1000)))
+
+    # connecting islands, left to right with cost 1
+    for i in range(num_islands-1):
+        a = i * ISLAND_SIZE
+        u = random.randrange(ISLAND_SIZE) + a
+        v = random.randrange(ISLAND_SIZE) + a + ISLAND_SIZE
+        edges.append((u, v, 1 if unweighted else random.randint(1, 1000)))
+
+elif mode == 'random':
     m = int(arg('m'))
     for i in range(m):
         u, v = random.sample(node_indexes, 2)
-        edges.append((u, v, random.randint(5, 1000)))
+        edges.append((u, v, 1 if unweighted else random.randint(5, 1000)))
 
 else:
     assert False, "invalid mode"
 
 edges = prune_edges(edges)
 
-m = len(edges)
-print("{} {} {}".format(n,l,m))
-print('\n'.join(map(str, start_positions)))
+order = list(range(n))
+if mode != 'line':
+    random.shuffle(order)
+
+if small:
+    assert n <= 2000
+    assert len(edges) <= 2000
+
+print("{} {} {}".format(n,l,len(edges)))
+print('\n'.join(str(order[x]) for x in start_positions))
 for (v1, v2, w) in edges:
-    print("{} {} {}".format(v1, v2, w))
+    print("{} {} {}".format(order[v1], order[v2], w))
