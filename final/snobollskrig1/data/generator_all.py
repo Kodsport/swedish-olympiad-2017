@@ -13,61 +13,67 @@ def arg(name, default=None):
 random.seed(int(sys.argv[-1]))
 n = int(arg('n'))
 l = int(arg('l'))
-m = int(arg('m', -1))
 mode = arg('mode')
+
 node_indexes = list(range(n))
+edges = []
+
+def prune_edges(edges):
+    ret = []
+    counts = set()
+    for e in edges:
+        u, v, c = e
+        assert u != v
+        if u > v:
+            u, v = v, u
+        if (u, v) in counts:
+            continue
+        counts.add((u, v))
+        ret.append(e)
+    return ret
 
 if mode == 'line':
-    assert m == -1
-    m = n-1
+    for i in range(n-1):
+        edges.append((i, i+1, random.randint(5, 100)))
 
-    def edge(i):
-        return (i, i+1)
-
-    def weight(i):
-        return random.randint(5, 100)
 elif mode == 'nonode':
-    assert m == -1
     assert n <= 200
     ISLAND_SIZE = 10
     assert n % ISLAND_SIZE == 0
     num_islands = n//ISLAND_SIZE
-    m = n + num_islands-1
 
-    def edge(i):
-        if i < n:
-            # within an island
-            j = i - (i % ISLAND_SIZE)
-            return random.sample(range(j, j + ISLAND_SIZE), 2)
-        else:
-            # connecting islands (left to right)
-            a = (i-n)*ISLAND_SIZE
-            b = a + ISLAND_SIZE
-            c = b + ISLAND_SIZE
-            return (random.randint(a, b-1), random.randint(b, c-1))
+    # within islands
+    for i in range(n):
+        j = i - (i % ISLAND_SIZE)
+        u, v = random.sample(range(j, j + ISLAND_SIZE), 2)
+        c = 1 << (i % ISLAND_SIZE)
+        edges.append((u, v, c))
 
-    def weight(i):
-        if i < n:
-            # within an island
-            return 1 << (i % ISLAND_SIZE)
-        else:
-            # connecting islands, with increasing costs
-            return 10000000 + (i-n)*1024
+    # connecting islands, left to right with increasing costs
+    for i in range(num_islands-1):
+        a = i * ISLAND_SIZE
+        b = a + ISLAND_SIZE
+        c = b + ISLAND_SIZE
+        u = random.randint(a, b-1)
+        v = random.randint(b, c-1)
+        c = 10000000 + i*1024
+        edges.append((u, v, c))
+
+    edges = prune_edges(edges)
+
 elif mode == 'normal':
-    def edge(i):
-        return random.sample(node_indexes, 2)
-
-    def weight(i):
-        return random.randint(5, 10000000)
-    assert m != -1, "You must set m here"
+    m = int(arg('m'))
+    for i in range(m):
+        u, v = random.sample(node_indexes, 2)
+        edges.append((u, v, random.randint(5, 10000000)))
+    edges = prune_edges(edges)
 else:
     assert False, "invalid mode"
 
 start_positions = random.sample(node_indexes, l)
-edges = {frozenset(edge(i)): weight(i) for i in range(m)}
 m = len(edges)
 print("{} {} {}".format(n,l,m))
 print('\n'.join(map(str, start_positions)))
-for ((v1, v2), w) in edges.items():
-    print(v1, v2, w)
+for (v1, v2, w) in edges:
+    print("{} {} {}".format(v1, v2, w))
 

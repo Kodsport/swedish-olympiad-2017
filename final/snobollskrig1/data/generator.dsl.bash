@@ -1,7 +1,5 @@
 #!/bin/bash
 
-# På min hyfsade maskin tog detta skrift 23 sekunder att köra
-
 PPATH=$(realpath ..)
 . ../../testdata_tools/gen.sh
 
