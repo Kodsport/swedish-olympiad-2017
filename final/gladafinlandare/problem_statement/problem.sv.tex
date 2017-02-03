@@ -1,0 +1,22 @@
+\problemname{TODO}
+TODO
+
+\section*{Indata}
+Den första raden innehåller ett heltal $1 \le N \le 100\,000$: antalet finländare.
+Därefter följer $N$ rader, en per finländare.
+Varje rad innehåller fyra heltal $a, b, c, t$ ($-10^9 \le a,b,c \le 10^9, 1 \le t \le 100\,000$), vilket representerar att finländaren har glädjefunktion $ax^2 + bx + c$, and bara klarar av temperaturer mellan $0$ och $t$, inklusive.
+Funktionen garanteras vara positiv överallt mellan $0$ och $t$.
+
+\section*{Utdata}
+Skriv ut ett enda tal: den största möjliga lycka som kan uppnås om temperaturen sätts rätt.
+Talet ska skrivas ut med precision minst $10^{-5}$.
+
+\section*{Poängsättning}
+\begin{tabular}{| l | l | l |}
+\hline
+Grupp & Poängvärde & Situation \\ \hline
+1     & 25         & $N \le 1000$, alla $t$ är samma. \\ \hline
+2     & 25         & $N \le 1000$, alla $a$ är positiva (d.v.s., finnarna gillar temperaturextremer). \\ \hline
+3     & 25         & $N \le 1000$, alla $a$ är negativa. \\ \hline
+4     & 25         & Inga begränsningar. \\ \hline
+\end{tabular}
