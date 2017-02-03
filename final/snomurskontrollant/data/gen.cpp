@@ -205,7 +205,7 @@ struct Wall {
 
 
 void filled(int MX) {
-	Wall w(1 + rand() % int(2 * sqrt(MX)), MX);
+	Wall w(1 + rand() % (MX/3), MX);
 	int splits = rand() % (MX - w.H + 1);
 	rep(i,0,splits) {
 		w.randsplit(rand() % w.H, true);
@@ -214,7 +214,7 @@ void filled(int MX) {
 }
 
 void filled2(int MX) {
-	Wall w(3 + rand() % int(2*sqrt(MX)), MX);
+	Wall w(3 + rand() % (MX/3), MX);
 	int splits = rand() % (MX - w.H);
 	rep(i,0,splits-1) {
 		w.randsplit(rand() % w.H, true);
