@@ -52,6 +52,13 @@ compile_py () {
   fi
 }
 
+# Compile a bash program to run.
+# Arguments: file
+compile_sh () {
+  cp $1 $(base $1)
+  add_program $(base $1) "bash $(base $1)"
+}
+
 # Compile a program
 # Arguments: file opts
 compile () {
@@ -65,6 +72,9 @@ compile () {
   elif [ $ext == "py" ]
   then
     compile_py $1 $2
+  elif [ $ext == "sh" ]
+  then
+    compile_sh $1 $2
   else
     echo "Unsupported program: $1"
     exit 1
