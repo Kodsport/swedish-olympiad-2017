@@ -4,6 +4,7 @@
 int ok() {
   int W,H,B,i,j,st,le,h,under[100000],over[100000],now;
   scanf("%d %d\n", &W,&H);
+  assert(W <= 1000 && H <= 1000);
   for(i=0;i<W;i++) under[i]=1;
   for(h=0;h<H;h++) {
     scanf("%d", &B);
