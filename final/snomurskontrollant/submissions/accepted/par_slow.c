@@ -1,5 +1,5 @@
 #include <stdio.h>
-
+#include <assert.h>
 
 int ok() {
   int W,H,B,i,j,st,le,h,under[100000],over[100000],now;
