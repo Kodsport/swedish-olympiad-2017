@@ -1,2 +1,8 @@
 *~
 .swp
+*.pdf
+a.out
+__pycache__
+*.log
+*.aux
+*.toc

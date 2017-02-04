@@ -28,4 +28,4 @@ for a in ["RGB","GBR","BRG","RBG","GRB","BGR"]:
     if r == m:
         count += 1
 assert count == 1
-print "%c i %c\n%c i %c\n%d\n" % (bra[0],bra[1],bra[1],bra[2],m)
+print "%c%c%c\n%d\n" % (bra[2],bra[1],bra[0],m)

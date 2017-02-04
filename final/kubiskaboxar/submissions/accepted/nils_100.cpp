@@ -84,7 +84,7 @@ int main()
         next_permutation(rgb.begin() , rgb.end());
     }
 
-    cout << ans2[2] << " i " << ans2[1] << "\n" << ans2[1] <<  " i " << ans2[0] << "\n" << ans << "\n";
+    cout << ans2[0] <<  ans2[1] << ans2[2] << "\n" << ans << "\n";
 
     return 0;
 }

@@ -27,8 +27,7 @@ def main():
     assert len(solutions) == 6
     assert solutions[0][0] < solutions[1][0]  # Answer is unique
     score, rule = solutions[0]
-    print("{} i {}".format(*rule[0:2]))
-    print("{} i {}".format(*rule[1:3]))
+    print("{}{}{}".format(*rule[0:3][::-1]))
     print(score)
 
 
