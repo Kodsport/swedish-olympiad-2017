@@ -1,5 +1,4 @@
 \problemname{Snöbollskrig 1}
-
 I en \href{https://sv.wikipedia.org/wiki/Graf_(grafteori)}{oriktad, viktad graf}
 med $N$ noder leker $L$ länder snöbollskrig under IOI.
 I början har varje land ett fort i någon nod.
@@ -7,13 +6,14 @@ I början har varje land ett fort i någon nod.
 Vid tid $0$ börjar varje land ge sig ut på snöbollskrig. Snöbollskrig fungerar såhär:
 
 \begin{itemize}
-\item Om ett land äger ett fort beger sig de några tävlanden ut längs alla kanter från fortet, alla med samma hastigheter.
+\item Om ett land äger ett fort beger sig tävlanden från landet ut längs alla kanter från fortet, alla med samma hastigheter.
 \item Om två länder möts längs en kant stannar länderna och krigar.
 \item Om två länder möts i en nod stannar länderna och krigar.
-\item Om ett land når en nod före något annat land bygger det landet ett fort i noden (och beger sig därefter ut längs kanterna från noden enligt regel 1).
+\item Om ett land når en nod där länder redan krigar, går det med i kriget.
+\item Om ett land når en nod före något annat land bygger det landet ett fort i noden, och beger sig därefter ut längs kanterna från noden enligt regel 1.
 \end{itemize}
 
-Notera att regel 3 och 4 medför att högst ett land kan ha ett fort i en viss nod.
+Notera att regler 3, 4 och 5 medför att högst ett land kan ha ett fort i en viss nod.
 Om två länder kommer till en nod samtidigt kommer de deltagare som kom till noden stanna där och kriga oändligt länge, utan att bege sig vidare.
 
 Avgör vilka par av länder som kommer kriga mot varandra.
@@ -23,16 +23,16 @@ Avgör vilka par av länder som kommer kriga mot varandra.
 Den första raden innehåller tre heltal $N,L,M$ ($2 \le N \le 100\,000, 2 \le L \le 50, 1 \le M \le 100\,000$):
 antal noder, antal länder och antal kanter i grafen, respektive.
 Därefter följer $L$ rader med heltal, som säger vilken nod varje lands startbas är på.
-Sist följer $M$ rader med vardera tre heltal $a, b, w$ ($0 \le a,b < N, 1 \le w \le 2\,000$).
+Sist följer $M$ rader med vardera tre heltal $a, b, w$ ($0 \le a,b < N, a \neq b, 1 \le w \le 2\,000$).
 Detta betyder att det finns en (oriktad) kant mellan noder $a$ och $b$ (noll-indexerade), av längd $w$.
 
-Inga två länder kommer att starta på samma nod.
+Det kommer högst finnas en kant mellan varje par av noder, och inga två länder kommer att starta på samma nod.
 
 \section*{Utdata}
 
-För varje par av länder $a, b$ som krigar ska du skriva ut en rad $a b$, där $a < b$ och länderna indexeras från $0$.
-Dessa ska skrivas ut i sorterad ordning, sorterat efter den första indexet först.
-T.ex., om $L = 3$ och alla tre länder krigar ska du skriva ut
+För varje par av länder $a, b$ som krigar ska du skriva ut en rad \texttt{a b}, där $a < b$ och länderna indexeras från 0.
+Dessa ska skrivas ut i sorterad ordning, sorterat efter det första indexet först.
+Om exempelvis $L = 3$ och alla tre länder krigar ska du skriva ut:
 \begin{lstlisting}
 0 1
 0 2
@@ -41,9 +41,9 @@ T.ex., om $L = 3$ och alla tre länder krigar ska du skriva ut
 
 \section*{Förklaring av exempel 1}
 
-I detta exempel är grafen cyklisk och nästan helt symmetrisk. I fallet mellan
-land 0 och land 3 kommer kriget utspelas på bågen, medan de 3 andra krigen
-kommer utspelas på en nod.
+I detta exempel är grafen en cykel och nästan helt symmetrisk. I fallet mellan
+land 0 och land 3 kommer kriget utspelas på en kant, medan de 3 andra krigen
+kommer utspelas på noder.
 
 \section*{Poängsättning}
 
@@ -57,6 +57,6 @@ Grupp & Poängvärde & Situation \\ \hline
 2     & 9          & $L = 2$. \\ \hline
 3     & 24         & $w = 1$ för alla kanter. \\ \hline
 4     & 23         & Inga krig förekommer på noderna. \\ \hline
-5     & 29         & $1 \le N, M \le 2000$. \\ \hline
+5     & 29         & $1 \le N, M \le 2\,000$. \\ \hline
 6     & 7          & Inga begränsningar. \\ \hline
 \end{tabular}
