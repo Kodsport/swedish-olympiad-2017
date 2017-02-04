@@ -18,9 +18,14 @@ for i in range(N):
     box[n][fields[1]]+=1
 cbox=[v for k,v in sorted(box.iteritems())]
 m=N+1
+count = 0
 for a in ["RGB","GBR","BRG","RBG","GRB","BGR"]:
     r=test(a,cbox)
-    if(r<m):
+    if r<m:
         m=r
         bra=a
+        count=0
+    if r == m:
+        count += 1
+assert count == 1
 print "%c i %c\n%c i %c\n%d\n" % (bra[0],bra[1],bra[1],bra[2],m)
