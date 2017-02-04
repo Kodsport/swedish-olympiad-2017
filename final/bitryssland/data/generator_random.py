@@ -4,9 +4,9 @@ import sys
 import random
 
 default = {
-    "n": 60,
+    "n": 50,
     "m": 100000,
-    "max_bi": 10**18,
+    "max_bi": 10**15,
 }
 
 def cmdlinearg(name):
