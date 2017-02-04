@@ -1,6 +1,6 @@
 \problemname{Bastubad}
 Finländare älskar att bada bastu. Det är inte så konstigt egentligen.
-Bastu är både skönt, och bastubadande sker oftast i trevligt sällskap.
+Bastubadande är både skönt och sker oftast i trevligt sällskap.
 
 I sällskap uppstår dock ofta problem. Det viktigaste när man badar bastu är att temperaturen sätts rätt.
 En finländare är väldigt petig med bastuns temperatur.
@@ -11,8 +11,8 @@ En finländares glädje ges av en kvadratisk funktion (på formen $ax^2 + bx + c
 
 Ett stort sällskap finländare ska nu bada bastu, och behöver din hjälp.
 Kan du bestämma den maximala summan av finländarnas glädje, om bastuns temperatur sätts optimalt?
-Om temperaturen sätts högre än vad en finne tolererar, så bidrar inte denna finne till den totala glädjen alls.
-Temperaturen anges i grader kelvin, med en undre gräns på $0 \textrm{ K}$ och övre gräns $100\,000 \textrm{ K}$.
+Om temperaturen sätts högre än vad en finne tolererar, så bidrar inte denna finne till den totala glädjen alls (den har ju gått hem).
+Temperaturen anges i grader Kelvin, med en undre gräns på $0 \textrm{ K}$ och övre gräns $100\,000 \textrm{ K}$.
 
 \section*{Indata}
 Den första raden innehåller ett heltal $1 \le N \le 100\,000$: antalet finländare.
@@ -28,11 +28,26 @@ Svaret kommer accepteras om det har ett relativt eller absolut fel om högst $10
 % 1: x = 0, 2: x = 3.33333, 3: 10000
 
 \section*{Poängsättning}
+Din lösning kommer att testas på en mängd testfallsgrupper. För att få poäng för en grupp
+så måste du klara alla testfall i gruppen.
+
+\noindent
 \begin{tabular}{| l | l | l |}
 \hline
-Grupp & Poängvärde & Situation \\ \hline
+Grupp & Poängvärde & Gränser \\ \hline
 1     & 21         & $N \le 1000$, alla $t$ är samma. \\ \hline
 2     & 29         & $N \le 1000$, alla $a$ är positiva (d.v.s., finnarna gillar temperaturextremer). \\ \hline
 3     & 38         & $N \le 1000$, alla $a$ är negativa. \\ \hline
 4     & 12         & Inga begränsningar. \\ \hline
 \end{tabular}
+
+\section*{Förklaring av exempel 1}
+I detta fall är den optimala temperaturen $0 \textrm{ K}$.
+Båda finnar har i detta fall samma glädje: $1 \cdot 0^2 -6 + 10 = 10$.
+Deras totala glädje blir $10 + 10 = 20$.
+
+\section*{Förklaring av exempel 1}
+I detta fall är den optimala temperaturen $\frac{10}{3} \textrm{ K}$.
+Den första finnens lycka blir $-3(\frac{10}{3})^2 + 20 \cdot \frac{10}{3}^2 + 3 = -\frac{100}{3} + \frac{200}{3} + 3 = 36 + \frac{1}{3}$.
+Den andra finnen går i detta fallet hem för att temperaturen är för hög (hon tolererar bara temperaturer upp till $1\textrm{ K}$).
+Den totala lyckan blir därmed $36 + \frac{1}{3}$.
