@@ -53,6 +53,8 @@ tc small-2 generator_all n=2000 l=50 m=1000 mode=random small=1
 tc small-3 generator_all n=2000 l=20 m=2000 mode=random small=1
 tc small-4 generator_all n=700 l=50 m=2000 mode=random small=1
 tc small-5 generator_all n=700 l=50 mode=islands small=1
+tc small-6 generator_all n=700 l=50 mode=islands small=1 unw=1
+tc small-7 generator_all n=1000 l=50 m=1000 mode=random small=1 unw=1
 
 group normal 7
 include_group line
