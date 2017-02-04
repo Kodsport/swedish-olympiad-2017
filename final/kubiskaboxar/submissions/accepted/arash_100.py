@@ -43,15 +43,18 @@ def score_for_rule(boxes, rule):
     total_savings = savings(smallest, medium) + savings(medium, biggest)
     return len(boxes) - total_savings
 
+def by_length(box):
+    return box.length
+
 def savings(smallers, biggers):
-    smallers = sorted(smallers)
-    biggers = sorted(biggers)
+    smallers = sorted(smallers, key=by_length)
+    biggers = sorted(biggers, key=by_length)
     j = 0
     for big in biggers:
         if j >= len(smallers):
             break
         small = smallers[j]
-        if big > small:
+        if big.length > small.length:
             j += 1  # Make the smallest bigger
     return j
 
