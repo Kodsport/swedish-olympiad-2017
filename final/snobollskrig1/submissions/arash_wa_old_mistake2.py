@@ -1,6 +1,6 @@
 #! /usr/bin/python3
 """
-Arash AC(100) solution to snobollskastning1
+Arash AC(100) solution to snobollskrig1
 """
 import sys
 import collections
