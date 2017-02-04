@@ -7,6 +7,12 @@ setup_dirs
 use_solution arash_100.py
 compile generator_all.py
 
+samplegroup
+sample 1
+sample 2
+sample 3
+sample 4
+
 group enforce_rgb 50
 tc g1-1 generator_all n=100  max_l=100000 enforce_rgb=yes
 tc g1-2 generator_all n=200  max_l=200000 enforce_rgb=yes
