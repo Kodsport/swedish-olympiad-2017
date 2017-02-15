@@ -4,12 +4,14 @@ De flesta lösningarna som skickas in under en tävling är dock ganska lika.
 En tävlande som fixar en bugg kanske bara ändrar en enstaka rad i en lösning.
 I dessa fall är det onödigt att spara ner både den ursprungliga lösningen och den förändrade lösningen.
 Istället kan vi sparar ner den ena av lösningarna samt vilka ändringar som gjordes mellan de två lösningarna.
-Detta kan även ske i flera steg. så att man sparar ner en lösning $A$, sedan sparar ändringarna mellan $A$ och en annan lösning $B$, och slutligen ändringarna mellan $B$ och en tredje lösning $C$.
+Detta kan även ske i flera steg, så att man sparar ner en lösning $A$, sedan sparar ändringarna mellan $A$ och en annan lösning $B$, och slutligen ändringarna mellan $B$ och en tredje lösning $C$.
 
 Totalt skickades $K$ lösningar in under en tävling, med storlekarna $S[0], S[1], \dots, S[K-1]$ bytes.
-Om den $i$:te lösningen antingen är nedsparad eller kan återkonstrueras, så kan den $j$:te lösningen återkonstrueras om en ändringarna som är $D[i][j]$ bytes stor sparas ned.
-Det är inte nödvändigtvis så att $D[i][j] = D[j][i]$.
-T.ex. kan differensen mellan strängarna \texttt{abaabbaaa} och \texttt{aaaaaa} sparas som ``ta bort alla \texttt{b}'' i ena riktningen, och ``sätt in \texttt{b} på positionerna 2, 5, 6'' i den andra, där den senare ändringen kräver mer plats att spara ner än den första.
+Om den $i$:te lösningen antingen är nedsparad eller kan återkonstrueras, så kan den $j$:te lösningen återkonstrueras om ändringarna som är $D[i][j]$ bytes stora sparas ned.
+
+I de flesta testfallgrupper kommer diffstorlekarna att vara symmetriska, d.v.s. $D[i][j] = D[j][i]$ (i likhet med vanliga Unix-\texttt{diff}-filer).
+För den sista gruppen betraktar vi dock mer allmäna diffar där detta inte behöver stämma.
+T.ex. kan vi tänka oss att differensen mellan strängarna \texttt{abaabbaaa} och \texttt{aaaaaa} sparas som ``ta bort alla \texttt{b}'' i ena riktningen, och ``sätt in \texttt{b} på positionerna 2, 5, 6'' i den andra, där den senare ändringen kräver mer plats att spara ner än den första.
 
 Vad är den minimala mängden data (i bytes) som måste sparas ned för att samtliga lösningar ska kunna återkonstrueras?
 
