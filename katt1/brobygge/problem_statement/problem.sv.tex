@@ -1,0 +1,40 @@
+\problemname{Brobygge}
+I öriket Graf Kantaria finns det $N$ öar som är förbundna med $N - 1$ broar, på ett sådant sätt att det går att ta sig mellan varje par av öar med hjälp av dessa broar.
+
+President Vick T. Adgraf och hennes man Rick T. Adgraf har insett att det finns problem med detta infrastruktursupplägg.
+Broarna byggdes för att det var billigt, inte för att det skulle gå snabbt att resa mellan öarna.
+För att öka sina förtroendesiffror vill Vick och Rick bygga en extra bro var i riket.
+De har skrivit upp några förslag på nya broar att bygga, och vill jämföra hur de extra broarna förändrar avstånden mellan vissa par av öar.
+
+Din uppgift är att skriva ett program som, givet alla nuvarande broar i öriket samt en lista på antingen noll, en eller två extra broar, kan svara på vad det kortaste avståndet mellan två öar blir om de extra broarna byggs.
+
+\section*{Indata}
+Den första raden innehåller heltalet $2 \le N \le 10^5$.
+Sedan följer $N - 1$ rader, en för varje av de nuvarande broarna.
+Den $i$:te raden innehåller heltalen $0 \le A[i] \not= B[i] < N$ och $L[i]$.
+$A[i]$ och $B[i]$ ger de öar som utgör ändpunkterna för den $i$:te bron, som har längd $L[i]$.
+
+Nästa rad innehåller heltal $E$, antalet extra broar ditt progam ska ta hänsyn till.
+De följande $E$ raderna innehåller beskrivningen av en bro, på samma format som de ursprungliga broarna.
+
+Nästa rad innehåller $0 \le Q \le 10^5$, antalet par av öar du ska hitta det kortaste avståndet mellan.
+Sedan följer $Q$ rader.
+Den $i$:te av dessa innehåller de två heltalen $F[i]$ och $T[i]$.
+
+\section*{Utdata}
+Du ska skriva ut $Q$ rader.
+Den $i$:te av dessa ska innehålla det kortaste avståndet mellan öarna $F[i]$ och $T[i]$.
+
+\section*{Poängsättning}
+Din lösning kommer att testas på en mängd testfallsgrupper. För att få poäng för en grupp
+så måste du klara alla testfall i gruppen.
+
+\noindent
+\begin{tabular}{| l | l | l |}
+\hline
+Grupp & Poängvärde & Gränser \\ \hline
+	1     & 25         & De ursprungliga broarna förbinder öarna 0 och 1, 1 och 2, $\dots$, $n - 2$ och $n - 1$\\ \hline
+	2     & 25         & $E = 0$ \\ \hline
+	3     & 25         & $E = 1$ \\ \hline
+	4     & 25         & $E = 2$ \\ \hline
+\end{tabular}
