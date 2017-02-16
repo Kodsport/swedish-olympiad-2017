@@ -49,7 +49,7 @@ tc precompute-bf-06 generator_periodic n=1000000 k=8
 tc precompute-bf-07 generator_periodic n=1000000 k=8
 tc precompute-bf-08 generator_periodic n=1000000 k=8
 
-group precompute-dp 19
+group precompute-dp 35
 include_group precompute-bf
 tc precompute-dp-01 generator_zero n=1000000 k=18
 tc precompute-dp-02 generator_zero n=1000000 k=18
