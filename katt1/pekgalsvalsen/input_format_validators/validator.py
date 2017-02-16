@@ -2,7 +2,8 @@
 import sys
 
 N, K = map(int, input().split())
-S = input()
+S = input().strip()
+assert len(S) == N
 for c in S:
     assert 0 <= ord(c) - ord('a') < K
 
