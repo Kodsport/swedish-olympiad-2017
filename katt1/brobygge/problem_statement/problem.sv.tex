@@ -11,15 +11,16 @@ Din uppgift är att skriva ett program som, givet alla nuvarande broar i öriket
 \section*{Indata}
 Den första raden innehåller heltalet $2 \le N \le 10^5$.
 Sedan följer $N - 1$ rader, en för varje av de nuvarande broarna.
-Den $i$:te raden innehåller heltalen $0 \le A[i] \not= B[i] < N$ och $0 \le L[i] \le 1000$.
+Den $i$:te raden innehåller heltalen $0 \le A[i] \not= B[i] < N$ och $1 \le L[i] \le 1000$.
 $A[i]$ och $B[i]$ ger de öar som utgör ändpunkterna för den $i$:te bron, som har längd $L[i]$.
 
 Nästa rad innehåller heltal $0 \le E \le 2$, antalet extra broar ditt progam ska ta hänsyn till.
 De följande $E$ raderna innehåller beskrivningen av en bro, på samma format som de ursprungliga broarna.
+Inga av de extra broarna sammanfaller med de ursprungliga broarna.
 
 Nästa rad innehåller $0 \le Q \le 10^5$, antalet par av öar du ska hitta det kortaste avståndet mellan.
 Sedan följer $Q$ rader.
-Den $i$:te av dessa innehåller de två heltalen $F[i]$ och $T[i]$.
+Den $i$:te av dessa innehåller de två olika heltalen $F[i]$ och $T[i]$.
 
 \section*{Utdata}
 Du ska skriva ut $Q$ rader.

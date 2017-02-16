@@ -77,7 +77,7 @@ vi dijkstra(int source, const graph& g) {
 	q.emplace(0, source);
 	while (!q.empty()) {
 		int cv, cd;
-		tie(cv, cd) = *q.begin();
+		tie(cd, cv) = *q.begin();
 		q.erase(q.begin());
 		trav(it, g[cv]) {
 			int nv, ed;
@@ -85,6 +85,7 @@ vi dijkstra(int source, const graph& g) {
 			int nd = cd + ed;
 			if (nd < dist[nv]) {
 				if (dist[nv] != inf) q.erase(pii(dist[nv], nv));
+				dist[nv] = nd;
 				q.emplace(dist[nv], nv);
 			}
 		}
@@ -114,7 +115,7 @@ int main() {
 	cin >> E;
 	rep(i,0,E) {
 		int x, y, d;
-		cin >> x >> d >> d;
+		cin >> x >> y >> d;
 		enod.insert(x);
 		enod.insert(y);
 		G[x].emplace_back(y, d);
