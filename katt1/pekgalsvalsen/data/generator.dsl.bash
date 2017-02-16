@@ -40,14 +40,14 @@ tc dp-08 generator_periodic n=1000 k=10
 
 group precompute-bf 19
 include_group bruteforce
-tc precompute-bf-01 generator_zero n=1000000 k=8
-tc precompute-bf-02 generator_zero n=1000000 k=8
-tc precompute-bf-03 generator_rnd n=1000000 k=8
-tc precompute-bf-04 generator_rnd n=1000000 k=8
-tc precompute-bf-05 generator_rnd n=1000000 k=8
-tc precompute-bf-06 generator_periodic n=1000000 k=8
-tc precompute-bf-07 generator_periodic n=1000000 k=8
-tc precompute-bf-08 generator_periodic n=1000000 k=8
+tc precompute-bf-01 generator_zero n=1000000 k=10
+tc precompute-bf-02 generator_zero n=1000000 k=10
+tc precompute-bf-03 generator_rnd n=1000000 k=10
+tc precompute-bf-04 generator_rnd n=1000000 k=10
+tc precompute-bf-05 generator_rnd n=1000000 k=10
+tc precompute-bf-06 generator_periodic n=1000000 k=10
+tc precompute-bf-07 generator_periodic n=1000000 k=10
+tc precompute-bf-08 generator_periodic n=1000000 k=10
 
 group precompute-dp 35
 include_group precompute-bf
