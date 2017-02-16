@@ -16,10 +16,10 @@ T.ex. kan vi tänka oss att differensen mellan strängarna \texttt{abaabbaaa} oc
 Vad är den minimala mängden data (i bytes) som måste sparas ned för att samtliga lösningar ska kunna återkonstrueras?
 
 \section*{Indata}
-Den första raden innehåller heltalet $N$.
+Den första raden innehåller heltalet $1 \le N \le 100$.
 Nästa rad innehåller de $N$ heltalen $1 \le S[0], S[1], \dots, S[N-1] \le 1\,000\,000$.
-De nästa $N$ raderna innehåller $N$ heltal vardera-
-Den $i$:te av dessa rader innehåller tallen $1 \le D[i][0], D[i][1], \dots, D[i][N-1] \le 1\,000\,000$.
+De nästa $N$ raderna innehåller $N$ heltal vardera.
+Den $i$:te av dessa rader innehåller talen $1 \le D[i][0], D[i][1], \dots, D[i][N-1] \le 1\,000\,000$.
 $D[i][i] = 0$ för alla $i$.
 
 \section*{Utdata}
@@ -30,10 +30,9 @@ Din lösning kommer att testas på en mängd testfallsgrupper. För att få poä
 så måste du klara alla testfall i gruppen.
 \begin{tabular}{| l | l | l | l |}
 \hline
-Grupp & Poängvärde & Gränser & Övrigt \\ \hline
-	1     & 11         & $N \le 1\,000$ & Alla tal $D[i][j]$ (utom då $i = j$) är samma \\ \hline
-	2     & 27         & $N \le 1\,000$ & Alla tal $S[i]$ är samma, $D[i][j] = D[j][i]$\\ \hline
-	3     & 17         & $N \le 100$ & $D[i][j] = D[j][i]$ \\ \hline
-	4     & 31         & $N \le 1\,000$ & $D[i][j] = D[j][i]$ \\ \hline
-	5     & 14         & $N \le 1\,000$ & \\ \hline
+Grupp & Poängvärde & Begränsningar \\ \hline
+1     & 11         & Alla tal $D[i][j]$ (utom då $i = j$) är samma \\ \hline
+2     & 27         & Alla tal $S[i]$ är samma, $D[i][j] = D[j][i]$\\ \hline
+4     & 48         & $D[i][j] = D[j][i]$ \\ \hline
+5     & 14         & Inga begränsningar \\ \hline
 \end{tabular}
