@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 import sys
+sys.setrecursionlimit(200000)
 
 N = int(input())
 G = [[] for i in range(N)]
