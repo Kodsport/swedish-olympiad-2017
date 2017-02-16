@@ -1,0 +1,25 @@
+INT(1, 100, n) NEWLINE
+REP(n, SPACE)
+INT(1, 1000000)
+END
+NEWLINE
+
+REPI(i, n)
+REPI(j, n, SPACE)
+INT(0, 1000000, mat[i, j])
+IF(i == j)
+ASSERT(mat[i, j] == 0)
+ELSE
+ASSERT(mat[i, j] != 0)
+END
+END
+NEWLINE
+END
+
+IF(n != 11 && n != 99 && n != 3)
+REPI(i, n) REPI(j, n)
+ASSERT(mat[i, j] == mat[j, i])
+END END
+END
+
+EOF
