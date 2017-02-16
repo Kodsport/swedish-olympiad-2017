@@ -6,7 +6,7 @@ I dessa fall är det onödigt att spara ner både den ursprungliga lösningen oc
 Istället kan vi sparar ner den ena av lösningarna samt vilka ändringar som gjordes mellan de två lösningarna.
 Detta kan även ske i flera steg, så att man sparar ner en lösning $A$, sedan sparar ändringarna mellan $A$ och en annan lösning $B$, och slutligen ändringarna mellan $B$ och en tredje lösning $C$.
 
-Totalt skickades $K$ lösningar in under en tävling, med storlekarna $S[0], S[1], \dots, S[K-1]$ bytes.
+Totalt skickades $N$ lösningar in under en tävling, med storlekarna $S[0], S[1], \dots, S[N-1]$ bytes.
 Om den $i$:te lösningen antingen är nedsparad eller kan återkonstrueras, så kan den $j$:te lösningen återkonstrueras om ändringarna som är $D[i][j]$ bytes stora sparas ned.
 
 I de flesta testfallgrupper kommer diffstorlekarna att vara symmetriska, d.v.s. $D[i][j] = D[j][i]$ (i likhet med vanliga Unix-\texttt{diff}-filer).
@@ -16,10 +16,10 @@ T.ex. kan vi tänka oss att differensen mellan strängarna \texttt{abaabbaaa} oc
 Vad är den minimala mängden data (i bytes) som måste sparas ned för att samtliga lösningar ska kunna återkonstrueras?
 
 \section*{Indata}
-Den första raden innehåller heltalet $K$.
-Nästa rad innehåller de $N$ heltalen $1 \le S[0], S[1], \dots, S[K-1] \le 1\,000\,000$.
-De nästa $K$ raderna innehåller $K$ heltal vardera-
-Den $i$:te av dessa rader innehåller tallen $1 \le D[i][0], D[i][1], \dots, D[i][K-1] \le 1\,000\,000$.
+Den första raden innehåller heltalet $N$.
+Nästa rad innehåller de $N$ heltalen $1 \le S[0], S[1], \dots, S[N-1] \le 1\,000\,000$.
+De nästa $N$ raderna innehåller $N$ heltal vardera-
+Den $i$:te av dessa rader innehåller tallen $1 \le D[i][0], D[i][1], \dots, D[i][N-1] \le 1\,000\,000$.
 $D[i][i] = 0$ för alla $i$.
 
 \section*{Utdata}
@@ -31,9 +31,9 @@ så måste du klara alla testfall i gruppen.
 \begin{tabular}{| l | l | l | l |}
 \hline
 Grupp & Poängvärde & Gränser & Övrigt \\ \hline
-	1     & 11         & $K \le 1\,000$ & Alla tal $D[i][j]$ (utom då $i = j$) är samma \\ \hline
-	2     & 27         & $K \le 1\,000$ & Alla tal $S[i]$ är samma, $D[i][j] = D[j][i]$\\ \hline
-	3     & 17         & $K \le 100$ & $D[i][j] = D[j][i]$ \\ \hline
-	4     & 31         & $K \le 1\,000$ & $D[i][j] = D[j][i]$ \\ \hline
-	5     & 14         & $K \le 1\,000$ & \\ \hline
+	1     & 11         & $N \le 1\,000$ & Alla tal $D[i][j]$ (utom då $i = j$) är samma \\ \hline
+	2     & 27         & $N \le 1\,000$ & Alla tal $S[i]$ är samma, $D[i][j] = D[j][i]$\\ \hline
+	3     & 17         & $N \le 100$ & $D[i][j] = D[j][i]$ \\ \hline
+	4     & 31         & $N \le 1\,000$ & $D[i][j] = D[j][i]$ \\ \hline
+	5     & 14         & $N \le 1\,000$ & \\ \hline
 \end{tabular}
