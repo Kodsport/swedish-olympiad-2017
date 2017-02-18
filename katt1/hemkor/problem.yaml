@@ -1,0 +1,9 @@
+author: Fredrik Hernqvist
+source: Programmeringsolympiaden 2017, KATT
+rights_owner: Programmeringsolympiaden
+license: cc by-sa
+grading:
+    on_reject: grade
+    objective: max
+    range: 0 100
+type: scoring
