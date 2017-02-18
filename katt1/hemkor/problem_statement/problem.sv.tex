@@ -3,18 +3,21 @@ Carl har just flyttat hemifrån, och har insett att han numera behöver köpa ma
 Eftersom det är jobbigt att gå till butiken beställer han istället maten online på hemsidan \emph{Hemkör}, som levererar matvaror direkt till dörren.
 
 Carl håller nu på att köpa mat för de kommande århundradena.
-Totalt har Carl planerat att äta $n$ måltider (numrerade från $1$ till $n$) under de nästa $100\,000$ dagarna.
-Den $i$:te måltiden tänker Carl äta $P[i]$ dagar från idag, och kräver totalt $Q[i]$ kilo mat.
+Totalt har Carl planerat att äta $1 \le N \le 5\,000$ måltider (numrerade från $1$ till $N$) under de nästa $100\,000$ dagarna.
+Den $i$:te måltiden tänker Carl äta $1 \le P[i] \le 100\,000$ dagar från idag, och kräver totalt $1 \le Q[i] \le 100$ kilo mat.
 Carl är inte kräsen -- så länge han har $Q[i]$ kilo ingredienser spelar det inte någon roll vilka ingredienser han använder.
 
-På Hemkör finns det $m$ olika matvaror till salu.
-Den $i$:te varan har en vikt $V[i]$ kilo, en kostnad $K[i]$ kronor och ett utgångsdatum som är $D[i]$ dagar från idag (en vara kan användas fram \emph{till och med} dagen den går ut).
+På Hemkör finns det $1 \le M \le 100\,000$ olika matvaror till salu.
+Den $i$:te varan har en vikt $1 \le V[i] \le 100$ kilo, en kostnad $1 \le K[i] \le 2\,000$ kronor och ett utgångsdatum som är $1 \le D[i] \le 100\,000$ dagar från idag (en vara kan användas fram \emph{till och med} dagen den går ut).
 Carl kan köpa hur många exemplar av varje matvara som han vill.
 
 Carl har kommit fram till att det går att köpa matvaror så att han kan laga samtliga måltider.
 Kan du hjälpa honom beställa matvaror på ett sådant sätt att det dessutom blir så billigt som möjligt?
 
+% TODO Kan ha flera måltider per dag (chockerande som det må låta).
+
 \section*{Exempel}
+% TODO skriv om
 Antag att Carl tänker laga $2$ måltider på dagarna $1$ och $10$, med vikterna $2$ kilo och $1$ kilo.
 Det finns tre matvaror, med vikterna $20$, $5$ och $5$ kilo, kostnaderna $2$, $1$ och $2$, och utgångsdatumen $10$, $2$, $3$.
 Carl kan köpa ett exemplar av den första varan och ett exemplar av den andra varan.
@@ -26,11 +29,11 @@ Totalt kostar detta $2$ + $1$ kronor.
 
 
 \section*{Indata}
-Den första raden innehåller de positiva heltalen $n$ och $m$.
-Sedan följer $n$ rader, en för varje måltid.
+Den första raden innehåller de positiva heltalen $N$ och $M$.
+Sedan följer $N$ rader, en för varje måltid.
 Den $i$:te raden innehåller heltalen $P[i]$ och $Q[i]$.
 
-Sedan följer $m$ rader, en för varje vara.
+Sedan följer $M$ rader, en för varje vara.
 Den $i$:te raden innehåller heltalen $V[i]$, $K[i]$ och $D[i]$.
 
 \section*{Utdata}
@@ -43,6 +46,9 @@ så måste du klara alla testfall i gruppen.
 \noindent
 \begin{tabular}{| l | l | l |}
 \hline
-% TODO
-Grupp & Poängvärde & Gränser \\ \hline
+  Grupp & Poängvärde & Gränser \\ \hline
+  1     & 25         & $N \le 100, M \le 100$ \\ \hline
+  2     & 25         & $P[i] = 1$ för alla måltider \\ \hline
+  3     & 25         & $V[j] = 1$ för alla varor \\ \hline
+  4     & 25         & Inga begränsningar \\ \hline
 \end{tabular}

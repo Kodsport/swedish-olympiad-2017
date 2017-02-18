@@ -65,6 +65,7 @@ signed main() {
 	}
 	int res = inf;
 	rep(i,0,VLIM) res = min(res, dp[i]);
+	assert(res != inf);
 	cout << res << endl;
 	exit(0);
 }
