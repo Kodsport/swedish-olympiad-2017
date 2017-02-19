@@ -4,13 +4,13 @@ Texten består av $K$ olika bokstäver, och är $N$ bokstäver lång.
 Doris har inte så bra minne, så hon kommer inte ihåg var bokstäverna på tangentbordet sitter.
 Istället använder hon en variant av den så kallade \emph{pekgälsvalsen} när hon skriver.
 
-Doris skriver sin text i $K$ omgångar, en omgång för varje av de olika bokstäverna som utgör texten.
+Doris skriver sin text i $K$ omgångar, en omgång för var och en av de olika bokstäverna som utgör texten.
 I början skriver Doris ned alla förekomster av en av bokstäverna med sin ena gäl.
 Därefter går hon tillbaka till början av texten, och väljer ut en ny bokstav.
 Sedan skriver hon in alla förekomster av denna bokstav, genom att använda högerpilstangenten med hennes andra gäl.
 Efter detta går hon återigen tillbaka till början av texten, nu för att skriva ned den tredje bokstaven, och så vidare.
 Hon upprepar detta tills hon skrivit hela texten.
-På så sätt behöver hon bara minnas var tangenten för en viss bokstav finns i taget.
+På så sätt behöver hon bara minnas var tangenten för en enda bokstav finns i taget.
 
 Beroende på vilken ordning hon väljer att skriva in bokstäverna i kan detta ta olika lång tid.
 Om hon ska skriva in texten \texttt{aabbac} så kräver ordningen \texttt{a}, \texttt{b}, \texttt{c} att hon trycker på högerpilstangenten 7 gånger.
@@ -25,7 +25,7 @@ Ordningen \texttt{c}, \texttt{b}, \texttt{a} kräver endast att hon trycker hög
 
 \section*{Indata}
 Den första raden innehåller de positiva heltalen $N$ och $K$.
-Nästa rad innehåller en sträng med $N$ tecken, som innehåller de $K$ första små bokstäverna av \texttt{a, b, c, ...}.
+Nästa rad innehåller en sträng med $N$ tecken, valda bland de $K$ första små bokstäverna i alfabetet (\texttt{a}, \texttt{b}, \texttt{c}, \dots).
 
 \section*{Utdata}
 Skriv ut ett enda tal -- antalet gånger Doris måste trycka högerpil för att skriva texten.
