@@ -36,8 +36,9 @@ for i in range(m):
         d = maxp
     if mono:
         # larger cost for higher expiration and for higher value
-        k = d / 100000 * vr * maxw + random.triangular(-5.0, 5.0)
+        # also, give a penalty for small quantities
+        k = d / 100000 * (vr + 0.002) / 1.002 * maxw + random.triangular(-5.0, 5.0)
     else:
-        k = random.uniform(1, maxw) * vr
+        k = random.uniform(maxw/2, maxw - 1) * vr + 1
     k = max(min(round(k), maxw), 1)
     print(v, k, d)
