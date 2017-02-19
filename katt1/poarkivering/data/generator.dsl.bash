@@ -12,12 +12,18 @@ sample 1
 sample 2
 
 group dsame 11
+tc constant-1 generator_all n=1 mode=constant a=2 b=3
+tc constant-2 generator_all n=100 mode=constant a=2 b=3
+tc constant-3 generator_all n=100 mode=constant a=3 b=2
 tc dsame-1 generator_all n=10 mode=dsame
 tc dsame-2 generator_all n=100 mode=dsame
 tc dsame-3 generator_all n=100 mode=dsame
 tc dsame-4 generator_all n=100 mode=dsame
 
 group ssame 27
+tc constant-1
+tc constant-2
+tc constant-3
 tc ssame-1 generator_all n=10 mode=ssame
 tc ssame-2 generator_all n=100 mode=ssame
 tc ssame-3 generator_all n=100 mode=ssame

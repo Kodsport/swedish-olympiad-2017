@@ -24,6 +24,11 @@ if mode == 'dsame':
 elif mode == 'ssame':
     r = random.randint(1, lim // n * 2)
     s = [r] * n
+elif mode == 'constant':
+    d = [[int(arg('a'))] * n for _ in range(n)]
+    s = [int(arg('b'))] * n
+else:
+    assert mode == ''
 for i in range(n):
     d[i][i] = 0
 if sym:
