@@ -6,6 +6,7 @@ N = int(input())
 G = [[] for i in range(N)]
 for i in range(N - 1):
     a, b, l = map(int, input().split())
+    assert a != b
     G[a].append(b)
     G[b].append(a)
 
@@ -21,6 +22,7 @@ assert False not in seen
 E = int(input())
 for i in range(E):
     a, b, l = map(int, input().split())
+    assert a != b
     assert a not in G[b]
     assert b not in G[a]
     G[a].append(b)

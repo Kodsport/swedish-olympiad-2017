@@ -21,11 +21,13 @@ int main() {
     }
 
     int d0 = D[0][1];
-
-    int minSize = *min_element(S.begin(), S.end());
-    int totalSize = 0;
+    int minPos = min_element(S.begin(), S.end()) - S.begin();
+    int totalSize = S[minPos];
     for (int i = 0; i < N; i++) {
-        totalSize += min(S[i], d0);
+        if (i != minPos) {
+            totalSize += min(S[i], d0);
+        }
     }
     cout << totalSize << '\n';
+    return 0;
 }
