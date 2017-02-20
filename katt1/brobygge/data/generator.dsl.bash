@@ -36,6 +36,10 @@ subgroup() {
 	tc general-e$1-02 generator_general n=100000 e=$1
 	tc general-e$1-03 generator_general n=100000 e=$1
 	tc general-e$1-04 generator_general n=100000 e=$1
+	tc star-e$1-01 generator_general n=100000 e=$1 c=5
+	tc star-e$1-02 generator_general n=100000 e=$1 c=5
+	tc star-e$1-03 generator_general n=100000 e=$1 c=5
+	tc star-e$1-04 generator_general n=100000 e=$1 c=5
 }
 
 subgroup 0
@@ -43,4 +47,5 @@ subgroup 1
 subgroup 2
 
 generate_grader
+generate_cms
 cleanup_programs

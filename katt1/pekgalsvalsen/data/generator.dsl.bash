@@ -62,4 +62,5 @@ tc precompute-dp-08 generator_periodic n=1000000 k=18
 tc precompute-dp-09 generator_periodic n=1000000 k=18
 
 generate_grader
+generate_cms
 cleanup_programs

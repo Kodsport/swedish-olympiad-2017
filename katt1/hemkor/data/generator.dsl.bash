@@ -44,4 +44,5 @@ tc large-2 generator_all n=5000 m=100000
 tc large-3 generator_all n=5000 m=100000 mono=1
 
 generate_grader
+generate_cms
 cleanup_programs

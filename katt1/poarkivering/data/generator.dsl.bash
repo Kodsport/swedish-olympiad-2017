@@ -48,4 +48,5 @@ tc hard-5 generator_all n=99 mode=ssame s=0
 tc hard-6 generator_all n=99 mode=dsame s=0
 
 generate_grader
+generate_cms
 cleanup_programs
