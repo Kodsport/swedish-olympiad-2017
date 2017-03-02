@@ -2,8 +2,12 @@
 #include <vector>
 using namespace std;
 
+const int MAX_COLORS = 20;
+
 vector<bool> visited;
+vector<int> par;
 vector<vector<int> > e;
+vector<vector<int> > dp;
 
 int componentSize(int node) {
     if (visited[node]) {
@@ -17,22 +21,34 @@ int componentSize(int node) {
     return ret;
 }
 
-pair<int, bool> solveTree(int node) {
-    if (visited[node]) {
-        return make_pair(0, false);
-    }
+void generateParents(int node) {
     visited[node] = true;
-    int ret = 0;
-    bool dead = false;
     for (int next : e[node]) {
-        pair<int, bool> res = solveTree(next);
-        ret += res.first;
-        dead |= res.second;
+        if (!visited[next]) {
+            par[next] = node;
+            generateParents(next);
+        }
     }
-    if (dead) {
-        ret++;
+}
+
+int solveTree(int node, int lastColor) {
+    if (dp[node][lastColor] != -1) {
+        return dp[node][lastColor];
     }
-    return make_pair(ret, !dead);
+    int ret = 1 << 30;
+    for (int i = 0; i < MAX_COLORS; i++) {
+        if (i == lastColor) {
+            continue;
+        }
+        int res = i;
+        for (int next : e[node]) {
+            if (next != par[node]) {
+                res += solveTree(next, i);
+            }
+        }
+        ret = min(ret, res);
+    }
+    return dp[node][lastColor] = ret;
 }
 
 int main() {
@@ -41,7 +57,9 @@ int main() {
     int n, m;
     cin >> n >> m;
     visited = vector<bool>(n, false);
+    dp = vector<vector<int> >(n, vector<int>(MAX_COLORS+1, -1));
     e = vector<vector<int> >(n, vector<int>());
+    par = vector<int>(n, -1);
     for (int i = 0; i < n; i++) {
         int a, b;
         cin >> a >> b;
@@ -56,7 +74,8 @@ int main() {
     int ans = 0;
     for (int root : deg[2]) {
         if (!visited[root]) {
-            ans += solveTree(root).first;
+            generateParents(root);
+            ans += solveTree(root, MAX_COLORS);
         }
     }
     for (int node : deg[0]) {
