@@ -1,0 +1,37 @@
+
+\def\version{1}
+\problemname{Primärfaktor}
+
+“Vilket är världens högsta berg? Den högsta punkten på Mount Everests topp. OK, men vilket är världens näst högsta berg? Den näst högsta punkten på Mount Everests topp såklart.”\\
+Med den här logiken blir listan på världens högsta berg väldigt dum. Men det finns en lösning, man introducerar begreppet primärfaktor. Primärfaktorn hos ett berg är det minsta avståndet i höjdled man måste gå ner från berget för att komma till ett strikt högre berg. Det funkar som ett slags mått på hur självständigt ett berg är, och om man rensar bort alla punkter med primärfaktor mindre än 200 m, så blir man av med alla fåniga små berg som egentligen sitter på högre berg. Det här problemet handlar om att hitta alla primärfaktorer i en graf.
+\\\\
+Vi har en graf med $n$ noder och $m$ kanter, där varje nod $i$ har ett icke-negativt heltal $h(i)$, nodens höjd. En nods primärfaktor $P(i)$ är den minsta höjden man måste gå ner från noden för att komma till en nod med strikt högre höjd. Här kommer en lite mer matematisk definition:
+Låt $G(i)$ vara mängden av alla vägar från noden $i$ till någon annan nod $j$ sådan att $h(j) > h(i)$. Primärfaktorn hos $i$ definieras som 
+
+\begin{align*} 
+P(i) =  \min_{\gamma \in G(i)}  \left\{   h(i) - \min_{k\in \gamma}(h(k))  \right\}
+\end{align*} 
+
+Om $G(i) = \emptyset$, dvs om det överhuvudtaget inte går att ta sig till en nod med högre höjd, så säger vi att primärfaktorn är $h(i)$. \\\\
+Givet en graf, hitta alla noders primärfaktorer.
+
+\section*{Indata}
+En rad med två heltal, $n$ och $m$. En rad med $n$ heltal $h(i)$, nodernas höjder. $m$ rader med två heltal, $a$ och $b$ ($0 < a,b \leq n$), vilket betyder att en kant går mellan noderna $a$ och $b$.
+
+\section*{Utdata}
+En rad med $n$ heltal, nodernas primärfaktorer.
+
+\section*{Poängsättning}
+Din lösning kommer att testas på en mängd testfallsgrupper. För att få poäng för en grupp
+så måste du klara alla testfall i gruppen.
+
+\noindent
+\begin{tabular}{| l | l | l | l |}
+\hline
+Grupp & Poängvärde & Gränser \\ \hline
+	1     & 25 & $n \le 1000, m \le 4000$ \\ \hline
+	2     & 25 & $n \le 100\,000,$ grafen är en linje, dvs  kanterna är $(1,2),(2,3) \dots (n-1,n)$  \\ \hline
+	3     & 50 & $n \le 100\,000, m \le 400\,000$ \\ \hline
+
+\end{tabular}
+

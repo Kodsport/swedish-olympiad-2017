@@ -16,6 +16,14 @@ int tr(char c) {
 	assert(0);
 }
 
+void nextsize(int* n) {
+	*n += 2;
+	if (*n >= 1000) {
+		*n += (int)sqrt(*n);
+		*n &= -2;
+	}
+}
+
 int main() {
 	cin.sync_with_stdio(false);
 	cin.exceptions(cin.failbit);
@@ -43,7 +51,7 @@ int main() {
 		s2.clear();
 	}
 
-	for (int n = 2;; n += 2) { // (could retry several times)
+	for (int n = 2;; nextsize(&n)) { // (could retry several times)
 		array<int, 3> nothing = {{-1,-1,-1}};
 		vector<array<int, 3>> ed(n, nothing);
 		vector<int> remaining[3];
@@ -70,7 +78,13 @@ int main() {
 				ed[at2][c] = at;
 			}
 			at = ed[at][c];
+			assert(at != n-1);
 			return true;
+		};
+		auto walk2 = [&](int c) {
+			assert(ed[at][c] != -1);
+			assert(at != n-1);
+			at = ed[at][c];
 		};
 
 		rep(i,0,sz(s2)) {
@@ -81,6 +95,8 @@ int main() {
 			trav(c, init) if (!walk(c, false)) goto fail;
 			int at1 = at;
 			trav(c, s) if (!walk(c, false)) goto fail;
+			assert(at == at1);
+			trav(c, s) walk2(c);
 			assert(at == at1);
 			rep(j,0,3) {
 				remaining[j].push_back(n-1);
@@ -95,6 +111,16 @@ int main() {
 				}
 				assert(last == -1);
 			}
+
+			vi seen(n);
+			vi stack = {0};
+			while (!stack.empty()) {
+				int ind = stack.back();
+				stack.pop_back();
+				if (seen[ind]++) continue;
+				rep(j,0,3) stack.push_back(ed[ind][j]);
+			}
+			rep(i,0,n) if (!seen[i]) goto fail;
 
 			cout << n << ' ' << at1 << ' ' << n-1 << endl;
 			rep(i,0,n) {
