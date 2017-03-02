@@ -83,7 +83,7 @@ int main(int argc, char** argv) {
 	rep(i,0,N) if (!seen[i]) die("graph must be connected");
 
 	set<pii> seen2;
-	int at = 0, sat = 0;
+	int at = startnode, sat = 0;
 	while (true) {
 		if (at == endnode) die("end node must not be reachable");
 		if (!seen2.insert(pii(at, sat)).second) break;
