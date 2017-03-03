@@ -2,7 +2,7 @@
 #include <vector>
 using namespace std;
 
-const int MAX_COLORS = 20;
+const int MAX_COLORS = 40;
 
 vector<bool> visited;
 vector<int> par;
@@ -66,25 +66,25 @@ int main() {
         e[a].push_back(b);
         e[b].push_back(a);
     }
-    vector<vector<int> > deg(3, vector<int>());
+    vector<vector<int> > deg(4, vector<int>());
     for (int i = 0; i < n; i++) {
-        int d = min(2, (int)e[i].size() - 1);
+        int d = min(3, (int)e[i].size());
         deg[d].push_back(i);
     }
 
     int ans = 0;
-    for (int root : deg[2]) {
+    for (int root : deg[3]) {
         if (!visited[root]) {
             generateParents(root);
             ans += solveTree(root, MAX_COLORS);
         }
     }
-    for (int node : deg[0]) {
+    for (int node : deg[1]) {
         if (!visited[node]) {
             ans += componentSize(node) / 2;
         }
     }
-    for (int node : deg[1]) {
+    for (int node : deg[2]) {
         if (!visited[node]) {
             int compSize = componentSize(node);
             if (compSize & 1) {
