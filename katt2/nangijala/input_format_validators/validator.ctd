@@ -8,5 +8,7 @@ REPI(i, m)
 		SET(b[i] = c)
 	END
 END
-ASSERT(UNIQUE(a, b))
+IF(m > 0)
+	ASSERT(UNIQUE(a, b))
+END
 EOF
