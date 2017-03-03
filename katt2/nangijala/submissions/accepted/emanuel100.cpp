@@ -54,13 +54,14 @@ int solveTree(int node, int lastColor) {
 int main() {
     cin.sync_with_stdio(false);
     cin.tie(NULL);
+    cin.exceptions(cin.failbit | cin.eofbit | cin.badbit);
     int n, m;
     cin >> n >> m;
     visited = vector<bool>(n, false);
     dp = vector<vector<int> >(n, vector<int>(MAX_COLORS+1, -1));
     e = vector<vector<int> >(n, vector<int>());
     par = vector<int>(n, -1);
-    for (int i = 0; i < n; i++) {
+    for (int i = 0; i < m; i++) {
         int a, b;
         cin >> a >> b;
         e[a].push_back(b);
