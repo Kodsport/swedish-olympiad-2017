@@ -111,5 +111,7 @@ int main()
         cout << PF[c1] << " ";
     }
 
+    cout << endl;
+
     return 0;
 }

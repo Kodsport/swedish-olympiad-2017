@@ -23,11 +23,11 @@ def main():
     print(" ".join(str(random.randint(0,maxh)) for x in range(0, n)))
     S = set()
     for k in range(0,m):
-        i = random.randint(0,n+1)
-        j = random.randint(0,n+1)
+        i = random.randint(0,n-1)
+        j = random.randint(0,n-1)
         while not (i != j and (max(i,j)*n+min(i,j)) not in S):
-            i = random.randint(0,n+1)
-            j = random.randint(0,n+1)
+            i = random.randint(0,n-1)
+            j = random.randint(0,n-1)
         S.add(max(i,j)*n+min(i,j))
         print(str(i+1) + " " + str(j+1))
         
