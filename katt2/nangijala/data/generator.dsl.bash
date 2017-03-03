@@ -15,20 +15,14 @@ sample 1
 sample 2
 sample 3
 
-group pairs 25
+group pairs 11
 tc pairs-01 generator_pairs n=1000 m=23
 tc pairs-02 generator_pairs n=100000 m=43212
 tc pairs-03 generator_pairs n=100000 m=49997
 tc pairs-04 generator_pairs n=1 m=0
 tc pairs-04 generator_pairs n=100000 m=0
 
-group small 25
-tc small-01 generator_pairs n=15 m=5
-tc small-02 generator_path n=15 m=13
-tc small-03 generator_cycle n=15 m=12
-tc small-04 generator_cycle n=15 m=15
-
-group large 25
+group large 36
 include_group pairs
 include_group small
 tc large-01 generator_path n=100000 m=99865
@@ -37,12 +31,24 @@ tc large-03 generator_cycle n=100000 m=99999
 tc large-04 generator_mixed n=100000 m=50000 s=8000
 tc large-05 generator_mixed n=100000 m=99999 s=50000
 
-group tree 25
+group small_tree 26
+tc small_tree-01 generator_tree n=10
+tc small_tree-02 generator_tree n=10
+tc small_tree-03 generator_tree n=10
+tc small_tree-04 generator_tree n=10
+tc small_tree-05 generator_tree n=10
+tc small_tree-06 generator_tree n=10
+tc small_tree-07 generator_tree n=10
+tc small_tree-08 generator_tree n=10
+tc small_tree-09 generator_tree n=10
+tc small_tree-10 generator_tree n=10
+tc small_tree-10 generator_tree n=1
+
+group tree 27
+include_group small_tree
 tc large-01 generator_tree n=100000
 tc large-02 generator_tree n=100000
 tc large-03 generator_tree n=100000
-tc large-04 generator_tree n=10
-tc large-04 generator_tree n=1
 
 generate_grader
 generate_cms
