@@ -32,6 +32,7 @@ tc line-04 gen_line n=100000 maxh=0
 tc line-05 gen_line n=100000 maxh=1
 tc line-06 gen_line n=1
 tc line-07 gen_abacaba n=100000
+tc line-08 gen_hardline n=100000
 
 group large 50
 include_group small
