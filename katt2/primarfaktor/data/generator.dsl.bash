@@ -8,6 +8,7 @@ compile gen_random.py
 compile gen_line.py
 compile gen_greedykiller.py
 compile gen_flower.py
+compile gen_abacaba.py
 
 samplegroup
 sample 1
@@ -30,6 +31,7 @@ tc line-03 gen_line n=100000
 tc line-04 gen_line n=100000 maxh=0
 tc line-05 gen_line n=100000 maxh=1
 tc line-06 gen_line n=1
+tc line-07 gen_abacaba n=100000
 
 group large 50
 include_group small
