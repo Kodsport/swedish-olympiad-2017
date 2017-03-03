@@ -1,0 +1,12 @@
+INT(1, 100000, n) SPACE INT(0, n, m) NEWLINE
+REPI(i, m)
+	INT(0, n-1, a[i]) SPACE INT(0, n-1, b[i]) NEWLINE
+	ASSERT(a[i] != b[i])
+	IF(a[i] > b[i])
+		SET(c = a[i])
+		SET(a[i] = b[i])
+		SET(b[i] = c)
+	END
+END
+ASSERT(UNIQUE(a, b))
+EOF
