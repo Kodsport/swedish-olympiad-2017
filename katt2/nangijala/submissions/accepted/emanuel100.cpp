@@ -2,7 +2,7 @@
 #include <vector>
 using namespace std;
 
-const int MAX_COLORS = 40;
+const int MAX_COLORS = 15;
 
 vector<bool> visited;
 vector<int> par;
