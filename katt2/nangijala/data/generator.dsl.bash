@@ -29,6 +29,7 @@ tc large-02 generator_cycle n=100000 m=100000
 tc large-03 generator_cycle n=100000 m=99999
 tc large-04 generator_mixed n=100000 m=50000 s=8000
 tc large-05 generator_mixed n=100000 m=99999 s=50000
+tc large-06 generator_mixed n=100000 m=49999 s=3
 
 group small_tree 26
 tc small_tree-01 generator_tree n=10
@@ -38,9 +39,9 @@ tc small_tree-04 generator_tree n=10
 tc small_tree-05 generator_tree n=10
 tc small_tree-06 generator_tree n=10
 tc small_tree-07 generator_tree n=10
-tc small_tree-08 generator_tree n=10
-tc small_tree-09 generator_tree n=10
-tc small_tree-10 generator_tree n=10
+tc small_tree-08 generator_tree n=10 seed=15
+tc small_tree-09 generator_tree n=10 seed=52
+tc small_tree-10 generator_tree n=10 seed=72
 tc small_tree-11 generator_tree n=1
 
 group tree 27

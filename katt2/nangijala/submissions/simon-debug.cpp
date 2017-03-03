@@ -68,7 +68,7 @@ int solvetree(vector<vi>& ed, int MAX) {
 
 int solvetree(vector<vi>& ed) {
 	int res = solvetree(ed, 20);
-	int lo = 2, hi = 20;
+	int lo = 1, hi = 20;
 	while (lo + 1 < hi) {
 		int mid = (lo + hi) / 2;
 		if (solvetree(ed, mid) == res)

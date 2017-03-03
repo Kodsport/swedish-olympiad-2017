@@ -11,7 +11,7 @@ def arg(name, default=None):
     assert default is not None
     return default
 
-random.seed(int(sys.argv[-1]))
+random.seed(int(arg('seed', sys.argv[-1])))
 n = int(arg('n'))
 
 ed = []
