@@ -68,7 +68,8 @@ int main() {
     }
     vector<vector<int> > deg(3, vector<int>());
     for (int i = 0; i < n; i++) {
-        deg[e[i].size()].push_back(i);
+        int d = min(2, (int)e[i].size() - 1);
+        deg[d].push_back(i);
     }
 
     int ans = 0;
