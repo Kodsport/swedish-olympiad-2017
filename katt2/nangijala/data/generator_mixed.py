@@ -37,14 +37,14 @@ def main():
     while m > 0:
         if isCycle and m > 2:
             length = min(s, m)
-            cycle(i, i+s, shuffleNodes)
-            m -= s
+            cycle(i, i+length, shuffleNodes)
+            m -= length
             i += length
             isCycle = False
         else:
             length = min(s, m+1)
-            path(i, i+s, shuffleNodes)
-            m -= s - 1
+            path(i, i+length, shuffleNodes)
+            m -= length - 1
             i += length
             isCycle = True
     assert m == 0
