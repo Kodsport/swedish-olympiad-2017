@@ -47,6 +47,7 @@ def main():
             m -= s - 1
             i += length
             isCycle = True
+    assert m == 0
 
 if __name__ == "__main__":
     main()
