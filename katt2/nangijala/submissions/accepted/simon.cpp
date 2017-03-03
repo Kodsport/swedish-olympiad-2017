@@ -30,8 +30,8 @@ int solvecyc(vector<vi>& ed) {
 		ecount /= 2;
 
 		if (ecount == vcount) {
-			if (vcount != 1)
-				res += vcount / 2 + 2;
+			assert(vcount > 1);
+			res += vcount / 2 + (vcount % 2 == 0 ? 0 : 2);
 		}
 		else {
 			assert(vcount == ecount + 1);
