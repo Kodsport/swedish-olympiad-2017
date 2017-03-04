@@ -9,6 +9,7 @@ compile gen_line.py
 compile gen_greedykiller.py
 compile gen_flower.py
 compile gen_abacaba.py
+compile gen_hardline.py
 
 samplegroup
 sample 1
