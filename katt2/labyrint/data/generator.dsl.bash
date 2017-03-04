@@ -26,3 +26,5 @@ tc huge-pad generator_random m=1 padding=200000
 generate_grader
 generate_cms
 cleanup_programs
+
+cp testdata.yaml secret/testdata.yaml # sum, not groups
