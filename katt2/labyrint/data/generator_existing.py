@@ -15,7 +15,10 @@ n = int(arg('n'))
 m = int(arg('m'))
 avoid = int(arg('avoid', 1))
 padding = int(arg('padding', 0))
+dup = int(arg('dup', 1))
 ngood = n - avoid
+if not dup:
+    assert not padding
 
 assert n % 2 == 0
 ed = [[] for _ in range(n)]
@@ -34,16 +37,23 @@ i = 0
 s = ""
 assert 0 < ngood
 assert ed[0][0] < ngood or ed[0][1] < ngood or ed[0][2] < ngood # hopefully true!
+firstc = -1
+lastc = -1
 while True:
     while True:
         c = random.randint(0, 2)
+        if not dup and c == lastc:
+            continue
         if ed[at][c] < ngood:
             break
+    if firstc == -1:
+        firstc = c
+    lastc = c
     s += "RGB"[c]
     assert ed[ed[at][c]][c] == at
     at = ed[at][c]
     i += 1
-    if i >= m and at == 0:
+    if i >= m and at == 0 and (dup or c != firstc):
         break
 
 s = list(s)
