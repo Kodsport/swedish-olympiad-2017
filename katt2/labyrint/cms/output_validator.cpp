@@ -1,4 +1,4 @@
-// usage: ./a.out input_file correct_output output_dir < contestants_output
+// usage: ./a.out input_file correct_output contestant < contestants_output
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -8,17 +8,16 @@ using namespace std;
 typedef vector<int> vi;
 typedef pair<int, int> pii;
 
-string input_file, output_dir, answer_file;
+string input_file, contestant, answer_file;
 
 void die(const string& msg) {
-	cout << msg << endl;
-	ofstream(output_dir + "/score.txt") << 0;
-    exit(43);
+	cout << 0.0 << endl;
+	exit(0);
 }
 
 void accept(double score) {
-	ofstream(output_dir + "/score.txt") << setprecision(2) << fixed << score;
-    exit(42);
+	cout << score << endl;
+	exit(0);
 }
 
 void assert_done(istream& is) {
@@ -31,12 +30,10 @@ void assert_done(istream& is) {
 
 int main(int argc, char** argv) {
 	if (argc < 4) exit(1);
-	cin.sync_with_stdio(0);
-	cin.tie(0);
 
 	input_file = argv[1];
 	answer_file = argv[2];
-	output_dir = argv[3];
+	contestant = argv[3];
 
 	ifstream fin(input_file);
 	fin.exceptions(cin.failbit | cin.badbit | cin.eofbit);
@@ -53,22 +50,23 @@ int main(int argc, char** argv) {
 	fin >> bestn;
 	fin.close();
 
+	fin.open(contestant);
 	try {
-	cin.exceptions(cin.failbit | cin.badbit | cin.eofbit);
+	fin.exceptions(cin.failbit | cin.badbit | cin.eofbit);
 
 	int N, startnode, endnode;
-	cin >> N >> startnode >> endnode;
+	fin >> N >> startnode >> endnode;
 	if (N <= 1 || N >= maxn) die("invalid size");
 	if (startnode < 0 || endnode < 0 || startnode >= N || endnode >= N || startnode == endnode)
 		die("invalid start/end nodes");
 
 	vector<array<int, 3>> ed(N);
 	rep(i,0,N) rep(j,0,3) {
-		cin >> ed[i][j];
+		fin >> ed[i][j];
 		if (ed[i][j] < 0 || ed[i][j] >= N) die("edge out of range");
 		if (ed[i][j] == i) die("self-edge");
 	}
-	assert_done(cin);
+	assert_done(fin);
 
 	rep(i,0,N) rep(j,0,3) {
 		if (ed[ed[i][j]][j] != i) die("graph must be undirected");
@@ -101,7 +99,7 @@ int main(int argc, char** argv) {
 	double rat2 = maxn / (double)bestn;
 	assert(rat2 > 1 && rat1 < rat2);
 	double rat = log(rat1) / log(rat2);
-	double score = 10 * (1 - rat);
+	double score = (1 - rat);
 	accept(score);
 	} catch(...) {
 		die("IO failure");
