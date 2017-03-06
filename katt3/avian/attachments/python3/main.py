@@ -26,7 +26,7 @@ def main():
 
     subset = []
     for i in range(C):
-        subset.append(I[i])
+        subset.append(encoded[I[i]])
 
     decoded = decode(C, K, N, subset, I);
     sys.stdout.write(decoded + "\n")
