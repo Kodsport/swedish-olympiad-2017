@@ -3,7 +3,7 @@ PPATH=$(realpath ..)
 . ../../testdata_tools/gen.sh
 
 setup_dirs
-use_solution cheat/runner.cpp
+use_solution ../cheat.cpp
 compile gen_random.py
 
 group Subtask-1 33
