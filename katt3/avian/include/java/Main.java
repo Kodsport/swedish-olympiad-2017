@@ -1,18 +1,18 @@
 import java.io.*;
 import java.util.*;
 
-public class main {
+public class Main {
 
 	public static void main(String... args) throws InterruptedException, IOException {
 		if (args.length == 0) {
 			Runtime rt = Runtime.getRuntime();
-			Process enc = new ProcessBuilder("/usr/bin/java", "-cp", System.getProperty("java.class.path"), "main", "encoder")
+			Process enc = new ProcessBuilder("/usr/bin/java", "-cp", System.getProperty("java.class.path"), "Main", "encoder")
 				.redirectInput(ProcessBuilder.Redirect.INHERIT)
 				.redirectError(ProcessBuilder.Redirect.INHERIT)
 				.redirectOutput(ProcessBuilder.Redirect.PIPE)
 				.start();
 
-			Process dec = new ProcessBuilder("/usr/bin/java", "-cp", System.getProperty("java.class.path"), "main", "decoder")
+			Process dec = new ProcessBuilder("/usr/bin/java", "-cp", System.getProperty("java.class.path"), "Main", "decoder")
 				.redirectOutput(ProcessBuilder.Redirect.INHERIT)
 				.redirectError(ProcessBuilder.Redirect.INHERIT)
 				.redirectInput(ProcessBuilder.Redirect.PIPE)
