@@ -21,17 +21,17 @@ def main():
         encoded = encode(C, K, N, X)
         if len(encoded) != K:
             sys.stderr.write("Encoder gave {} strings, expected {}\n".format(len(encoded), K))
-            sys.exit(USER_FAIL)
+            sys.exit(_USER_FAIL)
 
         for s in encoded:
             if len(s) != N:
                 sys.stderr.write("Encoder gave string of length {}, expected {}\n".format(len(s), N))
-                sys.exit(USER_FAIL)
+                sys.exit(_USER_FAIL)
 
                 for c in s:
                     if not c in ['0', '1']:
                         sys.stderr.write("Encoder gave string containing {}, expected either 0 or 1\n", c)
-                        sys.exit(USER_FAIL)
+                        sys.exit(_USER_FAIL)
 
         for i in range(C):
             w.write(encoded[I[i]])
