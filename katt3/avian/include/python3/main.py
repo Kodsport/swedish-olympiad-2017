@@ -1,10 +1,10 @@
-#!/usr/bin/env python2
+#!/usr/bin/env python3
 import os
 import sys
 
 from avian import encode, decode
 
-_USER_FAIL = 210;
+_USER_FAIL = 120;
 _SECRET_KEY = "iunty23v7itdhugh3c";
 
 def main():
