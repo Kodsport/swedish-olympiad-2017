@@ -44,7 +44,7 @@ def main():
         pid, status = os.waitpid(pid, 0)
         if os.WIFSIGNALED(status): os.kill(pid, os.WTERMSIG(status))
         ex = os.WEXITSTATUS(status)
-        if ex == _USER_FAIL: sys.exit(EXIT_SUCCESS);
+        if ex == _USER_FAIL: sys.exit(0);
         if ex != 0: sys.exit(ex);
         buf = r.read()
         subset = buf.strip().split('\n')
