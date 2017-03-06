@@ -1,4 +1,4 @@
-#!/usr/bin/env python2
+#!/usr/bin/env python3
 def encode(C, K, N, X):
     return ['0'*N for i in range(K)]
 
