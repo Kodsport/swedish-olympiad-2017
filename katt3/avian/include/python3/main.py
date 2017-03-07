@@ -1,10 +1,10 @@
-#!/usr/bin/env python2
+#!/usr/bin/env python3
 import os
 import sys
 
 from avian import encode, decode
 
-_USER_FAIL = 210;
+_USER_FAIL = 120;
 _SECRET_KEY = "iunty23v7itdhugh3c";
 
 def main():
@@ -44,7 +44,7 @@ def main():
         pid, status = os.waitpid(pid, 0)
         if os.WIFSIGNALED(status): os.kill(pid, os.WTERMSIG(status))
         ex = os.WEXITSTATUS(status)
-        if ex == _USER_FAIL: sys.exit(EXIT_SUCCESS);
+        if ex == _USER_FAIL: sys.exit(0);
         if ex != 0: sys.exit(ex);
         buf = r.read()
         subset = buf.strip().split('\n')
