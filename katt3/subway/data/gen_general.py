@@ -23,7 +23,7 @@ def randomtree(n):
     random.shuffle(x)
     edges = []
     for i in range(1, n):
-        edges.append((x[i], random.choice(x[:i])))
+        edges.append((x[i], x[random.randint(0,i-1)]))
     return edges
 
 def ptree(G):

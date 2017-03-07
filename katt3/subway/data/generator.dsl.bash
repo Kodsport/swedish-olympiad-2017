@@ -21,12 +21,14 @@ addgroup(){
 	tc $1-07 gen_general n=$2 a=tree b=line
 	tc $1-08 gen_general n=$2 a=tree b=line
 	tc $1-09 gen_general n=$2 a=tree b=line
-	tc $1-10 gen_general n=$2 a=tree b=line
 
-	tc $1-11 gen_general n=$2 a=line b=line
-	tc $1-12 gen_general n=$2 a=line b=line
+	tc $1-10 gen_general n=$2 a=line b=tree
+	tc $1-11 gen_general n=$2 a=line b=tree
+	tc $1-12 gen_general n=$2 a=line b=tree
+
 	tc $1-13 gen_general n=$2 a=line b=line
 	tc $1-14 gen_general n=$2 a=line b=line
+	tc $1-15 gen_general n=$2 a=line b=line
 }
 
 group small 25

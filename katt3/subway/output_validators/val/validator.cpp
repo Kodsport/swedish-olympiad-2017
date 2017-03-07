@@ -84,10 +84,9 @@ int main(int argc, char** argv) {
 		if (!targetEdges.count(pii(a2, b2))) die("Inserting edge not part of new system");
 		curEdges.insert(pii(a2, b2));
 		lc.cut(a, b);
+		if (lc.connected(a2, b2)) die("Move disconnected the tree!");
 		lc.link(a2, b2);
-		if (!lc.connected(a, b)) {
-			die("Move disconnected the tree!");
-		}
+		assert(lc.connected(a, b));
 	}
 	if (curEdges != targetEdges) {
 		die("New system does not match the plan");
