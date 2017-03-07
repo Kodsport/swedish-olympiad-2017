@@ -11,7 +11,7 @@ samplegroup
 sample 1
 sample 2
 
-group small 25
+group small 33
 tc small-01 gen_general n=10
 tc small-02 gen_general n=10
 tc small-03 gen_general n=10
@@ -25,7 +25,7 @@ tc small-08 gen_line n=10
 tc small-09 gen_line n=10
 tc small-10 gen_line n=10
 
-group mid 25
+group mid 33
 include_group small
 tc mid-01 gen_general n=1000
 tc mid-02 gen_general n=1000
@@ -40,7 +40,7 @@ tc mid-08 gen_line n=1000
 tc mid-09 gen_line n=1000
 tc mid-10 gen_line n=1000
 
-group large 25
+group large 34
 include_group mid
 tc large-01 gen_general n=200000
 tc large-02 gen_general n=200000
