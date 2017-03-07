@@ -7,3 +7,4 @@ grading:
     objective: max
     range: 0 100
 type: scoring
+validation: custom

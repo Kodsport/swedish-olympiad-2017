@@ -4,57 +4,41 @@ PPATH=$(realpath ..)
 
 setup_dirs
 use_solution simon.cpp
-compile gen_random.py
-compile gen_line.py
+compile gen_general.py
 
 samplegroup
 sample 1
 sample 2
 
-group small 33
-tc small-01 gen_general n=10
-tc small-02 gen_general n=10
-tc small-03 gen_general n=10
-tc small-04 gen_general n=10
-tc small-05 gen_general n=10
-tc small-05 gen_general n=10
-tc small-06 gen_general n=10
+addgroup(){
+	tc $1-01 gen_general n=$2 a=tree b=tree
+	tc $1-02 gen_general n=$2 a=tree b=tree
+	tc $1-03 gen_general n=$2 a=tree b=tree
+	tc $1-04 gen_general n=$2 a=tree b=tree
+	tc $1-05 gen_general n=$2 a=tree b=tree
+	tc $1-06 gen_general n=$2 a=tree b=tree
 
-tc small-07 gen_line n=10
-tc small-08 gen_line n=10
-tc small-09 gen_line n=10
-tc small-10 gen_line n=10
+	tc $1-07 gen_general n=$2 a=tree b=line
+	tc $1-08 gen_general n=$2 a=tree b=line
+	tc $1-09 gen_general n=$2 a=tree b=line
+	tc $1-10 gen_general n=$2 a=tree b=line
 
-group mid 33
+	tc $1-11 gen_general n=$2 a=line b=line
+	tc $1-12 gen_general n=$2 a=line b=line
+	tc $1-13 gen_general n=$2 a=line b=line
+	tc $1-14 gen_general n=$2 a=line b=line
+}
+
+group small 25
+addgroup small 10
+
+group mid 37
 include_group small
-tc mid-01 gen_general n=1000
-tc mid-02 gen_general n=1000
-tc mid-03 gen_general n=1000
-tc mid-04 gen_general n=1000
-tc mid-05 gen_general n=1000
-tc mid-05 gen_general n=1000
-tc mid-06 gen_general n=1000
+addgroup medium 1000
 
-tc mid-07 gen_line n=1000
-tc mid-08 gen_line n=1000
-tc mid-09 gen_line n=1000
-tc mid-10 gen_line n=1000
-
-group large 34
+group large 38
 include_group mid
-tc large-01 gen_general n=200000
-tc large-02 gen_general n=200000
-tc large-03 gen_general n=200000
-tc large-04 gen_general n=200000
-tc large-05 gen_general n=200000
-tc large-05 gen_general n=200000
-tc large-06 gen_general n=200000
-
-tc large-07 gen_line n=200000
-tc large-08 gen_line n=200000
-tc large-09 gen_line n=200000
-tc large-10 gen_line n=200000
+addgroup large 100000
 
 generate_grader
-generate_cms
 cleanup_programs

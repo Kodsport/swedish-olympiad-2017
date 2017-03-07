@@ -89,13 +89,17 @@ int main() {
 
 	vector<tuple<int, int, int, int>> out;
 	while (!leaves.empty()) {
-		int comp = uf.find(leaves.back());
+		int theLeaf = leaves.back();
+		int comp = uf.find(theLeaf);
 		leaves.pop_back();
 
 		if (uf.ed[comp].empty()) continue;
 		Edge e = uf.ed[comp].back(), e2;
 		uf.ed[comp].pop_back();
-		if (dead[e.id]) continue;
+		if (dead[e.id]) {
+			leaves.push_back(theLeaf);
+			continue;
+		}
 
 		int x = e.u, y = e.v;
 		if (uf.find(x) != comp) swap(x, y);
@@ -118,16 +122,17 @@ int main() {
 		dead[e.id] = true;
 		dead[e2.id] = true;
 		--uf.deg[comp];
-		if (--uf.deg[uf.find(y)] == 1)
+		if (--uf.deg[uf.find(y)] == 1) {
 			leaves.push_back(y);
+		}
 		uf.join(x, y2);
 	}
 
-	assert(sz(out) == delta);
 	cout << sz(out) << endl;
 	trav(t, out) {
 		int a,b,c,d;
 		tie(a,b,c,d) = t;
 		cout << a << ' ' << b << ' ' << c << ' ' << d << '\n';
 	}
+	assert(sz(out) == delta);
 }

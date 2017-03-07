@@ -5,14 +5,14 @@ sys.setrecursionlimit(300000)
 N = int(input())
 G = [[] for i in range(N)]
 for i in range(N - 1):
-    a, b, l = map(int, input().split())
+    a, b = map(int, input().split())
     assert a != b
     G[a].append(b)
     G[b].append(a)
 
 G2 = [[] for i in range(N)]
 for i in range(N - 1):
-    a, b, l = map(int, input().split())
+    a, b = map(int, input().split())
     assert a != b
     G2[a].append(b)
     G2[b].append(a)
