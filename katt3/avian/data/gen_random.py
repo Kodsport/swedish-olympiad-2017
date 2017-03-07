@@ -4,7 +4,7 @@ import sys
 import random
 
 default = {
-    "n": 1000
+    "n": 997
 }
 
 def cmdlinearg(name):
