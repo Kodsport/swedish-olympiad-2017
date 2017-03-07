@@ -10,36 +10,47 @@ def cmdlinearg(name):
             return arg.split("=")[1]
     assert False
 
-def randomline(n):
-    x = list(range(n))
-    random.shuffle(x)
+def randomstar(n):
     G = []
     for i in range(n - 1):
-        G.append((x[i], x[i+1]))
+        G.append((i, n-1))
+    return G
+
+def randomline(n):
+    G = []
+    for i in range(n - 1):
+        G.append((i, i+1))
     return G
 
 def randomtree(n):
-    x = list(range(n))
-    random.shuffle(x)
     edges = []
     for i in range(1, n):
-        edges.append((x[i], x[random.randint(0,i-1)]))
+        edges.append((i, random.randint(0,i-1)))
     return edges
 
-def ptree(G):
+def gen(n, a):
+    if a == 'tree': return set(randomtree(n))
+    if a == 'star': return set(randomstar(n))
+    if a == 'line': return set(randomline(n))
+    assert False
+
+def ptree(G, n):
+    x = list(range(n))
+    random.shuffle(x)
     for a, b in G:
-        print("{} {}".format(a, b))
+        if random.choice([True, False]):
+            print("{} {}".format(x[a], x[b]))
+        else:
+            print("{} {}".format(x[b], x[a]))
 
 def main():
     random.seed(int(sys.argv[-1]))
     n = int(cmdlinearg('n'))
     a = cmdlinearg('a')
     b = cmdlinearg('b')
-    E1 = set(randomtree(n) if a is 'tree' else randomline(n))
-    E2 = set(randomtree(n) if b is 'tree' else randomline(n))
     print(n)
-    ptree(E1)
-    ptree(E2)
+    ptree(gen(n, a), n)
+    ptree(gen(n, b), n)
 
 if __name__ == "__main__":
     main()

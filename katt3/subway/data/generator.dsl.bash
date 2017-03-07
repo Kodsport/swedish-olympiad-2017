@@ -19,16 +19,14 @@ addgroup(){
 	tc $1-06 gen_general n=$2 a=tree b=tree
 
 	tc $1-07 gen_general n=$2 a=tree b=line
-	tc $1-08 gen_general n=$2 a=tree b=line
-	tc $1-09 gen_general n=$2 a=tree b=line
+	tc $1-08 gen_general n=$2 a=line b=tree
+	tc $1-09 gen_general n=$2 a=line b=line
 
-	tc $1-10 gen_general n=$2 a=line b=tree
-	tc $1-11 gen_general n=$2 a=line b=tree
-	tc $1-12 gen_general n=$2 a=line b=tree
-
-	tc $1-13 gen_general n=$2 a=line b=line
-	tc $1-14 gen_general n=$2 a=line b=line
-	tc $1-15 gen_general n=$2 a=line b=line
+	tc $1-10 gen_general n=$2 a=star b=tree
+	tc $1-11 gen_general n=$2 a=star b=line
+	tc $1-12 gen_general n=$2 a=tree b=star
+	tc $1-13 gen_general n=$2 a=line b=star
+	tc $1-14 gen_general n=$2 a=star b=star
 }
 
 group small 25
