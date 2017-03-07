@@ -68,7 +68,10 @@ public class avian {
         String ash = shiftL(a);
         String bb = halfXor(x, ash);
         //remove double aa's.
-        return halfXor2(bb, shiftL(bb));
+        String s = halfXor2(bb, shiftL(bb));
+        if (s.length() % 2 == 0) return s;
+        char cor = (char)((s.charAt(0) ^ ab.charAt(ab.length() - 1)) + '0');
+        return cor + s.substring(1);
     }
 
     private static int indexOf(int x, int[] I) {
@@ -110,4 +113,3 @@ public class avian {
         return "";
     }
 }
-
