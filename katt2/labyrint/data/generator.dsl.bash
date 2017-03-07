@@ -4,7 +4,7 @@ PPATH=$(realpath ..)
 . ../../testdata_tools/gen.sh
 
 setup_dirs
-use_solution simon_random.cpp
+use_solution david.cpp
 compile generator_existing.py
 compile generator_random.py
 
