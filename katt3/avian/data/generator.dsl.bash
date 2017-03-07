@@ -27,11 +27,11 @@ done
 group Subtask-4 25
 for i in {0..9}
 do
-tc subtask3-`printf "%02d" $i` gen_random c=3 k=5
+tc subtask4-`printf "%02d" $i` gen_random c=3 k=5
 done
 for i in {10..15}
 do
-tc subtask3-`printf "%02d" $i` gen_random c=3 k=5 n=998
+tc subtask4-`printf "%02d" $i` gen_random c=3 k=5 n=998
 done
 
 
