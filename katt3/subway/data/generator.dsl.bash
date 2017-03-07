@@ -29,14 +29,14 @@ addgroup(){
 	tc $1-14 gen_general n=$2 a=star b=star
 }
 
-group small 25
+group small 33
 addgroup small 10
 
-group mid 37
+group mid 33
 include_group small
 addgroup medium 1000
 
-group large 38
+group large 34
 include_group mid
 addgroup large 100000
 
