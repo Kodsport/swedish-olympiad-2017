@@ -8,9 +8,9 @@ _USER_FAIL = 120;
 _SECRET_KEY = "iunty23v7itdhugh3c";
 
 def main():
-    C, K, N = map(int, sys.stdin.readline().split())
-    X = sys.stdin.readline()
-    I = list(map(int, sys.stdin.readline().split()))
+    C, K, N = map(int, sys.stdin.readline().strip().split())
+    X = sys.stdin.readline().strip()
+    I = list(map(int, sys.stdin.readline().strip().split()))
 
     r, w = os.pipe()
     pid = os.fork()
