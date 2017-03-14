@@ -1,2 +1,2 @@
 # po2017
- Programmeringsolympiaden 2017 (EJ PUBLIKT)
+ Programmeringsolympiaden 2017
