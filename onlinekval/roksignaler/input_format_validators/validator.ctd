@@ -1,0 +1,13 @@
+REP(26)
+	REGEX("[A-Z] [.-]+\n")
+END
+INT(1, 1000, s)
+SPACE INT(1, 1000, p) NEWLINE
+ASSERT(s != p)
+INT(1, 1000, t) SPACE INT(1, 1000, b) SPACE INT(1, 1000, m) NEWLINE
+ASSERT(t != b)
+ASSERT(t != m)
+ASSERT(b != m)
+INT(1, 300000, n) SPACE REGEX("[01]+", inp) NEWLINE
+ASSERT(STRLEN(inp) == n)
+EOF
