@@ -47,5 +47,9 @@ def genname():
 
 print(40)
 for i in range(40):
-    print("{} {} {} {}".format(genname(), str(random.choice(age)), str(finals[i]),
+    name2 = genname()
+    age2 = random.choice(age)
+    if name2 == 'qmibpyjgtwzxsrxvdwrv':
+        age2 = 3
+    print("{} {} {} {}".format(name2, str(age2), str(finals[i]),
         ' '.join(str(x) for x in katts[i])))
