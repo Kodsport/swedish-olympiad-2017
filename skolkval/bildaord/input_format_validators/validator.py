@@ -16,12 +16,15 @@ assert 1 <= N <= 15
 assert K <= N
 assert K == len(data) - 1
 
+seen = set()
 valid_chars = 'ABCDEFGHIJKLMNOPQ'[0:N]
 for i in range(1, K+1):
     line = data[i]
     char = line[0]
     form = line[1]
     assert char in valid_chars
+    assert (char, form) not in seen
+    seen.add((char, form))
 
     if form == '@':
         # exempel: C@01,05,12
