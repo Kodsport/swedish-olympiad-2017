@@ -13,6 +13,7 @@ sample 1
 sample 2
 
 group g1 40
+limits maxA=7 minA=1
 tc g1-01 gen n=2 maxA=1
 tc g1-02 gen n=10 maxA=1
 tc g1-03 gen n=2 maxA=2
@@ -33,7 +34,6 @@ tc_manual ../manual_testdata/skolkval1.in
 
 
 group g2 60
-limits maxA=10 minA=1
 include_group g1
 include_group sample
 tc g2-01 gen n=2 minA=6
