@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import sys
 from numpy import *
 
@@ -35,4 +36,4 @@ def s(n,k=None):
     return (fact-1)*a(big)+s(big)+big/2*allupto(fact,1) + ( ((small+1)/2)*unit(fact)+a(small,big/10) if small>0 else 0)
 
 N=int(sys.stdin.readline())
-print " ".join([str(x) for x in s(N)])
+print(" ".join([str(x) for x in s(N)]))
