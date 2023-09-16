@@ -5,10 +5,10 @@
 typedef long long ll;
 
 void run() {
-    int maxN = Arg("maxN", 1e12);
-    int minN = Arg("minN",1);
+    ll maxN = Arg("maxN", 1e12);
+    ll minN = Arg("minN",1);
 
-    int n = Int(minN, maxN);
+    ll n = Int(minN, maxN);
     Endl();
     Eof();
 }
