@@ -14,7 +14,7 @@ sample 2
 sample 3
 
 group g1 60
-limits maxN=100000 minN=1
+limits maxN=100000 
 include_group sample
 tc g1-01 gen n=1
 tc g1-02 gen n=10
@@ -34,7 +34,7 @@ tc_manual ../manual_testdata/sidnumrering03.in
 
 
 group g2 40
-limits maxN=$((10**12)) minN=$((10**9))
+limits maxN=$((10**12)) 
 include_group g1
 tc g2-01 gen minN=$((10**9)) maxA=$((10**10))
 tc g2-02 gen minN=$((10**9)) maxA=$((10**10))
@@ -42,7 +42,7 @@ tc g2-03 gen n=$((10**9))
 tc g2-04 gen n=$((10**10))
 tc g2-05 gen n=$((10**11))
 tc g2-06 gen n=$((10**12))
-tc g2-07 gen minN=$((10**9))
+tc g2-07 gen minN=$((10**6)) maxN=$((10**8))
 tc g2-08 gen minN=$((10**9))
 tc g2-09 gen minN=$((10**10))
 tc g2-10 gen minN=$((10**10))
@@ -53,5 +53,10 @@ tc g2-14 gen minN=$((10**11))
 tc g2-15 gen minN=$((10**11))
 tc g2-16 gen minN=$((10**11))
 tc g2-17 gen minN=$((10**11))
+tc g2-18 gen minN=$((10**5)) maxN=$((10**6))
+tc g2-19 gen minN=$((10**6)) maxN=$((10**7))
+tc g2-20 gen minN=$((10**7)) maxN=$((10**8))
+tc g2-21 gen minN=$((10**8)) maxN=$((10**9))
+tc g2-22 gen minN=$((10**9)) maxN=$((10**10))
 tc_manual ../manual_testdata/sidnumrering04.in
 tc_manual ../manual_testdata/sidnumrering05.in
