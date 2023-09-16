@@ -29,7 +29,8 @@ tc g1-10 gen maxN=100000
 tc_manual ../manual_testdata/sidnumrering01.in
 tc_manual ../manual_testdata/sidnumrering02.in
 tc_manual ../manual_testdata/sidnumrering03.in
-
+tc_manual ../manual_testdata/manual1.in
+tc_manual ../manual_testdata/manual2.in
 
 
 
