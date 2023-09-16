@@ -1,11 +1,7 @@
-name: minigolf
 author: Johan Sannemo
-source: Programmeringsolympiaden 2017
+source: Programmeringsolympiadens skolkval 2017
 rights_owner: Programmeringsolympiaden
 license: cc by-sa
 grading:
-    on_reject: grade
-    objective: max
-    range: 0 100
-
+    show_test_data_groups: yes
 type: scoring
