@@ -16,7 +16,7 @@ group g1 40
 limits maxA=7 minA=1
 tc g1-01 gen n=2 maxA=1
 tc g1-02 gen n=10 maxA=1
-tc g1-03 gen n=2 maxA=2
+tc g1-03 gen n=4 maxA=2
 tc g1-04 gen minA=2 maxA=2 
 tc g1-05 gen minA=2 maxA=5 
 tc g1-06 gen minA=5 maxA=7 
