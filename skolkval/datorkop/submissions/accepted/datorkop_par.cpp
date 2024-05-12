@@ -1,4 +1,6 @@
 //NOTE: This is not the optimal solution, but it is considered sufficiently efficient for skolkvalet
+
+//ANOTHER NOTE: This file was originally a .c file, and not .cpp.
 #include <stdio.h>
 #define MAXN 1000
 #define MAXC 1000
