@@ -1,6 +1,7 @@
+#!/usr/bin/env python3
 import sys
 
-DEBUG = True
+DEBUG = False
 
 data = []
 
