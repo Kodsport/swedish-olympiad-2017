@@ -1,9 +1,0 @@
-author: Bjarki Ágúst Guðmundsson, Freyr Bergsteinsson
-source: Nordic Olympiad in Informatics 2017
-rights_owner: Nordic Olympiad in Informatics 2017
-license: cc by-sa
-grading:
-    on_reject: grade
-    objective: max
-    range: 0 100
-type: scoring
