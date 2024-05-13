@@ -4,7 +4,7 @@ PPATH=$(realpath ..)
 
 . ../../testdata_tools/gen.sh
 
-use_solution datorkop_par.cpp
+use_solution theodor.cpp
 
 compile gen.py
 
@@ -20,6 +20,9 @@ tc 1
 tc g1-01 gen n=2 maxXY=100
 tc g1-02 gen n=2 maxXY=100
 tc g1-03 gen n=2 maxXY=100
+tc_manual ../manual_testdata/manual-11.in
+tc_manual ../manual_testdata/manual-13.in
+tc_manual ../manual_testdata/manual-12.in
 tc_manual ../manual_testdata/datorkop01.in
 
 group g2 20
@@ -46,9 +49,12 @@ limits minN=800 maxN=1000
 tc g4-01 gen n=800 maxXY=1000
 tc g4-02 gen n=900 maxXY=1000
 tc g4-03 gen n=1000 maxXY=1000
+tc g4-04 gen n=1000 maxXY=1000
 tc_manual ../manual_testdata/manual-41.in
 tc_manual ../manual_testdata/manual-42.in
 tc_manual ../manual_testdata/manual-43.in
 tc_manual ../manual_testdata/manual-44.in
+tc_manual ../manual_testdata/manual-45.in
+tc_manual ../manual_testdata/manual-46.in
 #tc_manual ../manual_testdata/datorkop05.in   # did not follow the constraints.
 
