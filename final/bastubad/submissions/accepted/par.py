@@ -22,4 +22,4 @@ for t,a,b,c in people:
         if x3>0.0 and x3<t:
             y3=p(aa,bb,cc, -0.5*bb/aa)
             best=max(best,y3)
-print best
+print(best)

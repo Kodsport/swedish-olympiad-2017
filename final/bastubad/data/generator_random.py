@@ -8,7 +8,7 @@ def arg(name, default=None):
     for arg in sys.argv:
         if arg.startswith(name + "="):
             return arg.split("=")[1]
-    assert default is not None
+    assert default is not None, name
     return default
 
 # t is either convex, concave, or probability of convex (lower = more concave = more interesting?)
