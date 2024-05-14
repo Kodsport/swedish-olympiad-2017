@@ -1,1 +1,2 @@
-print "hej"
+#!/usr/bin/env python3
+print("hej")

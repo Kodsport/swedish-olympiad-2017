@@ -2,10 +2,8 @@ author: Aron Granberg, Måns Magnusson
 source: Programmeringsolympiadens onlinekval 2017
 rights_owner: Programmeringsolympiaden
 license: cc by-sa
-grading:
-    on_reject: grade
-    objective: max
-    range: 0 100
 type: scoring
+grading:
+    show_test_data_groups: yes
 limits:
     time_multiplier: 3
