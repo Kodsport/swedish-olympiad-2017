@@ -1,12 +1,9 @@
-name: bildaord
 author: Arash Rouhani
-source: Programmeringsolympiaden 2016
+source: Programmeringsolympiadens skolkval 2017
 rights_owner: Programmeringsolympiaden
 license: cc by-sa
 grading:
-    on_reject: grade
-    objective: max
-    range: 0 100
-limits:
-    time_multiplier: 1.5
+    show_test_data_groups: yes
 type: scoring
+#limits:
+  #time_multiplier: 3
