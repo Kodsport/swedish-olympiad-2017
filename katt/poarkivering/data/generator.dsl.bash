@@ -1,9 +1,8 @@
 #!/bin/bash
-
+REQUIRE_SAMPLE_REUSE=0
 PPATH=$(realpath ..)
 . ../../testdata_tools/gen.sh
 
-setup_dirs
 use_solution simon.cpp
 compile generator_all.py
 
@@ -46,7 +45,3 @@ tc hard-3 generator_all n=99 s=0
 tc hard-4 generator_all n=99 s=0
 tc hard-5 generator_all n=99 mode=ssame s=0
 tc hard-6 generator_all n=99 mode=dsame s=0
-
-generate_grader
-generate_cms
-cleanup_programs
