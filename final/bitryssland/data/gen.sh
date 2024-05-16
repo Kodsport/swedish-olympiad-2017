@@ -1,9 +1,8 @@
 #!/bin/bash
-
+REQUIRE_SAMPLE_REUSE=0
 PPATH=$(realpath ..)
 . ../../testdata_tools/gen.sh
 
-setup_dirs
 use_solution js_100.cpp
 compile generator_random.py
 compile generator_exact.py
@@ -13,7 +12,7 @@ samplegroup
 sample 1
 sample 2
 
-group single-limit 19
+group 1-single-limit 19
 tc single-limit-01 generator_exact m=1
 tc single-limit-02 generator_exact m=1
 tc single-limit-03 generator_off_by_one m=1
@@ -21,8 +20,8 @@ tc single-limit-04 generator_off_by_one m=1
 tc single-limit-05 generator_off_by_one m=1
 tc single-limit-06 generator_off_by_one m=1
 
-group single 46
-include_group single-limit
+group 2-single 46
+include_group 1-single-limit
 tc single-01 generator_exact m=1 move
 tc single-02 generator_exact m=1 move
 tc single-03 generator_exact m=1 move
@@ -34,8 +33,8 @@ tc single-08 generator_off_by_one m=1 move
 tc single-09 generator_off_by_one m=1 move
 tc single-10 generator_off_by_one m=1 move
 
-group large 35
-include_group single
+group 3-large 35
+include_group 2-single
 tc large-01 generator_random
 tc large-02 generator_random
 tc large-03 generator_random
@@ -56,6 +55,3 @@ tc large-17 generator_off_by_one
 tc large-18 generator_off_by_one
 tc large-19 generator_off_by_one
 tc large-20 generator_off_by_one
-
-generate_grader
-cleanup_programs
