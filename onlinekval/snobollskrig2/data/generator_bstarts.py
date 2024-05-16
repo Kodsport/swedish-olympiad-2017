@@ -1,7 +1,8 @@
+#!/usr/bin/env python3
 import sys
 import random
 
-n,m,seed = map(int, sys.argv[1:])
+n, m, seed = map(int, sys.argv[1:])
 random.seed(seed)
 
 a = []
@@ -15,7 +16,7 @@ while len(a) < n or len(b) < m:
     cur += 1
     while True:
         r = random.randint(0, 3)
-        if r == 0 and hasb >= 2 and len(a)+2 <= n and len(b)+2 <= m:
+        if r == 0 and hasb >= 2 and len(a) + 2 <= n and len(b) + 2 <= m:
             a.append(cur)
             a.append(cur)
             b.append(cur)
@@ -37,6 +38,6 @@ while len(a) < n or len(b) < m:
 assert len(a) == n
 assert len(b) == m
 
-print("{} {}".format(n,m))
+print("{} {}".format(n, m))
 print(" ".join(map(str, a)))
 print(" ".join(map(str, b)))

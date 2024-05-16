@@ -1,48 +1,64 @@
+// usage: ./a.out input_file correct_output output_dir < contestants_output
 #include <bits/stdc++.h>
 using namespace std;
 
 #define rep(i, from, to) for (int i = from; i < int(to); ++i)
 #define sz(x) (int)(x).size()
+#define all(x) (x).begin(), (x).end()
+#define trav(a, x) for(auto& a : x)
+#define min(a, b) a<b ? a : b
 typedef vector<int> vi;
+typedef long long ll;
 typedef pair<int, int> pii;
 
-string input_file, output_dir, answer_file;
+static string input_file, output_dir, answer_file;
 
-void die(const string& msg) {
-	cout << msg << endl;
-	ofstream(output_dir + "/score.txt") << 0;
+void wrong_answer(const string& msg) {
+    cout << msg << endl;
+    ofstream(output_dir + "/score.txt") << 0;
     exit(43);
 }
 
-void accept(double score) {
-	ofstream(output_dir + "/score.txt") << setprecision(2) << fixed << score;
+void accept(long double score) {
+    ofstream(output_dir + "/score.txt") << setprecision(2) << fixed << score;
     exit(42);
 }
 
-void assert_done(istream& is) {
-	try {
-		string dummy;
-		is >> dummy;
-		die("extraneous data: " + dummy);
-	} catch(...) {}
+void judge_error(const string& msg) {
+	cout << msg << endl;
+	exit(1);
 }
 
-bool ok2(const set<pair<int, bool>>& below, int point) {
-	if (below.count(make_pair(point, true)) && below.count(make_pair(point, false))) return true;
-	if (below.count(make_pair(point, true)) || below.count(make_pair(point, false))) {
+template <class F>
+void assert_done(istream& is, F fail) {
+    try {
+        string dummy;
+        is >> dummy;
+		if (is) fail("extraneous data: " + dummy);
+    } catch(...) {}
+}
+
+struct inp {
+	int T, N, W;
+	map<int, int> blocks;
+};
+
+bool no_gap_above(const set<pair<int, bool>>& below, int point) {
+	if (below.count({point, true}) && below.count({point, false})) return true;
+	if (below.count({point, true}) || below.count({point, false})) {
 		return false;
 	}
-	return (*below.lower_bound(make_pair(point, false))).second == false;
+	return (*below.lower_bound({point, false})).second == false;
 }
 
-bool ok(const set<pair<int, bool>>& below, const set<pair<int, bool>>& above) {
-	for (auto& it : above) {
-		if (!ok2(below, it.first)) return false;
+bool no_gaps_above(const set<pair<int, bool>>& below, const set<pair<int, bool>>& above) {
+	trav(it, above) {
+		if (!no_gap_above(below, it.first)) return false;
 	}
 	return true;
 }
 
-bool ok3(const vector<pii>& below, const vector<pii>& above) {
+bool no_holes_above(const vector<pii>& below, const vector<pii>& above) {
 	int prev = -1;
 	const int inf = 1 << 29;
 	for (auto& it : above) {
@@ -60,83 +76,109 @@ bool ok3(const vector<pii>& below, const vector<pii>& above) {
 	return true;
 }
 
-int main(int argc, char** argv) {
-	if (argc < 4) exit(1);
-	cin.sync_with_stdio(0);
-	cin.tie(0);
-
-	input_file = argv[1];
-	answer_file = argv[2];
-	output_dir = argv[3];
-
-	ifstream fin(input_file);
-	fin.exceptions(cin.failbit | cin.badbit | cin.eofbit);
-	int T, N, W;
-	fin >> T >> N >> W;
-	map<int, int> blocks;
-	rep(i,0,N) {
-		int x;
-		fin >> x; 
-		blocks[x]++;
-	}
-	assert_done(fin);
-	fin.close();
-
-	int best;
-	fin.open(answer_file);
-	fin >> best;
-	assert_done(fin);
-	fin.close();
-
-	try {
-	cin.exceptions(cin.failbit | cin.badbit | cin.eofbit);
+template <class F>
+int height(istream& is, inp &data, F fail) {
 	int H;
-	cin >> H;
-	if (H < 0) die("invalid height");
+	is >> H;
+	if (H < 0) fail("Negative height\n");
+
+	map<int, int> blocks = data.blocks;
+
 	set<pair<int, bool>> row;
 	vector<pii> row2;
-	row2.push_back(pii(0, W));
-	row.insert(make_pair(0, true));
-	row.insert(make_pair(W, false));
-	rep(i,0,H) {
+
+	row2.push_back({0, data.W});
+	row.insert({0, true});
+	row.insert({data.W, false});
+
+	rep(i, 0, H) {
 		int B;
-		cin >> B;
-		if (B <= 0) die("invalid number of blocks");
+		if (!(is >> B))
+			fail("Could not read answer.\n");
+
+		if (B <= 0) fail("Can not have a non positive amount of blocks\n");
 		set<pair<int, bool>> nrow;
 		vector<pii> nrow2;
 
 		int lastPos = 0;
 		rep(j,0,B) {
 			int P, L;
-			cin >> P >> L;
-			if (P < 0 || P >= W) die("invalid left position of block");
-			if (blocks[L]-- == 0) die("try to use block we dont have");
+			if (!(is >> P >> L))
+				fail("Could not read answer.\n");
+			
+			if (P < 0 || P >= data.W)
+				fail("Invalid left position of block\n");
+			if (blocks[L]-- == 0) 
+				fail("Try to use block we dont have\n");
+
 			int R = P + L;
-			if (R <= 0 || P + L > W) die("invalid right position of block");
-			if (P < lastPos) die("new block is not to the right!");
+			if (R <= 0 || P + L > data.W) 
+				fail("Invalid right position of block\n");
+			if (P < lastPos) 
+				fail("New block is not to the right!\n");
 			lastPos = R;
-			nrow.insert(make_pair(P, true));
-			nrow.insert(make_pair(R, false));
+
+			nrow.insert({P, true});
+			nrow.insert({R, false});
 			if (!nrow2.empty() && nrow2.back().second == P)
 				nrow2.back().second = R;
 			else
-				nrow2.push_back(pii(P, R));
+				nrow2.push_back({P, R});
 		}
-		if (lastPos != W) {
-			die("did not cover row edges");
+		if (lastPos != data.W) {
+			fail("Did not cover row edges\n");
 		}
 
 		// Add infinite fake blocks to left and right
-		row.insert(make_pair(0, false));
-		row.insert(make_pair(W, true));
-		if (!ok(row, nrow)) die("gap over hole");
-		if (!ok3(row2, nrow2)) die("hole over hole");
+		row.insert({0, false});
+		row.insert({data.W, true});
+		if (!no_gaps_above(row, nrow)) 
+			fail("Gap over hole\n");
+		if (!no_holes_above(row2, nrow2)) 
+			fail("Hole over hole\n");
 		row = nrow;
 		row2 = nrow2;
 	}
-	assert_done(cin);
-	accept(10 * double(H) / double(best));
-	} catch(...) {
-		die("IO failure");
+	assert_done(is, fail);
+	return H;
+}
+
+int main(int argc, char** argv) {
+    if (argc < 4) exit(1);
+    cin.sync_with_stdio(0);
+    cin.tie(0);
+
+    input_file = argv[1];
+    answer_file = argv[2];
+    output_dir = argv[3];
+
+    ifstream fin(input_file);
+    fin.exceptions(cin.failbit | cin.badbit | cin.eofbit);
+
+	// read in input_file
+	inp data;
+
+	fin >> data.T >> data.N >> data.W;
+	rep(i, 0, data.N) {
+		int x;
+		fin >> x;
+		data.blocks[x]++;
 	}
+
+	assert_done(fin, wrong_answer);
+	fin.close();
+
+	ifstream fans(answer_file);
+
+    try {
+		cin.exceptions(cin.failbit | cin.badbit | cin.eofbit);
+		long double h = height(cin, data, wrong_answer);
+		long double besth = height(fans, data, judge_error);
+
+		long double ratio = h / besth;
+		if (data.T == 0) accept(0);
+		else accept(10.0 * ratio);
+    } catch(...) {
+        wrong_answer("IO failure");
+    }
 }
