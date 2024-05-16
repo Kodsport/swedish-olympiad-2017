@@ -2,6 +2,7 @@
 """
 Arash AC(36) solution to skidor (brute force)
 """
+
 import sys
 from pprint import pprint
 
@@ -20,10 +21,10 @@ def main():
     karta = list(map(lambda line: list(map(int, line.split())), stdin_lines[1:]))
     # Done parsing, start solving
     best = 99999999999999999999999999
-    for y0 in range(r-l+1):
+    for y0 in range(r - l + 1):
         y1 = y0 + l
-        for x0 in range(c-l+1):
-            #print(y0, x0)
+        for x0 in range(c - l + 1):
+            # print(y0, x0)
             x1 = x0 + l
             nums = sum(map(lambda line: line[x0:x1], karta[y0:y1]), [])
             maxx = max(nums)
@@ -36,5 +37,5 @@ def main():
     print(best_y, best_x)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

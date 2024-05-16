@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import sys
 import string
 import random
@@ -5,7 +6,7 @@ import random
 random.seed(int(sys.argv[-1]))
 mx = [random.randint(10, 700) for i in range(4)]
 median = [random.randint(3, mx[i] - 5) for i in range(4)]
-age = [7,8,9,1,2,3]
+age = [7, 8, 9, 1, 2, 3]
 katts = 3
 
 for arg in sys.argv:
@@ -20,36 +21,45 @@ for arg in sys.argv:
 
 name = [random.choice(string.ascii_lowercase) for x in range(20)]
 
+
 def genseq(med, mx, cnt, idx):
-    nums = list(sorted([random.randint(0,mx[idx]) for r in range(cnt)]))
+    nums = list(sorted([random.randint(0, mx[idx]) for r in range(cnt)]))
     nums[-1] = mx[idx]
-    nums[19] = med[idx] -2
-    nums[20] = med[idx] +2
+    nums[19] = med[idx] - 2
+    nums[20] = med[idx] + 2
     for k in range(19):
-        if nums[k] > nums[19]: nums[k] = random.randint(0, nums[19])
+        if nums[k] > nums[19]:
+            nums[k] = random.randint(0, nums[19])
     for k in range(21, cnt):
-        if nums[k] < nums[20]: nums[k] = random.randint(nums[20], mx[idx])
+        if nums[k] < nums[20]:
+            nums[k] = random.randint(nums[20], mx[idx])
     random.shuffle(nums)
     return nums
 
+
 finals = genseq(median, mx, 40, 1)
-thekatt = [genseq(median, mx, 40, 1+k) for k in range(katts)]
+thekatt = [genseq(median, mx, 40, 1 + k) for k in range(katts)]
 while len(thekatt) < 3:
     thekatt.append(thekatt[0])
-katts = [[0]*3 for i in range(40)]
+katts = [[0] * 3 for i in range(40)]
 for i in range(3):
     for j in range(40):
         katts[j][i] = thekatt[i][j]
 
+
 def genname():
     random.shuffle(name)
-    return (''.join(name))
+    return "".join(name)
+
 
 print(40)
 for i in range(40):
     name2 = genname()
     age2 = random.choice(age)
-    if name2 == 'qmibpyjgtwzxsrxvdwrv':
+    if name2 == "qmibpyjgtwzxsrxvdwrv":
         age2 = 3
-    print("{} {} {} {}".format(name2, str(age2), str(finals[i]),
-        ' '.join(str(x) for x in katts[i])))
+    print(
+        "{} {} {} {}".format(
+            name2, str(age2), str(finals[i]), " ".join(str(x) for x in katts[i])
+        )
+    )

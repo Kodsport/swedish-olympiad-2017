@@ -11,35 +11,37 @@ t, b, m = map(int, input().split())
 nString, code = input().split()
 n = int(nString)
 
-out = ''
+out = ""
 cur = code[0]
 count = 0
-morse = ''
+morse = ""
+
 
 def doPrev():
     global out, cur, count, morse
-    if cur == '1':
+    if cur == "1":
         if count == s:
-            morse += '-'
+            morse += "-"
         else:
-            morse += '.'
+            morse += "."
     else:
-        if count == b or count == m: 
+        if count == b or count == m:
             out += morseToLetter[morse]
-            morse = ''                            
+            morse = ""
         if count == m:
-            out += ' '
+            out += " "
+
 
 for c in code:
     if c != cur:
         doPrev()
         cur = c
         count = 0
-    
+
     count += 1
 
 doPrev()
-cur = '0'
+cur = "0"
 count = b
 doPrev()
 
