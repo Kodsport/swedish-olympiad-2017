@@ -3,8 +3,5 @@ source: Programmeringsolympiadens onlinekval 2017
 rights_owner: Programmeringsolympiaden
 license: cc by-sa
 grading:
-    on_reject: grade
-    objective: max
-    range: 0 100
-    show_test_data_groups: yes
+    show_test_data_groups: true
 type: scoring
