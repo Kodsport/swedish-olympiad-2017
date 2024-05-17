@@ -99,10 +99,11 @@ int main(int argc, char** argv) {
 
 	double rat1 = max(N / (double)bestn, 1.0);
 	double rat2 = maxn / (double)bestn;
-	assert(rat2 > 1 && rat1 < rat2);
+	//assert(rat2 > 1 && rat1 < rat2);
 	double rat = log(rat1) / log(rat2);
 	double score = 10 * (1 - rat);
-	accept(score);
+	if (s=="RGB") accept(0);
+	accept(min(10.0,score));
 	} catch(...) {
 		die("IO failure");
 	}

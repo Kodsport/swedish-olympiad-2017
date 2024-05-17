@@ -3,8 +3,6 @@ source: Programmeringsolympiaden 2017, KATT
 rights_owner: Programmeringsolympiaden
 license: cc by-sa
 grading:
-    on_reject: grade
-    objective: max
-    range: 0 100
+    show_test_data_groups: true
 type: scoring
 validation: custom score
