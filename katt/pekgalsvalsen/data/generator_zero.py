@@ -26,10 +26,10 @@ def main():
     random.shuffle(ch)
     fixed = 0
     out = ""
-    rnd = list(random.randint(0, n) for x in range(0,k-1))
+    rnd = list(random.randint(1, n) for x in range(0,k-1))
     sm = int(sum(rnd) + n/2)
     for i in range(0,k-1):
-        r = int(n*rnd[i]/sm)
+        r = max(1,int(n*rnd[i]/sm))
         fixed += r
         out += "".join(ch[i]*r)
     out += "".join(ch[k-1]*(n-fixed))

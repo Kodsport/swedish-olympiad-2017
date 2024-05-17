@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 import sys
 
 def test(s,cbox):
@@ -16,7 +17,7 @@ for i in range(N):
     if not n in box:
         box[n]={'R':0,'G':0,'B':0}
     box[n][fields[1]]+=1
-cbox=[v for k,v in sorted(box.iteritems())]
+cbox=[v for k,v in sorted(box.items())]
 m=N+1
 count = 0
 for a in ["RGB","GBR","BRG","RBG","GRB","BGR"]:
@@ -28,4 +29,4 @@ for a in ["RGB","GBR","BRG","RBG","GRB","BGR"]:
     if r == m:
         count += 1
 assert count == 1
-print "%c%c%c\n%d\n" % (bra[2],bra[1],bra[0],m)
+print("%c%c%c\n%d\n" % (bra[2],bra[1],bra[0],m))
