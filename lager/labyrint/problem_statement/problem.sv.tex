@@ -34,7 +34,7 @@ Din uppgift är att, givet $S$, konstruera en labyrint som Lila aldrig kan klara
 \section*{Indata}
 Indatan innehåller strängen $S$ av längd minst $1$ och högst $1\,000\,000$.
 
-I detta problem kan du dessutom ladda ner all indata här: \url{http://progolymp.se/uploads/labyrint.zip}.
+I detta problem kan du dessutom ladda ner all indata längst ner på sidan.
 
 \section*{Utdata}
 Börja med att skriva ut tre heltal $K$, $i$, $u$.
@@ -57,7 +57,7 @@ $$r_2 = \frac{2|S|}{minK}$$
 där $|S|$ är längden på strängen $S$.
 
 Din poäng på det testfallet är då
-$$10 \cdot \left(1 - \frac{\log(r_1)}{\log(r_2)}\right),$$
+$$min(10, 10 \cdot \left(1 - \frac{\log(r_1)}{\log(r_2)}\right)),$$
 eller 0 om K överstiger $2|S|$.
 
 Under tävlingen kommer $minK$ sättas till ett värde beräknat utifrån en domarlösning.

@@ -14,7 +14,7 @@ sample 2
 sample 3
 
 # (centers left of x = 0)
-group same-endpoint 21
+group 1-same-endpoint 21
 limits mode="same" maxN=1000
 tc se-01 generator_random n=10 t=0.2 cap=8000 seed=1
 tc se-02 generator_random n=10 t=0.8 cap=10000 seed=2
@@ -25,7 +25,7 @@ tc_manual ../manual_testdata/outside-convex.in
 tc_manual ../manual_testdata/outside-concave.in
 
 # (half of these are optimized at t = 0, due to the random choice of 'midp')
-group convex 29
+group 2-convex 29
 limits mode="convex" maxN=1000  
 tc 1
 tc 3
@@ -38,7 +38,7 @@ tc outside-convex
 
 # (the one with seed=1004 is optimized at a non-cutoff point.
 # this is harder to trigger with large n, so we don't bother.)
-group concave 38
+group 3-concave 38
 limits mode="concave" maxN=1000 
 tc 2
 tc concave-01 generator_random n=10 t=concave
@@ -49,11 +49,11 @@ tc concave-05 generator_random n=1000 t=concave
 tc concave-06 generator_random n=1000 t=concave
 tc outside-concave
 
-group large 12
+group 4-large 12
 include_group sample
-include_group same-endpoint
-include_group convex
-include_group concave
+include_group 1-same-endpoint
+include_group 2-convex
+include_group 3-concave
 tc large-01 generator_random n=100000 t=concave
 tc large-02 generator_random n=100000 t=convex
 tc large-03 generator_random n=100000 t=0.2
