@@ -1,0 +1,53 @@
+\problemname{Saunas}
+\illustration{0.3}{sauna.jpg}{Picture by \href{https://commons.wikimedia.org/wiki/File:Smoke_sauna.JPG}{SM} (cc-by-sa3.0)}
+Finns love to use saunas. It's actually not so strange.
+Sauna bathing feels good and usually takes place among good company.
+
+However, problems often occur when there is company. The most important thing when one uses a sauna is that the temperature is set correctly.
+A Finn can be really fussy about a sauna's temperature.
+Different Finns have different maximum temperatures that they tolerate.
+If the temperature is too high for a particular Finn, that Finn will go home.
+Within the temperature range that a particular Finn can handle, that Finn has a different level of happiness depending on the temperature.
+A Finn's happiness follows a quadratic function (of the form $ax^2 + bx + c$).
+
+A large number of Finns are using the sauna and they need your help.
+Can you find the maximum sum of the Finns' happiness if the sauna's temperature is set optimally?
+If the temperature is set higher than a Finn can tolerate, that Finn contributes nothing to the total happiness (they have gone home instead).
+The temperature is given in kelvin, with a lower bound of $0 \textrm{ K}$ and an upper bound of $100\,000 \textrm{ K}$.
+
+\section*{Input}
+The first line contains an integer $1 \le N \le 100\,000$, which is the number of Finns.
+After that follow $N$ lines, one per Finn.
+Each line contains four integers $a, b, c$, and $t$ ($-10^9 \le a,b,c \le 10^9, 1 \le t \le 100\,000$), which represent that the Finn has happiness function $ax^2 + bx + c$, and can only handle temperatures between $0 \textrm{ K}$ and $t\textrm{ K}$, inclusive.
+The function is guaranteed to be positive over all values between $0$ and $t$.
+
+\section*{Output}
+Write out a single number: the largest possible happiness that can be achieved if the temperature is set correctly.
+The answer will be accepted if it has a relative or absolute error of at most $10^{-5}$.
+
+\section*{Points}
+
+Your solution will be tested on several test case groups. To get points for a group, your solution must pass all the test cases in the group.
+
+\noindent
+\begin{tabular}{| l | l | l |}
+\hline
+Group & Point value & Bounds \\ \hline
+$1$   & $21$        & $N \le 1000$, all $t$ are the same. \\ \hline
+$2$   & $29$        & $N \le 1000$, all $a$ are positive (i.e., the Finns love extreme temperatures). \\ \hline
+$3$   & $38$        & $N \le 1000$, all $a$ are negative. \\ \hline
+$4$   & $12$        & No additional constraints. \\ \hline
+\end{tabular}
+
+\section*{Explanation of example $1$}
+In this case the optimal temperature is $0 \textrm{ K}$.
+Both Finns have the same happiness in this case:
+$1 \cdot 0^2 - 6 \cdot 0 + 10 = 10$.
+Their total happiness is $10 + 10 = 20$.
+
+\section*{Explanation of example $2$}
+In this case the optimal temperature is $\frac{10}{3} \textrm{ K}$.
+The first Finn's happiness is $-3(\frac{10}{3})^2 + 20 \cdot \frac{10}{3} + 3 = -\frac{100}{3} + \frac{200}{3} + 3 = 36 + \frac{1}{3}$.
+The second Finn in this case goes home, because the temperature is too high (she only tolerates temperatures up to $1\textrm{ K}$).
+The total happiness is therefore $36 + \frac{1}{3}$.
+
