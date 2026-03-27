@@ -1,0 +1,28 @@
+\problemname{Computer Purchase}
+
+A company has just purchased new computers: $x$ desktops and $y$
+laptops. A desktop computer costs $a$ dollars and a laptop costs $b$
+dollars, where $1\le a,b \le 1000$. The company has $n$ departments and they
+are considered to have different levels of importance relative to each other. The CEO has decided that the computers
+shall be distributed according to the following simple rule: {\em A more important department shall receive computers of a value at least as large as a less important department.}
+
+Klara is tasked with making the distribution. Despite being very talented, Klara works at the least important department. To become popular among her department colleagues, she naturally wants to arrange computers of the highest possible value for her department.
+She has asked you for help! Write a program that, given the variables $x$, $a$, $y$, $b$, and $n$, calculates the highest possible value of the computers that Klara's department can get.
+
+
+\section*{Input}
+One line with the five integers $x$, $a$, $y$, $b$, and $n$.
+
+\section*{Output}
+
+The program shall output one line with one integer: the highest possible value of the computers given to the least important department.
+
+\section*{Scoring}
+\begin{tabular}{| l | l | l |}
+    \hline
+      Group & Points & Constraints \\ \hline
+      $1$    & $20$       &  $n=2$ and $0\le x,y \le 100$.\\ \hline 
+      $2$    & $20$       &  $3\le n\le 6$ and $0\le x,y \le 10$. \\ \hline 
+      $3$    & $40$       &  $10\le n\le 100$ and $0\le x,y \le 100$.\\ \hline 
+      $4$    & $20$       &  $800\le n\le 1000$ and $0\le x,y \le 1000$. \\ \hline
+\end{tabular}

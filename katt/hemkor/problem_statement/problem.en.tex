@@ -1,0 +1,50 @@
+\def\version{1}
+\problemname{Home Delivery}
+Carl has just moved away from home, and has realized that he now needs to buy food himself.
+Since it is tiresome to go to the store, he instead orders the food online from the website \emph{Hemkör}, which delivers groceries directly to his door.
+
+Carl is now buying food for the coming centuries.
+In total, Carl has planned to eat $1 \le N \le 5\,000$ meals (numbered from $1$ to $N$) during the next $100\,000$ days.
+Carl plans to eat the $i$th meal $1 \le P[i] \le 100\,000$ days from today, and it requires a total of $1 \le Q[i] \le 100$ kilograms of food.
+Carl is not picky --- as long as he has $Q[i]$ kilograms of ingredients, it does not matter which ingredients he uses.
+
+On Hemkör, there are $1 \le M \le 100\,000$ different grocery items for sale.
+The $i$th item has a weight of $1 \le V[i] \le 100$ kilograms, a cost of $1 \le K[i] \le 2\,000$ kronor, and an expiration date that is $1 \le D[i] \le 100\,000$ days from today (an item can be used up \emph{to and including} the day it expires).
+Carl can buy as many copies of each grocery item as he wants.
+
+Carl has determined that it is possible to buy groceries so that he can prepare all meals.
+Can you help him order groceries in a way that is also as cheap as possible?
+
+\section*{Example}
+Suppose Carl plans to prepare $2$ meals on days $1$ and $10$, with weights $4$ kilograms and $1$ kilogram.
+There are three grocery items, with weights $4$, $2$, and $4$ kilograms, costs $10$, $2$, and $3$, and expiration dates $10$, $5$, $5$.
+Carl can buy one copy of the first item and one copy of the second item.
+For the first meal, he can use $2$ kilograms of each item.
+For the second meal, he uses $1$ kilogram of the first item, which expires on the same day the meal is prepared.
+One kilogram of the first item is left over and not used.
+
+In total, this costs $10 + 2 = 12$ kronor.
+
+\section*{Input}
+The first line contains the positive integers $N$ and $M$.
+Then follow $N$ lines, one for each meal.
+The $i$th line contains the integers $P[i]$ and $Q[i]$.
+
+Then follow $M$ lines, one for each item.
+The $i$th line contains the integers $V[i]$, $K[i]$, and $D[i]$.
+
+\section*{Output}
+Output one number --- the minimum cost to buy food for all meals.
+
+\section*{Scoring}
+Your solution will be tested on a set of test groups. To earn points for a group, you must pass all test cases in that group.
+
+\noindent
+\begin{tabular}{| l | l | l |}
+\hline
+  Group & Points & Constraints \\ \hline
+  1     & 31         & $N \le 100, M \le 100$ \\ \hline
+  2     & 19         & $P[i] = 1$ for all meals \\ \hline
+  3     & 15         & $V[i] = 1$ for all items \\ \hline
+  4     & 35         & No additional constraints. \\ \hline
+\end{tabular}

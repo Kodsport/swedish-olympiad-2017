@@ -1,0 +1,60 @@
+\problemname{Form Words}
+
+Fatimeh is studying her native language which uses the Arabic alphabet. Right now
+she is working on an exercise where she must answer
+how many ways she can form a word using the given letters in the task.
+
+If it were in Swedish, the exercise could look like this:
+
+\vspace{0.2in}
+\centerline{r M e a}
+\vspace{0.2in}
+
+Since four letters are given, Fatimeh knows she must try $4*3*2*1 =
+24$ permutations. But since the letter M is ``capital'', we know
+that it must be placed at the beginning of the word. With that condition, only $6$
+words can be formed, for example $Mera$, but
+not $raMe$. In the Arabic alphabet, one does not have capital and lowercase letters
+in the same way, but there are other rules about where
+in the word a letter can appear, also in relation to other
+letters.
+
+In this problem, we assume there are two types of restrictions: Either a letter must come right before
+some other letter, or a letter can only be at certain
+positions. Examples of these rules and the notation we use are in
+the following table:
+\\
+\begin{tabular}{|l|l|} \hline
+\textbf{Rule} & \textbf{Notation} \\ \hline
+Letter $B$ must be at position $1$ or position $4$ & \texttt{B@01,04}
+\\ \hline
+Letter $D$ must directly precede $C$ or $B$  & \texttt{D:CB} \\ \hline
+\end{tabular}
+\\
+Write a program that calculates
+how many ways $N$ different letters (for simplicity called A,
+B, C,... etc.) can be arranged, given a number of rules of these two
+types.
+
+\section*{Input}
+
+On the first line are two integers, the number of letters $N$
+and the number of rules $K$. Then follow $K$ lines each describing
+a rule according to the notation above. A certain letter cannot appear first in more than one rule of each type. Note that all position numbers are written with two digits.
+
+\section*{Output}
+
+The program shall output one integer: the number of ways the letters can
+be arranged. The answer will always be less than 10 million.
+
+\section*{Scoring}
+
+For test cases worth $60$ points, $2\le N\le 9$. For full
+points ($100$ points), your program must handle $2\le N\le 15$. In all cases, $1\le K\le N$.
+For large $N$, the restrictions will be roughly evenly distributed among
+the letters.
+
+\section*{Explanation of Sample 1}
+
+The words that can be formed are ACDB, ADCB, BADC, CADB,
+DCAB, and BDCA.

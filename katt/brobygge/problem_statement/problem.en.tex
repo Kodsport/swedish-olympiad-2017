@@ -1,0 +1,41 @@
+\def\version{1}
+\problemname{Bridge Building}
+In the island nation of Graf Kantaria, there are $N$ islands connected by $N - 1$ bridges, in such a way that it is possible to travel between every pair of islands using these bridges.
+
+President Vick T. Adgraf and her husband Rick T. Adgraf have realized there are problems with this infrastructure setup.
+The bridges were built because it was cheap, not because it would be fast to travel between the islands.
+To increase their approval ratings, Vick and Rick want to build one extra bridge each in the nation.
+They have written down some proposals for new bridges to build, and want to compare how the extra bridges change the distances between certain pairs of islands.
+
+Your task is to write a program that, given all current bridges in the island nation and a list of either zero, one, or two extra bridges, can answer what the shortest distance between two islands becomes if the extra bridges are built.
+
+\section*{Input}
+The first line contains the integer $2 \le N \le 10^5$.
+Then follow $N - 1$ lines, one for each of the current bridges.
+The $i$th line contains the integers $0 \le A[i] \not= B[i] < N$ and $1 \le L[i] \le 1000$.
+$A[i]$ and $B[i]$ give the islands that are the endpoints of the $i$th bridge, which has length $L[i]$.
+
+The next line contains the integer $0 \le E \le 2$, the number of extra bridges your program should take into account.
+The following $E$ lines contain the description of a bridge, in the same format as the original bridges.
+None of the extra bridges coincide with the original bridges, or with each other.
+
+The next line contains $0 \le Q \le 10^5$, the number of pairs of islands you need to find the shortest distance between.
+Then follow $Q$ lines.
+The $i$th of these contains the two distinct integers $F[i]$ and $T[i]$.
+
+\section*{Output}
+You shall output $Q$ lines.
+The $i$th of these shall contain the shortest distance between islands $F[i]$ and $T[i]$.
+
+\section*{Scoring}
+Your solution will be tested on a set of test groups. To earn points for a group, you must pass all test cases in that group.
+
+\noindent
+\begin{tabular}{| l | l | l |}
+\hline
+Group & Points & Constraints \\ \hline
+	1     & 25         & The original bridges connect islands 0 and 1, 1 and 2, $\dots$, $n - 2$ and $n - 1$\\ \hline
+	2     & 25         & $E = 0$ \\ \hline
+	3     & 25         & $E = 1$ \\ \hline
+	4     & 25         & $E = 2$ \\ \hline
+\end{tabular}

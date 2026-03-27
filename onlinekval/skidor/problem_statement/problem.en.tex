@@ -1,0 +1,42 @@
+\problemname{Skiing}
+Johan likes skiing.
+By that we do not mean downhill skiing, which Johan is in fact very afraid of.
+Cross-country skiing, however, that is his thing.
+When cross-country skiing, one needs large flat areas.
+
+Johan has surveyed a large rectangular area out in the forest, which has rather uneven terrain.
+Here, Johan wants to select a certain square to ski around on, that is large enough to make the skiing interesting.
+The square shall have exactly size $L \times L$, and have sides parallel to the area's sides.
+
+Now he asks you to find such a square.
+For it to be suitable for cross-country skiing, he has two requirements.
+First, there must be no trees in the square, and second, the height difference between the highest and lowest point in this square shall be as small as possible.
+
+If there are multiple possible such squares, you shall first choose the one that is furthest north, i.e.\ has the lowest row number. If there are still multiple possibilities,
+you shall secondly choose the one that is furthest west, i.e.\ has the lowest column number.
+
+\section*{Input}
+The first line contains three integers $R$, $C$, $L$ such that $1\leq R,C \leq 1000, 1 \leq L \leq \min(R,C)$.
+$R$ is the number of rows in the large area, $C$ the number of columns, and $L$ the size of the desired square.
+
+Then follow $R$ lines, one for each row in the area. A line contains $C$ integers, one for each column in the area.
+
+The $c$th number on the $r$th line describes the height $H_{rc}$ at that point in the area, such that $-1 \leq H_{rc} \leq 10^9$.
+If $H_{rc} = -1$, it means there is a \textbf{tree at that location} instead.
+
+\section*{Output}
+Find $r_l$, $c_l$ such that Johan's square spans the coordinates $r_l \leq r <r_l + L$, $c_l \leq c < c_l + L$. $r_l$ and $c_l$ shall be 0-indexed; for example, $r_l = 0$ means the first row (furthest north), and $c_l = 0$ means the first column (furthest west).
+
+It is guaranteed that a solution exists.
+
+\section*{Scoring}
+Your solution will be tested on a set of test groups. To earn points for a group, you must pass all test cases in that group.
+
+\begin{tabular}{|l|l|l|}
+\hline
+Group & Points & Constraints \\ \hline
+ 1     & 21         &  $0 \leq H_{rc} \leq 1$ \\ \hline
+ 2     & 36         &  $R,C \leq 50$ \\ \hline
+ 3     & 27         &  $R,C \leq 300$ \\ \hline
+ 4     & 16         &  $R,C \leq 1000$ \\ \hline
+\end{tabular}

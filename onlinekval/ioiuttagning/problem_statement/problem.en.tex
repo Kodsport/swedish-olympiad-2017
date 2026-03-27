@@ -1,0 +1,55 @@
+\problemname{IOI Selection}
+The Programming Olympiad's organizing group wants to go out and play in the snow.
+Unfortunately, as an organizer one has countless duties that come before playing.
+One must create tasks, supervise competitions, travel as a team leader, and calculate which participants are selected for the national team based on this year's results.
+
+However, it occurred to the organizers that the last part can be handled by someone else.
+For example, you.
+
+The rules for selection to the national team work as follows.
+In total, there are four competitions that form the basis for selection; the final competition and three so-called KATT competitions (KATT1, KATT2, and KATT3).
+
+After all competitions, the results are combined, and the four contestants with the best scores are selected for the International Olympiad in Informatics, IOI.
+In addition to IOI, a team shall also be chosen for the Baltic Olympiad in Informatics, BOI.
+This team consists of the IOI team, plus the two best contestants \emph{who are not in their final year of high school} and did not qualify for IOI.
+
+When the results are combined, the two best results from the three KATT competitions are selected, along with the result from the final, and summed.
+
+Within a competition, the result is calculated by \emph{normalizing} the score a contestant received.
+First, the best score among all participants $MAX$ is computed, as well as the median score among all participants $MED$.
+If a participant received $x \le MED$ points, the participant's result becomes $50 \cdot \frac{x}{MED}$.
+If a participant received $MED \le x \le MAX$ points, the participant's result becomes $50 + 50 \cdot \frac{x - MED}{MAX - MED}$.
+This means that the result increases linearly from 0 to 50 as the score increases from 0 to $MED$,
+and from 50 to 100 as the score increases from $MED$ to $MAX$.
+
+For each participant in the competition, you will receive the participant's score in the four competitions, as well as the participant's school year. Determine who is selected for IOI and BOI.
+
+\section*{Input}
+The first line contains an integer $6 \le N \le 40$, the number of participants.
+
+The next $N$ lines describe a participant and their results.
+A line starts with the participant's name, which consists of up to 20 lowercase letters from $a$ to $z$, without spaces.
+Then follows a number that is either $7, 8, 9, 1, 2, 3$ and describes the participant's school year. The years $7, 8, 9$ represent middle school students here.
+Finally come four integers $0 \le F, K1, K2, K3 \le 700$ --- the scores from the final, KATT1, KATT2, and KATT3 respectively.
+
+In a competition, the median and maximum scores will always be different from each other.
+There will always be exactly one possible team according to the rules above.
+
+\section*{Output}
+On the first line, output the names of the four participants selected for IOI.
+
+The next line shall contain two names --- the additional participants who qualified for BOI.
+
+On each line, the names you output shall be sorted in alphabetical order.
+
+\section*{Scoring}
+Your solution will be tested on a set of test groups. To earn points for a group, you must pass all test cases in that group.
+
+\begin{tabular}{| l | l | l | l |}
+\hline
+Group & Points & Constraints \\ \hline
+1     & 23         & The median score in a competition is always 50, and the maximum score 100. \\ \hline
+2     & 13         & All students are first-year students \\ \hline
+3     & 31         & The results in the three KATT competitions were always the same. \\ \hline
+4     & 33         & No additional constraints. \\ \hline
+\end{tabular}

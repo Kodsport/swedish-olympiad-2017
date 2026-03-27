@@ -1,0 +1,37 @@
+\problemname{Christmas Shopping}
+\illustration{0.3}{christmastree.jpg}{Picture by \href{https://commons.wikimedia.org/wiki/File:Christmas_presents_and_a_tree.jpg}{Trogain} (cc-by-sa4.0)}
+Kind Allnäs is going to buy \emph{one Christmas present each} for her $K$ friends (even though it is February --- Allnäs believes in having a good margin).
+The store she is in has \emph{exactly one} copy of each item.
+There are $N$ items in total.
+Allnäs knows her friends very well --- she knows exactly who likes what and how much.
+She has written down a list of all $a_{ij}$ values, the numbers describing how much friend $i$ likes present $j$.
+
+Now Allnäs wants to maximize her friends' happiness.
+She wants to give her friends presents in such a way that the sum of happiness for each friend (i.e.\ the values $a_{ij}$) is maximized.
+Which Christmas presents should she buy to maximize the sum of her friends' happiness?
+
+\section*{Input}
+The first line contains two integers $K$ (number of friends) and $N$ (number of presents).
+
+The following $K$ lines contain $N$ integers each.
+On the $i$th line, the $j$th integer is $0 \le a_{ij} \le 10^8$ --- how happy the $i$th friend becomes if they receive the $j$th present.
+
+\section*{Output}
+You shall output one integer --- the maximum sum of the friends' happiness.
+
+\section*{Scoring}
+Your solution will be tested on a set of test groups. To earn points for a group, you must pass all test cases in that group.
+
+\noindent
+\begin{tabular}{| l | l | l | l |}
+\hline
+Group & Points & Constraints \\ \hline
+1     & 8          & $K = 2, 1 \le N \le 5000$ \\ \hline
+2     & 15         & $K = 2, 1 \le N \le 100\,000$ \\ \hline
+3     & 30         & $1 \le K \le 8, 1 \le N \le 100\,000$ \\ \hline
+4     & 27         & $1 \le K \le 14, 1 \le N \le 200$ \\ \hline
+5     & 20         & $1 \le K \le 14, 1 \le N \le 100\,000$ \\ \hline
+\end{tabular}
+
+\section*{Explanation of Sample 1}
+If Allnäs buys present 3 for friend 1 and present 2 for friend 2, the sum is $a_{31} + a_{22} = 4 + 7 = 11$, which is the best possible.
