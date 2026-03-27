@@ -1,0 +1,63 @@
+\def\version{1}
+\problemname{Maze Construction}
+Let us define a \textit{maze} as follows:
+\begin{enumerate}
+  \item The maze consists of $K$ rooms, where certain pairs of rooms are connected by corridors.
+  \item It is possible to travel between all pairs of rooms by going through a sequence of corridors.
+  \item No room has a corridor to itself.
+  \item There can be multiple corridors connecting the same pair of rooms.
+  \item Every corridor has one of three colors: red, green, or blue.
+  \item Every room has exactly three corridors, one of each color.
+  \item There is a room that is the maze's entrance, and a room that is the maze's exit (these are different rooms).
+\end{enumerate}
+
+The sisters Rosa and Lila play a game where Rosa first constructs a maze, after which Lila tries to solve it by going from the entrance to the exit.
+They have played a few times now, and Lila always manages to win.
+This makes Rosa quite frustrated.
+She wants her sister to get stuck in the maze forever.
+
+However, Rosa has noticed that Lila always uses the same predictable strategy.
+More specifically, she has a string $S$ of length $L$, consisting of the letters \texttt{R}, \texttt{G}, and \texttt{B} (red, green, and blue).
+In move number $i$, Lila looks at the $i$th character and follows the corridor of the color that the letter represents (if the letter is \texttt{R}, Lila will walk through the red corridor in the room she is currently in).
+After $L$ moves, she starts over by looking at the first character again.
+If the string is \texttt{RGB}, she will in other words first go through the red corridor at the entrance, then the green corridor in the room she arrived at, then the blue corridor, the red (now she has started reading the string from the beginning again), green, blue, red, and so on.
+Note that every room has exactly one corridor of each color, so it is uniquely determined which room she goes to at each step.
+
+\begin{figure}[h!]
+  \centering
+  \includegraphics[width=0.6\textwidth]{labyrintgraf2.png}
+  \caption{An example maze.}
+\end{figure}
+
+Your task is to, given $S$, construct a maze that Lila can never solve.
+
+\section*{Input}
+The input contains the string $S$ of length at least $1$ and at most $1\,000\,000$.
+
+In this problem, you can also download all input data at the bottom of the page.
+
+\section*{Output}
+Start by outputting three integers $K$, $i$, $u$.
+$K$ shall be the number of rooms in the maze you construct.
+$i$ and $u$ shall be the zero-indexed numbers (i.e.\ between $0$ and $K - 1$) of the rooms that are the entrance and exit of the maze.
+
+Then output $K$ lines, one for each room.
+The $j$th line shall contain three integers $r$, $g$, and $b$ --- the rooms that the red, green, and blue corridor in the $j$th room lead to.
+
+Your maze must satisfy the conditions in the problem statement.
+
+\section*{Scoring}
+The problem has 10 test cases in total.
+
+Let $minK$ be the number of rooms in the smallest maze any contestant manages to construct on a certain test case, and $K$ the number of rooms in your maze.
+Let
+$$r_1 = \frac{K}{minK}$$
+and
+$$r_2 = \frac{2|S|}{minK}$$
+where $|S|$ is the length of the string $S$.
+
+Your score on that test case is then
+$$\min(10, 10 \cdot \left(1 - \frac{\log(r_1)}{\log(r_2)}\right)),$$
+or 0 if $K$ exceeds $2|S|$.
+
+During the contest, $minK$ will be set to a value computed from a judge solution.

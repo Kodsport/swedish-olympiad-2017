@@ -1,0 +1,40 @@
+\def\version{1}
+\problemname{PO Archiving}
+After every competition, the Programming Olympiad archives the participants' solutions for all eternity.
+However, most solutions submitted during a competition are quite similar.
+A contestant who fixes a bug might only change a single line in a solution.
+In these cases, it is unnecessary to save both the original solution and the modified solution.
+Instead, we can save one of the solutions and the changes that were made between the two solutions.
+This can also happen in multiple steps, so that we save a solution $A$, then save the changes between $A$ and another solution $B$, and finally the changes between $B$ and a third solution $C$.
+
+In total, $N$ solutions were submitted during a competition, with sizes $S[0], S[1], \dots, S[N-1]$ bytes.
+If the $i$th solution is either saved or can be reconstructed, then the $j$th solution can be reconstructed if the changes that are $D[i][j]$ bytes in size are saved.
+
+In most test groups, the diff sizes will be symmetric, i.e.\ $D[i][j] = D[j][i]$ (similar to regular Unix \texttt{diff} files).
+For the last group, however, we consider more general diffs where this does not need to hold.
+For example, we can imagine that the diff between the strings \texttt{abaabbaaa} and \texttt{aaaaaa} is stored as ``remove all \texttt{b}'' in one direction, and ``insert \texttt{b} at positions 2, 5, 6'' in the other, where the latter change requires more space to store than the first.
+
+What is the minimum amount of data (in bytes) that must be saved so that all solutions can be reconstructed?
+
+\section*{Input}
+The first line contains the integer $1 \le N \le 100$.
+The next line contains the $N$ integers $1 \le S[0], S[1], \dots, S[N-1] \le 1\,000\,000$.
+The next $N$ lines contain $N$ integers each.
+The $i$th of these lines contains the values $1 \le D[i][0], D[i][1], \dots, D[i][N-1] \le 1\,000\,000$.
+$D[i][i] = 0$ for all $i$.
+
+\section*{Output}
+Output a single number --- the minimum amount of data that must be saved in bytes.
+
+\section*{Scoring}
+Your solution will be tested on a set of test groups. To earn points for a group, you must pass all test cases in that group.
+
+\noindent
+\begin{tabular}{| l | l | l | l |}
+\hline
+Group & Points & Constraints \\ \hline
+1     & 11         & All values $D[i][j]$ (except when $i = j$) are the same \\ \hline
+2     & 27         & All values $S[i]$ are the same, $D[i][j] = D[j][i]$\\ \hline
+3     & 48         & $D[i][j] = D[j][i]$ \\ \hline
+4     & 14         & No additional constraints. \\ \hline
+\end{tabular}

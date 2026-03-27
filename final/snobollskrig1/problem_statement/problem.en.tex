@@ -1,0 +1,62 @@
+\problemname{Snowball Fight 1}
+\illustration{0.3}{snowballs.jpg}{Picture by \href{https://commons.wikimedia.org/wiki/File:Large_snowball_fight_near_Khaju_bridge.jpg}{Manfy} (cc-by-sa3.0)}
+In an \href{https://en.wikipedia.org/wiki/Graph_(discrete_mathematics)}{undirected, weighted graph}
+with $N$ nodes, $L$ countries are having a snowball fight during IOI.
+In the beginning, each country has a fort at some node.
+
+At time $0$, each country starts heading out for the snowball fight. The snowball fight works as follows:
+
+\begin{itemize}
+\item If a country owns a fort, the contestants from that country head out along all edges from the fort, all at the same speed.
+\item If two countries meet along an edge, the countries stop and fight (forever).
+\item If two countries meet at a node, the countries stop and fight (forever).
+\item If a country reaches a node where countries are already fighting, it joins the fight.
+\item If a country reaches a node before any other country, that country builds a fort at the node, and then heads out along the edges from the node according to rule 1.
+\end{itemize}
+
+Note that the rules imply that at most one country can have a fort at a given node.
+If two countries arrive at a node at the same time, the contestants who arrived at the node will stay there and fight forever, without heading further.
+
+Determine which pairs of countries will fight each other.
+
+\section*{Input}
+
+The first line contains three integers $N,L,M$ ($2 \le N \le 100\,000, 2 \le L \le 50, 1 \le M \le 100\,000$):
+the number of nodes, countries, and edges in the graph, respectively.
+Then follow $L$ lines with integers, specifying which node each country's starting base is at.
+Finally follow $M$ lines with three integers each $a, b, w$ ($0 \le a,b < N, a \neq b, 1 \le w \le 2\,000$).
+This means there is an (undirected) edge between nodes $a$ and $b$ (zero-indexed), of length $w$.
+
+There will be at most one edge between each pair of nodes, and no two countries will start at the same node.
+
+\section*{Output}
+
+For each pair of countries $a, b$ that fight, output a line \texttt{a b}, where $a < b$ and the countries are indexed from 0.
+These shall be output in sorted order, sorted by the first index first.
+If for example $L = 3$ and all three countries fight, you shall output:
+\begin{lstlisting}
+0 1
+0 2
+1 2
+\end{lstlisting}
+
+\section*{Explanation of Sample 1}
+
+In this example, the graph is a cycle and almost entirely symmetric. In the case between
+country 0 and country 3, the fight will take place on an edge, while the other 3 fights
+will take place at nodes.
+
+\section*{Scoring}
+Your solution will be tested on a set of test groups. To earn points for a group, you must pass all test cases in that group.
+
+\noindent
+\begin{tabular}{| l | l | l |}
+\hline
+Group & Points & Constraints \\ \hline
+1     & 8          & The graph is a line: the edges are exactly (0,1), (1,2), etc., (N-2, N-1) \\ \hline
+2     & 9          & $L = 2$. \\ \hline
+3     & 24         & $w = 1$ for all edges. \\ \hline
+4     & 23         & No fights occur at nodes. \\ \hline
+5     & 29         & $1 \le N, M \le 2\,000$. \\ \hline
+6     & 7          & No additional constraints. \\ \hline
+\end{tabular}

@@ -1,0 +1,47 @@
+\def\version{1}
+\problemname{The Gill Waltz}
+Doris is writing a long email to her family.
+The text consists of $K$ different letters, and is $N$ letters long.
+Doris does not have a very good memory, so she does not remember where the letters are on the keyboard.
+Instead, she uses a variant of the so-called \emph{gill waltz} when typing.
+
+Doris types her text in $K$ rounds, one round for each of the different letters that make up the text.
+In the beginning, Doris writes down all occurrences of one of the letters with one of her gills.
+After that, she goes back to the beginning of the text and picks a new letter.
+Then she writes in all occurrences of this letter, using the right arrow key with her other gill.
+After this, she again goes back to the beginning of the text, now to write the third letter, and so on.
+She repeats this until she has written the entire text.
+This way, she only needs to remember where the key for a single letter is at a time.
+
+Depending on the order she chooses to type the letters in, this can take different amounts of time.
+If she is to type the text \texttt{aabbac}, then the order \texttt{a}, \texttt{b}, \texttt{c} requires her to press the right arrow key 7 times.
+First, she types \texttt{aaa} without using the right arrow.
+Then she goes back to the text, uses the right arrow twice and types \texttt{bb}.
+Finally, she goes back to the beginning, presses right five times and types \texttt{c}.
+
+If she instead chose the order \texttt{b}, \texttt{a}, \texttt{c}, she would first type \texttt{bb}.
+Then she would use two right presses to type \texttt{aabba}, and finally five more times to type \texttt{aabbac}.
+
+The order \texttt{c}, \texttt{b}, \texttt{a} requires only that she presses the right arrow twice, which is optimal.
+
+\section*{Input}
+The first line contains the positive integers $N$ and $K$.
+The next line contains a string with $N$ characters, chosen among the $K$ first lowercase letters of the alphabet (\texttt{a}, \texttt{b}, \texttt{c}, \dots).
+It is furthermore guaranteed that the string contains exactly $K$ different characters.
+
+\section*{Output}
+Output a single number --- the number of times Doris must press the right arrow to type the text.
+
+\section*{Scoring}
+Your solution will be tested on a set of test groups. To earn points for a group, you must pass all test cases in that group.
+
+\noindent
+\begin{tabular}{| l | l | l | l |}
+\hline
+Group & Points & Constraints \\ \hline
+	1     & 8 & $K = 2$, $N \le 100$ \\ \hline
+	2     & 10 & $K \le 7$, $N \le 100$ \\ \hline
+	3     & 28 & $K \le 10$, $N \le 1000$ \\ \hline
+	4     & 19 & $K \le 10$, $N \le 10^6$ \\ \hline
+	5     & 35 & $K \le 18$, $N \le 10^6$ \\ \hline
+\end{tabular}

@@ -1,0 +1,44 @@
+\problemname{Bitrussia}
+\illustration{0.3}{coins.jpg}{Picture by \href{https://commons.wikimedia.org/wiki/File:Assorted_United_States_coins.jpg}{Elembis} (public domain)}
+In the Republic of Bitrussia, a new coin system has recently been introduced.
+There are $N$ different coin denominations worth $2^0, 2^1, 2^2, ..., 2^{N-1}$.
+
+The small town of Napsaks is known for being full of interesting shops.
+At the same time, Napsaks is notorious for never having any change in the shops.
+You are also not allowed to pay more than the price.
+It is therefore very important to bring plenty of coins of suitable denominations to be able to buy everything you want.
+
+In Napsaks lives Darja-Pavla.
+She is planning to go Christmas shopping and has brought $a_i$ coins of value $2^i$ ($i = 0, 1, ..., N-1$).
+She will visit $M$ different shops and buy one thing in each shop.
+The item she buys in shop $i$ costs $b_i$ ($i = 0, 1, ..., M-1$).
+She is of course worried that her coins will not be enough to pay for everything she wants to buy. Help her determine this!
+
+\section*{Input}
+The first line contains two integers $1 \le N \le 50$ and $1 \le M \le 100\,000$, separated by spaces.
+The next line contains the $N$ space-separated integers $0 \le a_0, a_1, ..., a_{N-1} \le 10^{15}$.
+The third and last line contains the $M$ space-separated integers $0 \le b_0, b_1, ..., b_{M-1} \le 10^{15}$.
+
+\section*{Output}
+Output \texttt{ja} if Darja-Pavla can pay for everything she wants to buy with her coins.
+Otherwise, output \texttt{nej}.
+
+\section*{Scoring}
+Your solution will be tested on a set of test groups. To earn points for a group, you must pass all test cases in that group.
+
+\noindent
+\begin{tabular}{| l | l | l |}
+\hline
+Group & Points & Constraints \\ \hline
+1     & 19         & $M = 1, a_i \le 1$ \\ \hline
+2     & 46         & $M = 1$ \\ \hline
+3     & 35         & No additional constraints. \\ \hline
+\end{tabular}
+
+\section*{Explanation of Sample 1}
+In the sample, Darja-Pavla has one coin worth $1$, three coins worth $2$, and one coin worth $4$.
+She can pay for the item costing $5$ by using one coin worth $1$ and one coin worth $4$ ($1 + 4 = 5$).
+She can then pay for the item costing $6$ with the three remaining coins of value $2$ ($2 + 2 + 2 = 6$).
+
+\section*{Explanation of Sample 2}
+In the sample, both items require that a coin of denomination $1$ is used, but she only has one coin of this denomination.

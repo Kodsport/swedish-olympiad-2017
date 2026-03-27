@@ -1,0 +1,52 @@
+\problemname{Snowball Fight 2}
+
+During IOI, Sweden and Finland are having a snowball fight against each other. It works as follows:
+
+\begin{itemize}
+  \item One of the countries, say Finland, picks up and throws a snowball at the other.
+  \item Sweden then responds by throwing an \emph{even larger} snowball back (in self-defense).
+  \item Which causes Finland to also throw a larger snowball back.
+  \item ... and so it continues, until some country misses (which can happen already on the first throw).
+  \item Everything then starts over, possibly with a smaller snowball and a different country throwing it.
+\end{itemize}
+
+After the snowball fight is over, the team leaders of some of the other countries arrive at the scene.
+They see the remains of thrown snowballs on the ground and become utterly horrified at the quantities.
+This is going up at the next IOI board meeting! Someone proposes a Swedish-Finnish candy ban during the competition as punishment.
+Sweden and Finland defend themselves: it was just self-defense!
+
+Given the sizes of the snowballs thrown in each direction, how many of them can at most have been thrown in self-defense?
+
+\section*{Input}
+
+The first line contains two numbers $N$ and $M$, $1 \le N,M \le 100\,000$.
+The second line contains $N$ numbers $a_i$ ($1 \le a_i \le 1\,000\,000$): the sizes of the snowballs Sweden threw.
+The third line contains $M$ numbers $b_i$ ($1 \le b_i \le 1\,000\,000$): the sizes of the snowballs Finland threw.
+
+Both sequences will be given in increasing order.
+
+\section*{Output}
+
+You shall output one number: the maximum number of snowballs that can have been thrown in self-defense.
+
+\section*{Explanation of Samples}
+
+In the first sample, Sweden threw four snowballs, of sizes 1, 3, 4, and 5 respectively, and Finland threw two snowballs of sizes 2 and 3.
+
+This could for example have happened as follows: Sweden started by throwing a snowball of size 1 at Finland, which in self-defense threw back one of size 2, after which Sweden responded with one of size 3 and missed.
+Finland then throws its remaining snowball of size 2, and Sweden responds with one of size 4, and misses again. Sweden also misses with its last snowball of size 5. In total, 3 of the snowballs were thrown in self-defense.
+
+In the second sample, none of the snowballs could have been in self-defense, since such a snowball must be larger than the previous one.
+
+\section*{Scoring}
+
+Your solution will be tested on a set of test groups. To earn points for a group, you must pass all test cases in that group.
+
+\begin{tabular}{| l | l | l | l |}
+\hline
+Group & Points & Constraints & Other \\ \hline
+1     & 19         &  $1 \le N,M \le 1000$ & You may assume Sweden misses all snowballs they throw. \\ \hline
+2     & 23         &  $1 \le N,M \le 1000$ & You may assume Finland always throws the first snowball. \\ \hline
+3     & 20         &  $1 \le N,M \le 1000$ & You may assume no two snowballs have the same size. \\ \hline
+4     & 38         &  $1 \le N,M \le 100\,000$ & \\ \hline
+\end{tabular}
