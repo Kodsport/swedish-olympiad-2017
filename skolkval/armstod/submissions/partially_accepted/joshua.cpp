@@ -1,63 +1,23 @@
+#pragma GCC target("popcnt")
 #include <bits/stdc++.h>
-
 using namespace std;
 
-#pragma GCC target ("avx2")
-#pragma GCC optimization ("O3")
-#pragma GCC optimization ("unroll-loops")
+using ll = long long;
+using vi = vector<ll>;
+using vvi = vector<vi>;
+using p2 = pair<ll, ll>;
+const ll inf = 1e18;
 
-#define ll long long
-#define vi vector<ll>
-#define vvi vector<vi>
-#define p2 pair<ll, ll>
-#define p3 vi
-#define p4 vi
-#define vp2 vector<p2>
-#define vp3 vector<p3>
-#define inf 2e9
-#define linf 1e17
+#define rep(i,n) for (ll i = 0; i < (n); i++)
+#define repp(i,a,n) for (ll i = (a); i < (n); i++)
+#define repe(i, arr) for (auto& i : arr)
+#define all(x) begin(x),end(x)
+#define sz(x) ((ll)(x).size())
 
-#define read(a) cin >> a
-#define dread(type, a) type a; cin >> a
-#define dread2(type, a, b) dread(type, a); dread(type, b)
-#define dread3(type, a, b, c) dread(type, a); dread(type, b); dread(type, c)
-#define dread4(type, a, b, c, d) dread(type, a); dread(type, b); dread(type, c); dread(type, d)
-#define dread5(type, a, b, c, d, e) dread(type, a); dread(type, b); dread(type, c); dread(type, d); dread(type, e)
-#define write(a) cout << (a) << endl
-#ifdef _DEBUG
-#define deb __debugbreak();
-#else
-#define deb ;
-#endif
-
-#define rep(i, high) for (ll i = 0; i < high; i++)
-#define repe(i, container) for (auto& i : container)
-#define per(i, high) for (ll i = high; i >= 0; i--)
-
-#define readpush(type,vect) type temp; read(temp); vect.push_back(temp);
-#define readvector(type, name, size) vector<type> name(size); rep(i,size) {dread(type,temp); name[i]=temp;}
-#define readinsert(type,a) {type temp; read(temp); a.insert(temp);}
-#define setcontains(set, x) (set.find(x) != set.end())
-#define stringcontains(str, x) (str.find(x) != string::npos)
-#define all(a) begin(a),end(a)
-
-#define ceildiv(x,y) ((x + y - 1) / y)
-#define fract(a) (a-floor(a))
-
-auto Start = chrono::high_resolution_clock::now();
-
-inline void fast()
+ll best(string& chairs, ll index, ll state, ll satisfied, bool firstLeftTaken)
 {
-    ios::sync_with_stdio(false);
-    cin.tie(NULL); cout.tie(NULL);
-}
-
-int best(string& chairs, int index, int state, int satisfied, bool firstLeftTaken)
-{
-    if (index == chairs.size())
-    {
-        int ret = __builtin_popcount((unsigned int)satisfied);
-        //int ret = _Popcount((unsigned int)satisfied);
+    if (index == chairs.size()) {
+        ll ret = popcount((unsigned long long)satisfied);
         if (satisfied & (index-1))
         {
             bool active = state & (1 << ((index - 1) % (chairs.size() + 1)));
@@ -81,9 +41,7 @@ int best(string& chairs, int index, int state, int satisfied, bool firstLeftTake
 
         return ret;
     }
-    int ret = -1;
-
-
+    ll ret = -1;
 
     bool active = state & (1<<((index - 1) % (chairs.size()+1)));
     switch (chairs[index])
@@ -133,22 +91,18 @@ int best(string& chairs, int index, int state, int satisfied, bool firstLeftTake
     return ret;
 }
 
-int main()
-{
-    fast();
+int main() {
+    cin.tie(0)->sync_with_stdio(0);
 
-#if 0
-    //ifstream cin("C:\\Users\\Matis\\source\\repos\\Comp prog\\x64\\Debug\\in.txt");
-    ifstream cin("C:\\Users\\Matis\\Downloads\\pixel\\examples\\sample01.in");
-#endif
 
-    dread(int, _);
-    dread(string, chairs);
+    ll _;
+    cin >> _;
+    string chairs;
+    cin >> chairs;
 
-    int ans = -1;
+    ll ans = -1;
     ans = max(ans, best(chairs, 0, 0, 0, false));
-    write(ans);
+    cout << ans << "\n";
 
-    //return 0;
-    _Exit(0);
+    return 0;
 }
