@@ -48,13 +48,16 @@ signed main() {
 		rep(j,0,10) ans[j] += aa[j];
 	}
 	rep(k,1,sz(dig)) {
-	rep(i,1,10) {
-		vi aa = go(k+1, false, i);
-		aa[i] += aa.back();
-		rep(j,0,10) ans[j] += aa[j];
+		rep(i,1,10) {
+			vi aa = go(k+1, false, i);
+			aa[i] += aa.back();
+			rep(j,0,10) ans[j] += aa[j];
+		}
 	}
+	for (int i = 0; i < 10; i++) {
+		if (i) cout << " ";
+		cout << ans[i];
 	}
-	trav(it, ans) cout << it << " ";
 	cout << endl;
 }
 

@@ -1,14 +1,10 @@
 #include "validator.h"
-#include <cstring>
-#include <vector>
 
-typedef long long ll;
+using ll = long long;
+
+const ll MAX_N = 1e12;
 
 void run() {
-    ll maxN = Arg("maxN", 1e12);
-    ll minN = Arg("minN",1);
-
-    ll n = Int(minN, maxN);
+    Int(1, Arg("maxN", MAX_N));
     Endl();
-    Eof();
 }

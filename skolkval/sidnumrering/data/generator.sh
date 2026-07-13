@@ -2,7 +2,7 @@
 
 PPATH=$(realpath ..)
 
-. ../../testdata_tools/gen.sh
+. ../../../testdata_tools/gen.sh
 
 use_solution sidnumrering_johan.cpp
 
@@ -36,8 +36,8 @@ tc_manual ../manual_testdata/manual2.in
 
 group g2 40
 include_group g1
-tc g2-01 gen minN=$((10**9)) maxA=$((10**10))
-tc g2-02 gen minN=$((10**9)) maxA=$((10**10))
+tc g2-01 gen minN=$((10**9)) maxN=$((10**10))
+tc g2-02 gen minN=$((10**9)) maxN=$((10**10))
 tc g2-03 gen n=$((10**9))
 tc g2-04 gen n=$((10**10))
 tc g2-05 gen n=$((10**11))
