@@ -1,0 +1,31 @@
+\problemname{Computer Purchase}
+
+A company has just bought new computers: $x$ desktops and $y$
+laptops. A desktop computer costs $a$ dollars and a laptop costs $b$
+dollars. The company has $n$ departments, and they
+are considered to differ in importance relative to one another. The CEO has decided that the computers
+should be distributed according to the following simple rule: {\em A more important department must receive computers worth at least as much as a less important department.}
+
+Klara is tasked with making the distribution. Even though Klara is very skilled, she works at the least important department. To become popular among her department colleagues, she of course wants to secure computers of the highest possible value for her department.
+She has asked you for help! Write a program that, given the variables $x$, $a$, $y$, $b$ and $n$, computes the highest possible value of the computers that Klara's department can receive.
+
+
+\section*{Input}
+The input consists of one line with the integers $x$, $a$, $y$, $b$ and $n$ ($0 \leq x,y \leq 1000$, $1 \leq a,b \leq 1000$, $2 \leq n \leq 1000$).
+
+\section*{Output}
+Print an integer: the highest possible value of the computers given to the least important department.
+
+\section*{Scoring}
+Your solution will be tested on a set of test groups.
+To earn points for a group, you must pass all test cases in that group.
+
+\noindent
+\begin{tabular}{| l | l | p{12cm} |}
+  \hline
+  \textbf{Group} & \textbf{Points} & \textbf{Constraints} \\ \hline
+  $1$    & $20$        & $n=2$ and $x,y \leq 100$ \\ \hline
+  $2$    & $20$        & $n \leq 6$ and $x,y \leq 10$ \\ \hline
+  $3$    & $40$        & $n,x,y \leq 100$ \\ \hline
+  $4$    & $20$        & No additional constraints.  \\ \hline
+\end{tabular}
