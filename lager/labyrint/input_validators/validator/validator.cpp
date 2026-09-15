@@ -1,16 +1,12 @@
-#include <bits/stdc++.h>
 #include "validator.h"
 
-
-using namespace std;
-
+const int MAX_N = 400001;
 
 void run() {
-	string in = Line();
-	for (auto& c : in)
-	{
+	string in = Word();
+	Endl();
+	for (char c : in) {
 		assert(c=='R'||c=='G'||c=='B');
 	}
-
-	Eof();
+	assert(in.size() >= 3 && in.size() <= MAX_N);
 }

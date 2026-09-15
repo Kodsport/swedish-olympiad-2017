@@ -17,9 +17,9 @@ Detta gör Rosa ganska frustrerad.
 Hon vill att hennes syster ska fastna i labyrinten för alltid.
 
 Rosa har dock märkt att Lila alltid använder samma förutsägbara strategi.
-Närmare bestämt har hon en sträng $S$ med längden $L$, bestående av bokstäverna \texttt{R}, \texttt{G} och \texttt{B} (röd, grön och blå).
+Närmare bestämt har hon en sträng $S$ med längden $|S|$, bestående av bokstäverna \texttt{R}, \texttt{G} och \texttt{B} (röd, grön och blå).
 I drag nummer $i$ tittar Lila på det $i$:te tecknet, och följer korridoren med den färg som bokstaven representerar (om bokstaven är \texttt{R} kommer Lila alltså gå genom den röda korridoren i det rum hon befinner sig i just nu).
-Efter $L$ drag börjar hon om genom att titta på det första tecknet igen.
+Efter $|S|$ drag börjar hon om genom att titta på det första tecknet igen.
 Om strängen är \texttt{RGB} kommer hon med andra ord först gå genom den röda korridoren i ingången, sedan den gröna korridoren i rummet hon kom till, sedan den blå korridoren, den röda (nu har hon börjat läsa strängen från början igen), gröna, blå, röda, och så vidare.
 Notera att varje rum har exakt en korridor av varje färg, så det är unikt bestämt vilket rum hon går till i varje steg.
 
@@ -32,32 +32,31 @@ Notera att varje rum har exakt en korridor av varje färg, så det är unikt bes
 Din uppgift är att, givet $S$, konstruera en labyrint som Lila aldrig kan klara av.
 
 \section*{Indata}
-Indatan innehåller strängen $S$ av längd minst $1$ och högst $1\,000\,000$.
+Indatan innehåller strängen $S$ ($3 \leq |S| \leq 400\,001$), som består av bokstäverna \texttt{R}, \texttt{G} och \texttt{B}.
 
 I detta problem kan du dessutom ladda ner all indata längst ner på sidan.
 
 \section*{Utdata}
-Börja med att skriva ut tre heltal $K$, $i$, $u$.
+Börja med att skriva ut tre heltal $K$, $i$, $u$ ($2 \leq K \leq 2|S|$, $0 \leq i,u < K$, $i \neq u$).
 $K$ ska vara antalet rum i labyrinten du konstruerar.
-$i$ och $u$ ska vara de noll-indexerade nummer (d.v.s mellan $0$ och $K - 1$) på rummen som är ingången och utgången i labyrinten.
+$i$ och $u$ ska vara de noll-indexerade numren (d.v.s. mellan $0$ och $K - 1$) på rummen som är ingången och utgången i labyrinten.
 
-Skriv sedan ut $K$ rader, ett för varje rum.
-Den $j$:te raden ska innehålla tre heltal $r$, $g$ och $b$ -- de rum som den röda, gröna respektive blå korridoren i det $j$:te rummet leder till.
+Skriv sedan ut $K$ rader, en för varje rum.
+Den $j$:te raden ska innehålla tre heltal $r$, $g$ och $b$ ($0 \leq r,g,b < K$) -- de rum som den röda, gröna respektive blå korridoren i det $j$:te rummet leder till.
 
 Din labyrint måste uppfylla villkoren i problemlydelsen.
 
 \section*{Poängsättning}
-Totalt har problemet 10 testfall.
+Totalt har problemet $11$ testfall, varav ett är ett exempelfall.
+Du poängsätts inte på exempelfallet, utan på de $10$ resterande testfallen.
 
-Låt $minK$ vara antalet rum i den minsta labyrinten någon deltagare lyckas konstruera på ett visst testfall, och $K$ antalet rum i din labyrint.
+Låt $K_{\min}$ vara antalet rum i den minsta labyrinten någon deltagare lyckades konstruera på ett visst testfall under tävlingen, och $K$ antalet rum i din labyrint.
 Låt
-$$r_1 = \frac{K}{minK}$$
+$$r_1 = \frac{K}{K_{\min}}$$
 och
-$$r_2 = \frac{2|S|}{minK}$$
+$$r_2 = \frac{2|S|}{K_{\min}}$$
 där $|S|$ är längden på strängen $S$.
 
 Din poäng på det testfallet är då
-$$min(10, 10 \cdot \left(1 - \frac{\log(r_1)}{\log(r_2)}\right)),$$
-eller 0 om K överstiger $2|S|$.
-
-Under tävlingen kommer $minK$ sättas till ett värde beräknat utifrån en domarlösning.
+$$\min\left(10, 10 \cdot \left(1 - \frac{\log(r_1)}{\log(r_2)}\right)\right),$$
+eller $0$ om $K$ överstiger $2|S|$.

@@ -7,3 +7,8 @@ grading:
     show_test_data_groups: true
 type: scoring
 validation: custom score
+
+limits:
+    # Simulating the worst-case contestant input I've found, the solution runs in 40s on my hardware
+    # Let's give some margin for Kattis' slightly slower hardware
+    validation_time: 120

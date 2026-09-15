@@ -10,6 +10,7 @@
 #include <sstream>
 #include <fstream>
 #include <string>
+#include <charconv>
 #include <map>
 #include <set>
 using namespace std;
@@ -53,12 +54,13 @@ void AssertUnique(const Vec& v);
 
 namespace IO {
 	IntType Int(long long lo, long long hi);
-	double Float(double lo, double hi, int decimals, bool strict = true);
+	double Float(double lo, double hi, int maxDecimals, bool strict = true);
 	template<class T>
 	vector<T> SpacedInts(long long count, T lo, T hi);
-	vector<double> SpacedFloats(long long count, double lo, double hi, int decimals);
+	vector<double> SpacedFloats(long long count, double lo, double hi, int maxDecimals, bool strict = true);
 	void Char(char expected);
 	char Char();
+	string Word();
 	string Line();
 	void Endl() { Char('\n'); }
 	void Space() { Char(' '); }
@@ -236,18 +238,6 @@ char _read1() {
 	_use_peek(ret);
 	return ret;
 }
-string _token() {
-	string ret;
-	for (;;) {
-		char ch = _peek1();
-		if (ch == ' ' || ch == '\n' || ch == '\r' || ch == -1) {
-			break;
-		}
-		_use_peek(ch);
-		ret += ch;
-	}
-	return ret;
-}
 string _describe(char ch) {
 	assert(ch != -2);
 	if (ch == -1) return "EOF";
@@ -259,9 +249,22 @@ string _describe(char ch) {
 	return string("'") + ch + "'";
 }
 
+string IO::Word() {
+	string ret;
+	for (;;) {
+		char ch = _peek1();
+		if (ch == ' ' || ch == '\n' || ch == '\r' || ch == -1) {
+			break;
+		}
+		_use_peek(ch);
+		ret += ch;
+	}
+	if (ret.empty()) die_line("Expected non-empty token, saw " + _describe(_peek1()));
+	return ret;
+}
+
 IntType IO::Int(long long lo, long long hi) {
-	string s = _token();
-	if (s.empty()) die_line("Expected number, saw " + _describe(_peek1()));
+	string s = IO::Word();
 	try {
 		long long mul = 1;
 		int ind = 0;
@@ -272,7 +275,7 @@ IntType IO::Int(long long lo, long long hi) {
 		if (ind == (int)s.size()) throw false;
 		char ch = s[ind++];
 		if (ch < '0' || ch > '9') throw false;
-		if (ch == '0' && ind != (int)s.size()) throw false;
+		if (ch == '0' && (ind != (int)s.size() || mul == -1)) throw false;
 		long long ret = ch - '0';
 		while (ind < (int)s.size()) {
 			if (ret > LLONG_MAX / 10 - 20 || ret < LLONG_MIN / 10 + 20)
@@ -302,40 +305,54 @@ vector<T> IO::SpacedInts(long long count, T lo, T hi) {
 	return res;
 }
 
-vector<double> IO::SpacedFloats(long long count, double lo, double hi, int decimals) {
+vector<double> IO::SpacedFloats(long long count, double lo, double hi, int maxDecimals, bool strict) {
 	vector<double> res;
 	res.reserve(count);
 	for (int i = 0; i < count; i++) {
 		if (i != 0) IO::Space();
-		res.emplace_back(IO::Float(lo, hi, decimals));
+		res.emplace_back(IO::Float(lo, hi, maxDecimals, strict));
 	}
 	IO::Endl();
 	return res;
 }
 
-double IO::Float(double lo, double hi, int decimals, bool strict) {
-	string s = _token();
-	if (s.empty()) die_line("Expected floating point number, saw " + _describe(_peek1()));
-	istringstream iss(s);
-	double res;
-	string dummy;
-	iss >> res;
-	if (!iss || iss >> dummy) die_line("Unable to parse " + s + " as a float");
-	if (res < lo || res > hi) die_line("Floating-point number " + s + " is out of range [" + to_string(lo) + ", " + to_string(hi) + "]");
-	if (res != res) die_line("Floating-point number " + s + " is NaN");
-    size_t dot = s.find('.');
-    if (dot != string::npos) {
-        int dec = (int)(s.size() - dot - 1);
-        if (dec > decimals) {
-            die_line("Number " + s + " has " + to_string(dec) + " decimals; " + to_string(decimals) + " is max");
-        }
-    }
+double IO::Float(double lo, double hi, int maxDecimals, bool strict) {
+	string s = IO::Word();
+
+	int dec = 0;  // number of fractional digits
 	if (strict) {
-		if (s.find('.') != string::npos && s.back() == '0' && s.substr(s.size() - 2) != ".0")
+		// Grammar: -?(0|[1-9][0-9]*)(\.(0|[0-9]*[1-9]))?, with -0 additionally forbidden.
+		size_t i = (s[0] == '-'), intStart = i;
+		while (i < s.size() && '0' <= s[i] && s[i] <= '9') i++;
+		bool ok = i > intStart && (s[intStart] != '0' || i - intStart == 1);  // digits, no leading zero
+		if (ok && i < s.size() && s[i] == '.') {
+			size_t fracStart = ++i;
+			while (i < s.size() && '0' <= s[i] && s[i] <= '9') i++;
+			dec = (int)(i - fracStart);
+			ok = dec > 0;  // at least one digit after '.'
+		}
+		if (!ok || i != s.size())
+			die_line("Number " + s + " does not match strict float format -?(0|[1-9][0-9]*)(\\.(0|[0-9]*[1-9]))?");
+		if (s[0] == '-' && s.find_first_of("123456789") == string::npos)
+			die_line("Number " + s + " is negative zero");
+		if (dec > 1 && s.back() == '0')
 			die_line("Number " + s + " has unnecessary trailing zeroes");
-		if (s[0] == '0' && s.size() > 1 && s[1] == '0')
-			die_line("Number " + s + " has unnecessary leading zeroes");
+	} else {
+		size_t dot = s.find('.');
+		if (dot != string::npos) {
+			size_t i = dot + 1;
+			while (i < s.size() && '0' <= s[i] && s[i] <= '9') i++;
+			dec = (int)(i - dot - 1);
+		}
 	}
+	if (dec > maxDecimals)
+		die_line("Number " + s + " has " + to_string(dec) + " decimals; " + to_string(maxDecimals) + " is max");
+
+	double res;
+	auto [ptr, ec] = from_chars(s.data(), s.data() + s.size(), res);
+	if (ec != errc() || ptr != s.data() + s.size()) die_line("Unable to parse " + s + " as a float");
+	if (res != res) die_line("Floating-point number " + s + " is NaN");
+	if (res < lo || res > hi) die_line("Floating-point number " + s + " is out of range [" + to_string(lo) + ", " + to_string(hi) + "]");
 	return res;
 }
 
@@ -375,9 +392,7 @@ void AssertUnique(const Vec& v_) {
 	int size = (int)(end - beg);
 	for (int i = 0; i < size - 1; i++) {
 		if (v[i] == v[i+1]) {
-			ostringstream oss;
-			oss << "Vector contains duplicate value " << v[i];
-			die_line(oss.str());
+			die_line("Vector contains duplicate value");
 		}
 	}
 }

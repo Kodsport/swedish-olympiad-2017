@@ -1,3 +1,4 @@
+// David Wärn got the highest score on every case during läger 2017
 #include <iostream>
 #include <algorithm>
 #include <map>
